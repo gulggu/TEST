@@ -3,16 +3,8 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>깡갤 글꾸 사이트</title>
- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
- <style>
-
- /* ============== 폰트 설정 ============== */
- @font-face {
- font-family: '부크크명조';
- src: url('https:<!DOCTYPE html>
+ <title>텍스트 → 이미지 변환기</title>
+ <script src="https:<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -31,7 +23,15 @@
 <body>
 
 <details>
- <summary>fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+ <summary>cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+ <style>
+ /* ===== 폰트 설정 ===== */
+ @font-face {
+ font-family: '부크크명조';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
  font-weight: 700;
  font-style: normal;
  }
@@ -72,25 +72,23 @@
  font-style: normal;
  }
 
- /* ============== 테마 색상 변수 ============== */
+ /* ===== 테마 변수 ===== */
  :root {
  --bg-color: #f8f9fa;
- --text-color: #333;
+ --text-color: #343a40;
  --card-bg: white;
  --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
  --border-color: #e9ecef;
  --primary-color: #4361ee;
  --primary-hover: #3a56d4;
- --secondary-color: #e9ecef;
- --secondary-hover: #dee2e6;
  --tab-color: #e9ecef;
- --accent-color: #4cc9f0;
- --success-color: #4ade80;
- --danger-color: #f87171;
- --preset-button: #f1f3f5;
- --preset-button-active: #4361ee;
- --preset-button-text: #333;
- --preset-button-text-active: white;
+ --accent-color: #4895ef;
+ --success-color: #4cc9f0;
+ --danger-color: #f72585;
+ --warning-color: #ffd166;
+ --info-color: #0077b6;
+ --header-gradient: linear-gradient(135deg, #4361ee, #3a0ca3);
+ --preset-gradient: linear-gradient(135deg, #4cc9f0, #4361ee);
  }
 
  [data-theme="dark"] {
@@ -99,24 +97,27 @@
  --card-bg: #1e1e1e;
  --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
  --border-color: #333;
- --primary-color: #4361ee;
- --primary-hover: #3a56d4;
- --secondary-color: #333;
- --secondary-hover: #444;
+ --primary-color: #4895ef;
+ --primary-hover: #4cc9f0;
  --tab-color: #333;
- --accent-color: #4cc9f0;
- --success-color: #4ade80;
- --danger-color: #f87171;
- --preset-button: #333;
- --preset-button-active: #4361ee;
- --preset-button-text: #e0e0e0;
- --preset-button-text-active: white;
+ --accent-color: #4361ee;
+ --success-color: #0096c7;
+ --danger-color: #f72585;
+ --warning-color: #ffd166;
+ --info-color: #0077b6;
+ --header-gradient: linear-gradient(135deg, #3a0ca3, #4361ee);
+ --preset-gradient: linear-gradient(135deg, #4361ee, #4cc9f0);
  }
 
- /* ============== 기본 스타일 ============== */
+ /* ===== 기본 스타일 ===== */
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+
  body {
  font-family: 'Noto Sans KR', sans-serif;
- text-align: center;
  background-color: var(--bg-color);
  color: var(--text-color);
  max-width: 1200px;
@@ -128,45 +129,84 @@
 
  h1, h2, h3, h4 {
  color: var(--text-color);
- margin-top: 0;
+ margin-bottom: 1rem;
  font-weight: 600;
  }
 
  h1 {
  font-size: 2rem;
  margin-bottom: 1.5rem;
+ background: var(--header-gradient);
+ -webkit-background-clip: text;
+ background-clip: text;
+ color: transparent;
+ display: inline-block;
  }
 
- h2 {
- font-size: 1.5rem;
- margin-bottom: 1rem;
- }
-
- h3 {
- font-size: 1.25rem;
- margin-bottom: 0.75rem;
- }
-
- h4 {
- font-size: 1rem;
- margin-bottom: 0.5rem;
- }
-
- /* ============== 레이아웃 컨테이너 ============== */
+ /* ===== 레이아웃 컨테이너 ===== */
  .container {
  display: flex;
  flex-direction: column;
  gap: 20px;
  }
 
- .app-container {
+ /* ===== 탭 네비게이션 ===== */
+ .main-tabs {
+ display: flex;
  background-color: var(--card-bg);
- border-radius: 12px;
- box-shadow: var(--card-shadow);
+ border-radius: 8px;
  overflow: hidden;
+ box-shadow: var(--card-shadow);
  margin-bottom: 20px;
  }
 
+ .main-tab {
+ flex: 1;
+ padding: 15px;
+ text-align: center;
+ cursor: pointer;
+ transition: all 0.3s;
+ border: none;
+ background: none;
+ color: var(--text-color);
+ font-weight: 600;
+ font-size: 1rem;
+ position: relative;
+ }
+
+ .main-tab:hover {
+ background-color: rgba(67, 97, 238, 0.1);
+ }
+
+ .main-tab.active {
+ color: var(--primary-color);
+ }
+
+ .main-tab.active::after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 3px;
+ background-color: var(--primary-color);
+ }
+
+ .tab-content {
+ display: none;
+ }
+
+ .tab-content.active {
+ display: block;
+ animation: fadeIn 0.3s ease-in-out;
+ }
+
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(10px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ /* ===== 컨트롤 그룹 ===== */
  .controls {
  display: flex;
  flex-wrap: wrap;
@@ -183,51 +223,114 @@
  max-width: 450px;
  }
 
- /* ============== 탭 네비게이션 ============== */
- .main-tabs {
- display: flex;
- background-color: var(--secondary-color);
- border-radius: 12px 12px 0 0;
- overflow: hidden;
+ .control-group h3 {
+ margin-top: 0;
+ padding-bottom: 10px;
+ border-bottom: 1px solid var(--border-color);
+ font-size: 1.2rem;
  }
 
- .main-tab {
- flex: 1;
- padding: 15px 20px;
- background-color: transparent;
+ /* ===== 프리셋 버튼 ===== */
+ .preset-buttons {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 10px;
+ margin: 15px 0;
+ }
+
+ .preset-button {
+ background: var(--preset-gradient);
+ color: white;
+ border: none;
+ padding: 12px;
+ border-radius: 8px;
+ cursor: pointer;
+ font-weight: 600;
+ transition: transform 0.2s, box-shadow 0.2s;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ }
+
+ .preset-button:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+ }
+
+ .preset-button.empty {
+ background: #e9ecef;
+ color: #868e96;
+ }
+
+ .preset-button.active {
+ position: relative;
+ box-shadow: 0 0 0 2px var(--primary-color), 0 4px 8px rgba(0,0,0,0.15);
+ }
+
+ .preset-button.active::after {
+ content: '✓';
+ position: absolute;
+ top: -5px;
+ right: -5px;
+ background: var(--success-color);
+ color: white;
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 12px;
+ }
+
+ /* ===== 프리셋 관리 ===== */
+ .preset-manager {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ }
+
+ .preset-card {
+ background: var(--card-bg);
+ border: 1px solid var(--border-color);
+ border-radius: 8px;
+ padding: 15px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+
+ .preset-card-title {
+ font-weight: 600;
+ }
+
+ .preset-card-actions {
+ display: flex;
+ gap: 10px;
+ }
+
+ .preset-action-btn {
+ background: none;
  border: none;
  cursor: pointer;
  font-size: 1rem;
- font-weight: 600;
  color: var(--text-color);
- transition: background-color 0.3s, color 0.3s;
+ transition: color 0.2s;
  }
 
- .main-tab:hover {
- background-color: var(--secondary-hover);
+ .preset-action-btn:hover {
+ color: var(--primary-color);
  }
 
- .main-tab.active {
- background-color: var(--primary-color);
- color: white;
+ .preset-action-btn.delete:hover {
+ color: var(--danger-color);
  }
 
- .tab-content {
- display: none;
- padding: 20px;
- }
-
- .tab-content.active {
- display: block;
- }
-
- /* ============== 색상 선택기 ============== */
+ /* ===== 색상 선택기 ===== */
  .color-picker-container {
  margin: 0 auto;
  width: 200px;
  }
 
- /* ============== 입력 요소 ============== */
+ /* ===== 입력 필드 ===== */
  textarea {
  width: 100%;
  height: 200px;
@@ -250,270 +353,14 @@
  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
  }
 
- select, input[type="color"], input[type="number"], input[type="text"] {
- background-color: var(--card-bg);
- color: var(--text-color);
- border: 1px solid var(--border-color);
- padding: 10px;
- border-radius: 8px;
- font-size: 14px;
- transition: border-color 0.3s, box-shadow 0.3s;
- }
-
- select:focus, input[type="color"]:focus, input[type="number"]:focus, input[type="text"]:focus {
- outline: none;
- border-color: var(--primary-color);
- box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
- }
-
- input[type="range"] {
- width: 100%;
- height: 6px;
- -webkit-appearance: none;
- appearance: none;
- background: var(--secondary-color);
- border-radius: 3px;
- outline: none;
- }
-
- input[type="range"]::-webkit-slider-thumb {
- -webkit-appearance: none;
- appearance: none;
- width: 18px;
- height: 18px;
- border-radius: 50%;
- background: var(--primary-color);
- cursor: pointer;
- }
-
- input[type="range"]::-moz-range-thumb {
- width: 18px;
- height: 18px;
- border-radius: 50%;
- background: var(--primary-color);
- cursor: pointer;
- border: none;
- }
-
- .file-input {
- display: none;
- }
-
- .file-label {
- display: inline-block;
- padding: 10px 15px;
- background-color: var(--secondary-color);
- color: var(--text-color);
- border-radius: 8px;
- cursor: pointer;
- transition: background-color 0.3s;
- }
-
- .file-label:hover {
- background-color: var(--secondary-hover);
- }
-
- /* ============== 이미지 옵션 ============== */
+ /* ===== 이미지 옵션 ===== */
  .image-options {
  display: flex;
  flex-direction: column;
  gap: 10px;
  }
 
- #imagePreview {
- width: 100%;
- max-height: 150px;
- object-fit: cover;
- margin-top: 10px;
- display: none;
- border-radius: 8px;
- }
-
- /* ============== 버튼 스타일 ============== */
- .button {
- background-color: var(--primary-color);
- color: white;
- border: none;
- padding: 12px 20px;
- border-radius: 8px;
- cursor: pointer;
- font-size: 16px;
- font-weight: 600;
- transition: background-color 0.3s, transform 0.1s;
- }
-
- .button:hover {
- background-color: var(--primary-hover);
- }
-
- .button:active {
- transform: translateY(1px);
- }
-
- .button-secondary {
- background-color: var(--secondary-color);
- color: var(--text-color);
- }
-
- .button-secondary:hover {
- background-color: var(--secondary-hover);
- }
-
- .button-success {
- background-color: var(--success-color);
- }
-
- .button-danger {
- background-color: var(--danger-color);
- }
-
- /* ============== 탭 버튼 ============== */
- .tab-buttons {
- display: flex;
- gap: 5px;
- margin-bottom: 15px;
- }
-
- .tab-button {
- padding: 10px 15px;
- border: none;
- background-color: var(--tab-color);
- cursor: pointer;
- border-radius: 8px;
- color: var(--text-color);
- font-weight: 500;
- transition: background-color 0.3s, color 0.3s;
- }
-
- .tab-button:hover {
- background-color: var(--secondary-hover);
- }
-
- .tab-button.active {
- background-color: var(--primary-color);
- color: white;
- }
-
- /* ============== 프리셋 버튼 ============== */
- .preset-buttons {
- display: flex;
- flex-wrap: wrap;
- gap: 10px;
- margin: 15px 0;
- }
-
- .preset-button {
- flex: 1 0 calc(33.333% - 10px);
- min-width: 80px;
- padding: 12px 10px;
- border: 2px solid var(--preset-button);
- background-color: var(--preset-button);
- color: var(--preset-button-text);
- border-radius: 8px;
- cursor: pointer;
- font-weight: 600;
- transition: all 0.3s;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- }
-
- .preset-button:hover {
- border-color: var(--primary-color);
- }
-
- .preset-button.active {
- background-color: var(--preset-button-active);
- color: var(--preset-button-text-active);
- border-color: var(--preset-button-active);
- }
-
- .preset-button-number {
- font-size: 1.2rem;
- font-weight: 700;
- margin-bottom: 5px;
- }
-
- .preset-button-name {
- font-size: 0.8rem;
- white-space: nowrap;
- overflow: hidden;
- text-overflow: ellipsis;
- max-width: 100%;
- }
-
- /* ============== 테마 스위치 ============== */
- .theme-switch {
- position: fixed;
- top: 20px;
- right: 20px;
- width: 44px;
- height: 44px;
- border-radius: 50%;
- background-color: var(--card-bg);
- display: flex;
- justify-content: center;
- align-items: center;
- cursor: pointer;
- box-shadow: var(--card-shadow);
- z-index: 1000;
- transition: background-color 0.3s, transform 0.1s;
- }
-
- .theme-switch:hover {
- transform: scale(1.05);
- }
-
- .theme-switch:active {
- transform: scale(0.95);
- }
-
- .theme-icon {
- font-size: 20px;
- color: var(--text-color);
- }
-
- /* ============== 설정 그룹 ============== */
- .setting-group {
- margin-bottom: 20px;
- border-bottom: 1px solid var(--border-color);
- padding-bottom: 20px;
- }
-
- .setting-group:last-child {
- border-bottom: none;
- margin-bottom: 0;
- }
-
- .setting-row {
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-bottom: 15px;
- }
-
- .setting-label {
- flex: 1;
- text-align: left;
- font-weight: 500;
- }
-
- .setting-control {
- flex: 1;
- display: flex;
- align-items: center;
- gap: 10px;
- }
-
- .setting-value {
- min-width: 50px;
- text-align: right;
- font-size: 14px;
- color: var(--primary-color);
- }
-
- /* ============== 미리보기 컨테이너 ============== */
+ /* ===== 미리보기 컨테이너 ===== */
  .preview-container {
  position: relative;
  width: 100%;
@@ -552,15 +399,11 @@
  align-items: center;
  cursor: pointer;
  font-size: 18px;
- transition: background-color 0.3s, transform 0.1s;
+ transition: background-color 0.2s;
  }
 
  .slider-arrow:hover {
  background-color: rgba(0,0,0,0.5);
- }
-
- .slider-arrow:active {
- transform: translateY(-50%) scale(0.95);
  }
 
  .slider-dots {
@@ -576,15 +419,16 @@
  background-color: var(--border-color);
  border-radius: 50%;
  cursor: pointer;
- transition: background-color 0.3s, transform 0.1s;
+ transition: transform 0.2s, background-color 0.2s;
  }
 
  .slider-dot:hover {
- background-color: var(--primary-hover);
+ transform: scale(1.2);
  }
 
  .slider-dot.active {
  background-color: var(--primary-color);
+ transform: scale(1.2);
  }
 
  .output-container {
@@ -625,6 +469,18 @@
  overflow-wrap: break-word;
  }
 
+ .preview-text em {
+ font-style: italic;
+ }
+
+ .preview-text strong {
+ font-weight: bold;
+ }
+
+ .preview-text del {
+ text-decoration: line-through;
+ }
+
  .header-image {
  position: absolute;
  top: 0;
@@ -635,62 +491,272 @@
  z-index: 1;
  }
 
- /* ============== 프리셋 관리 ============== */
- .preset-manager {
- display: flex;
- flex-direction: column;
- gap: 15px;
- }
-
- .preset-item {
- background-color: var(--card-bg);
- border: 1px solid var(--border-color);
- border-radius: 8px;
- padding: 15px;
- display: flex;
- justify-content: space-between;
- align-items: center;
- }
-
- .preset-info {
- display: flex;
- flex-direction: column;
- align-items: flex-start;
- }
-
- .preset-name {
- font-weight: 600;
- margin-bottom: 5px;
- }
-
- .preset-date {
- font-size: 12px;
- color: #888;
- }
-
- .preset-actions {
- display: flex;
- gap: 10px;
- }
-
- .preset-action-btn {
- background: none;
+ /* ===== 버튼 스타일 ===== */
+ .button {
+ background-color: var(--primary-color);
+ color: white;
  border: none;
+ padding: 12px 24px;
+ border-radius: 8px;
  cursor: pointer;
  font-size: 16px;
- color: var(--text-color);
- transition: color 0.3s;
+ font-weight: 600;
+ transition: all 0.3s;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 8px;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
  }
 
- .preset-action-btn:hover {
+ .button:hover {
+ background-color: var(--primary-hover);
+ transform: translateY(-2px);
+ box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+ }
+
+ .button:active {
+ transform: translateY(0);
+ }
+
+ .button-secondary {
+ background-color: var(--border-color);
+ color: var(--text-color);
+ }
+
+ .button-secondary:hover {
+ background-color: #d0d0d0;
+ }
+
+ /* ===== 탭 버튼 ===== */
+ .tab-buttons {
+ display: flex;
+ gap: 5px;
+ margin-bottom: 15px;
+ border-bottom: 1px solid var(--border-color);
+ }
+
+ .tab-button {
+ padding: 10px 20px;
+ border: none;
+ background-color: transparent;
+ cursor: pointer;
+ border-radius: 8px 8px 0 0;
+ color: var(--text-color);
+ font-weight: 500;
+ transition: all 0.2s;
+ position: relative;
+ bottom: -1px;
+ }
+
+ .tab-button:hover {
+ background-color: rgba(67, 97, 238, 0.1);
+ }
+
+ .tab-button.active {
+ color: var(--primary-color);
+ border-bottom: 2px solid var(--primary-color);
+ font-weight: 600;
+ }
+
+ /* ===== 파일 입력 ===== */
+ .file-input {
+ display: none;
+ }
+
+ .file-label {
+ background-color: var(--card-bg);
+ border: 1px dashed var(--border-color);
+ padding: 15px;
+ border-radius: 8px;
+ cursor: pointer;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ color: var(--text-color);
+ transition: all 0.2s;
+ gap: 10px;
+ min-height: 120px;
+ }
+
+ .file-label:hover {
+ border-color: var(--primary-color);
+ background-color: rgba(67, 97, 238, 0.05);
+ }
+
+ .file-label i {
+ font-size: 2rem;
  color: var(--primary-color);
  }
 
- .preset-action-btn.delete:hover {
- color: var(--danger-color);
+ #imagePreview {
+ width: 100%;
+ max-height: 150px;
+ object-fit: cover;
+ margin-top: 15px;
+ display: none;
+ border-radius: 8px;
+ box-shadow: var(--card-shadow);
  }
 
- /* ============== 반응형 스타일 ============== */
+ /* ===== 테마 스위치 ===== */
+ .theme-switch {
+ position: fixed;
+ top: 20px;
+ right: 20px;
+ width: 45px;
+ height: 45px;
+ border-radius: 50%;
+ background-color: var(--card-bg);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ cursor: pointer;
+ box-shadow: var(--card-shadow);
+ z-index: 1000;
+ transition: all 0.3s;
+ }
+
+ .theme-switch:hover {
+ transform: rotate(30deg);
+ }
+
+ .theme-icon {
+ font-size: 20px;
+ color: var(--text-color);
+ }
+
+ /* ===== 설정 그룹 ===== */
+ .bg-settings-container {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ gap: 15px;
+ }
+
+ .bg-column {
+ flex: 1;
+ min-width: 200px;
+ }
+
+ /* ===== 폼 요소 ===== */
+ select, input[type="color"], input[type="text"], input[type="number"] {
+ background-color: var(--card-bg);
+ color: var(--text-color);
+ border: 1px solid var(--border-color);
+ padding: 10px;
+ border-radius: 8px;
+ font-size: 14px;
+ transition: border-color 0.2s, box-shadow 0.2s;
+ width: 100%;
+ }
+
+ select:focus, input[type="color"]:focus, input[type="text"]:focus, input[type="number"]:focus {
+ outline: none;
+ border-color: var(--primary-color);
+ box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+ }
+
+ input[type="range"] {
+ width: 100%;
+ -webkit-appearance: none;
+ height: 6px;
+ border-radius: 3px;
+ background: var(--border-color);
+ outline: none;
+ }
+
+ input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none;
+ appearance: none;
+ width: 18px;
+ height: 18px;
+ border-radius: 50%;
+ background: var(--primary-color);
+ cursor: pointer;
+ transition: all 0.2s;
+ }
+
+ input[type="range"]::-webkit-slider-thumb:hover {
+ transform: scale(1.2);
+ }
+
+ /* ===== 설정 그룹 ===== */
+ .setting-group {
+ margin-bottom: 20px;
+ border-bottom: 1px solid var(--border-color);
+ padding-bottom: 20px;
+ }
+
+ .setting-group:last-child {
+ border-bottom: none;
+ margin-bottom: 0;
+ }
+
+ .setting-group h4 {
+ font-size: 1rem;
+ margin-bottom: 15px;
+ color: var(--primary-color);
+ }
+
+ .setting-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+ }
+
+ .setting-label {
+ flex: 1;
+ text-align: left;
+ font-weight: 500;
+ }
+
+ .setting-control {
+ flex: 1.5;
+ }
+
+ .setting-value {
+ display: inline-block;
+ min-width: 40px;
+ text-align: right;
+ font-size: 14px;
+ color: var(--accent-color);
+ font-weight: 600;
+ }
+
+ /* ===== 알림 메시지 ===== */
+ .notification {
+ position: fixed;
+ bottom: 20px;
+ right: 20px;
+ padding: 15px 20px;
+ border-radius: 8px;
+ background-color: var(--primary-color);
+ color: white;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+ z-index: 1000;
+ opacity: 0;
+ transform: translateY(20px);
+ transition: all 0.3s;
+ max-width: 300px;
+ }
+
+ .notification.show {
+ opacity: 1;
+ transform: translateY(0);
+ }
+
+ .notification.success {
+ background-color: var(--success-color);
+ }
+
+ .notification.error {
+ background-color: var(--danger-color);
+ }
+
+ /* ===== 반응형 스타일 ===== */
  @media (max-width: 768px) {
  .control-group {
  max-width: 100%;
@@ -705,37 +771,30 @@
  font-size: 14px;
  }
 
+ .bg-column {
+ flex: 100%;
+ }
+
  .setting-row {
  flex-direction: column;
  align-items: flex-start;
+ gap: 8px;
  }
 
  .setting-control {
  width: 100%;
- margin-top: 8px;
  }
 
- .preset-button {
- flex: 0 0 calc(50% - 10px);
- }
+ .preset-buttons {
+ grid-template-columns: repeat(2, 1fr);
  }
 
- @media (max-width: 480px) {
  .main-tab {
- padding: 12px 10px;
+ padding: 12px 8px;
  font-size: 0.9rem;
  }
-
- .tab-content {
- padding: 15px;
  }
-
- .preset-button {
- flex: 0 0 calc(50% - 10px);
- }
- }
-
-</style>
+ </style>
 </head>
 <body>
  <div class="theme-switch" id="themeSwitch">
@@ -746,34 +805,36 @@
 
  <h1>텍스트 → 이미지 변환기</h1>
 
- <div class="container">
- <div class="app-container">
  <!-- 메인 탭 네비게이션 -->
  <div class="main-tabs">
- <button class="main-tab active" data-tab="tab-input">텍스트 & 배경</button>
- <button class="main-tab" data-tab="tab-style">스타일 설정</button>
- <button class="main-tab" data-tab="tab-presets">프리셋 관리</button>
+ <button class="main-tab active" data-tab="tab1">
+ <i class="fas fa-pen-to-square"></i> 텍스트 & 배경
+ </button>
+ <button class="main-tab" data-tab="tab2">
+ <i class="fas fa-palette"></i> 스타일 설정
+ </button>
+ <button class="main-tab" data-tab="tab3">
+ <i class="fas fa-sliders"></i> 프리셋 관리
+ </button>
  </div>
 
- <!-- 탭 1: 텍스트 입력 및 배경 설정 -->
- <div id="tab-input" class="tab-content active">
+ <div class="container">
+ <!-- 탭 1: 텍스트 입력 & 배경 설정 & 프리셋 선택 -->
+ <div id="tab1" class="tab-content active">
+ <div class="controls">
+ <!-- 텍스트 입력 그룹 -->
  <div class="control-group">
  <h3>텍스트 입력</h3>
- <textarea id="userText" placeholder="이미지로 변환할 텍스트를 입력하세요. **볼드체**, *이탤릭체*, ~~취소선~~ 등의 마크다운 문법을 사용할 수 있습니다."></textarea>
- <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+ <textarea id="userText" placeholder="이미지로 변환할 텍스트를 입력하세요. **볼드체**, *이탤릭체*, ~~취소선~~ 마크다운 문법을 지원합니다."></textarea>
+ <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
  <div>
  <label for="pageLength">페이지당 글자 수 (대략): </label>
  <input type="number" id="pageLength" value="300" min="50" max="1000">
  </div>
  </div>
-
- <!-- 프리셋 버튼 -->
- <h4>프리셋 불러오기</h4>
- <div class="preset-buttons" id="presetButtonsContainer">
- <!-- 여기에 프리셋 버튼이 동적으로 생성됩니다 -->
- </div>
  </div>
 
+ <!-- 배경 설정 그룹 -->
  <div class="control-group">
  <h3>배경 설정</h3>
  <div class="tab-buttons">
@@ -783,33 +844,59 @@
 
  <div class="bg-settings-container">
  <!-- 단색 배경 설정 -->
- <div id="colorBgOptions">
+ <div id="colorBgOptions" class="bg-column">
  <div class="color-picker-container">
  <div id="colorPicker"></div>
  </div>
- <div style="margin-top: 10px;">
- <input type="text" id="hexColor" value="#FFDD00" style="width: 80px;">
+ <div style="margin-top: 15px; text-align: center;">
+ <input type="text" id="hexColor" value="#FFDD00" style="width: 120px; text-align: center;">
  </div>
  </div>
 
  <!-- 이미지 배경 설정 -->
- <div id="imageBgOptions" style="display:none;">
- <label for="headerImage" class="file-label">이미지 파일 선택</label>
+ <div id="imageBgOptions" class="bg-column" style="display:none;">
+ <label for="headerImage" class="file-label">
+ <i class="fas fa-cloud-upload-alt"></i>
+ <span>이미지 파일 선택</span>
+ <small>JPG, PNG 파일 지원</small>
+ </label>
  <input type="file" id="headerImage" class="file-input" accept="image/*">
  <img id="imagePreview" src="#" alt="이미지 미리보기">
  </div>
  </div>
  </div>
+
+ <!-- 프리셋 선택 그룹 -->
+ <div class="control-group">
+ <h3>프리셋 선택</h3>
+ <div class="preset-buttons" id="presetButtonsContainer">
+ <!-- 프리셋 버튼들이 자바스크립트로 생성됩니다 -->
+ </div>
+ <div style="text-align: center; margin-top: 15px;">
+ <button id="savePresetBtn" class="button">
+ <i class="fas fa-save"></i> 현재 설정 저장
+ </button>
+ </div>
+ </div>
+ </div>
+
+ <!-- 이미지 생성 버튼 -->
+ <div style="text-align: center; margin-top: 20px;">
+ <button id="generateBtn" class="button">
+ <i class="fas fa-image"></i> 이미지 생성
+ </button>
+ </div>
  </div>
 
  <!-- 탭 2: 텍스트 스타일 설정 -->
- <div id="tab-style" class="tab-content">
- <div class="control-group" style="max-width: 100%;">
- <h3>텍스트 스타일 설정</h3>
+ <div id="tab2" class="tab-content">
+ <div class="controls">
+ <!-- 텍스트 스타일 설정 그룹 -->
+ <div class="control-group">
+ <h3>폰트 설정</h3>
 
  <!-- 폰트 설정 -->
  <div class="setting-group">
- <h4>폰트 설정</h4>
  <div class="setting-row">
  <div class="setting-label">글꼴</div>
  <div class="setting-control">
@@ -821,7 +908,6 @@
  <option value="수트">수트</option>
  <option value="리디바탕">리디바탕</option>
  <option value="조선굴림체">조선굴림체</option>
- <option value="Noto Sans KR">노토 산스</option>
  </select>
  </div>
  </div>
@@ -833,10 +919,12 @@
  </div>
  </div>
  </div>
+ </div>
 
+ <div class="control-group">
+ <h3>텍스트 스타일</h3>
  <!-- 텍스트 스타일 -->
  <div class="setting-group">
- <h4>텍스트 스타일</h4>
  <div class="setting-row">
  <div class="setting-label">텍스트 색상</div>
  <div class="setting-control">
@@ -854,7 +942,7 @@
  <div class="setting-label">자간</div>
  <div class="setting-control">
  <input type="range" id="letterSpacing" min="-0.1" max="0.3" step="0.01" value="0">
- <span id="letterSpacingValue" class="setting-value">0em</span>
+ <span id="letterSpacingValue" class="setting-value">0</span>
  </div>
  </div>
  <div class="setting-row">
@@ -869,10 +957,12 @@
  </div>
  </div>
  </div>
+ </div>
 
+ <div class="control-group">
+ <h3>텍스트 박스 설정</h3>
  <!-- 텍스트 박스 설정 -->
  <div class="setting-group">
- <h4>텍스트 박스 설정</h4>
  <div class="setting-row">
  <div class="setting-label">박스 배경색</div>
  <div class="setting-control">
@@ -903,50 +993,37 @@
  </div>
  </div>
  </div>
+ </div>
 
  <!-- 탭 3: 프리셋 관리 -->
- <div id="tab-presets" class="tab-content">
+ <div id="tab3" class="tab-content">
  <div class="control-group" style="max-width: 100%;">
  <h3>프리셋 관리</h3>
- <p>현재 설정을 프리셋으로 저장하거나 기존 프리셋을 관리할 수 있습니다.</p>
-
- <!-- 새 프리셋 저장 -->
- <div class="setting-group">
- <h4>새 프리셋 저장</h4>
- <div class="setting-row">
- <div class="setting-label">프리셋 이름</div>
- <div class="setting-control">
- <input type="text" id="presetName" placeholder="프리셋 이름 입력">
+ <div class="preset-manager" id="presetManager">
+ <!-- 프리셋 카드들이 자바스크립트로 생성됩니다 -->
  </div>
- </div>
- <button id="savePresetBtn" class="button button-success">
- <i class="fas fa-save"></i> 현재 설정 저장
+ <div style="text-align: center; margin-top: 20px;">
+ <p>최대 6개의 프리셋을 저장할 수 있습니다.</p>
+ <button id="createNewPresetBtn" class="button" style="margin-top: 15px;">
+ <i class="fas fa-plus"></i> 새 프리셋 만들기
  </button>
  </div>
-
- <!-- 저장된 프리셋 목록 -->
- <div class="setting-group">
- <h4>저장된 프리셋</h4>
- <div class="preset-manager" id="presetListContainer">
- <!-- 여기에 프리셋 목록이 동적으로 생성됩니다 -->
- </div>
- </div>
- </div>
  </div>
  </div>
 
- <button id="generateBtn" class="button">
- <i class="fas fa-magic"></i> 이미지 생성
- </button>
-
+ <!-- 미리보기 컨테이너 -->
  <div class="preview-container" id="previewContainer">
  <!-- 여기에 미리보기 이미지가 슬라이더로 표시됩니다 -->
  </div>
  </div>
 
- <script>
+ <!-- 알림 메시지 -->
+ <div class="notification" id="notification"></div>
 
- // =============== 전역 변수 설정 ===============
+ <script>
+ /**
+ * ===== 전역 변수 설정 =====
+ */
  let colorPicker;
  let selectedBgType = 'color';
  let headerImageUrl = null;
@@ -955,16 +1032,28 @@
  let isDarkMode = false;
  let activePresetId = null;
 
- // =============== 페이지 로드 초기화 ===============
+ // 마크다운 설정
+ marked.setOptions({
+ breaks: true,
+ gfm: true
+ });
+
+ /**
+ * ===== 페이지 초기화 =====
+ */
  document.addEventListener('DOMContentLoaded', function() {
  initColorPicker();
  setupEventListeners();
  checkPreferredTheme();
  updateSettingValues();
- initPresets();
+ loadPresets();
+ renderPresetButtons();
+ renderPresetManager();
  });
 
- // =============== 설정값 표시 업데이트 ===============
+ /**
+ * ===== 설정값 표시 업데이트 =====
+ */
  function updateSettingValues() {
  // 폰트 크기
  document.getElementById('fontSize').addEventListener('input', function() {
@@ -997,7 +1086,9 @@
  });
  }
 
- // =============== 테마 관련 함수 ===============
+ /**
+ * ===== 테마 관련 함수 =====
+ */
  // 사용자 테마 설정 확인
  function checkPreferredTheme() {
  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -1012,8 +1103,8 @@
 
  const themeIcon = document.getElementById('themeIcon');
  themeIcon.innerHTML = isDarkMode
- ? ''
- : '';
+ ? '<i class="fas fa-sun"></i>'
+ : '<i class="fas fa-moon"></i>';
 
  // 색상 선택기 재초기화
  if (colorPicker) {
@@ -1022,7 +1113,9 @@
  }
  }
 
- // =============== 색상 선택기 초기화 ===============
+ /**
+ * ===== 색상 선택기 초기화 =====
+ */
  function initColorPicker(initialColor = "#FFDD00") {
  const colorPickerElement = document.getElementById('colorPicker');
  if (colorPickerElement.firstChild) {
@@ -1040,7 +1133,7 @@
  });
 
  // 색상 변경 시 이벤트
- colorPicker. on('color:change', function(color) {
+ colorPicker.on('color:change', function(color) {
  document.getElementById('hexColor').value = color.hexString;
  });
 
@@ -1050,37 +1143,35 @@
  });
  }
 
- // =============== 이벤트 리스너 설정 ===============
+ /**
+ * ===== 이벤트 리스너 설정 =====
+ */
  function setupEventListeners() {
  // 메인 탭 전환 이벤트
  const mainTabs = document.querySelectorAll('.main-tab');
- const tabContents = document.querySelectorAll('.tab-content');
-
  mainTabs.forEach(tab => {
- tab.addEventListener('click', () => {
- const target = tab.getAttribute('data-tab');
+ tab.addEventListener('click', function() {
+ const tabId = this.getAttribute('data-tab');
 
- // 탭 활성화
+ // 활성 탭 변경
  mainTabs.forEach(t => t.classList.remove('active'));
- tab.classList.add('active');
+ this.classList.add('active');
 
- // 콘텐츠 활성화
- tabContents.forEach(content => {
+ // 탭 콘텐츠 변경
+ document.querySelectorAll('.tab-content').forEach(content => {
  content.classList.remove('active');
- if (content.getAttribute('id') === target) {
- content.classList.add('active');
- }
  });
+ document.getElementById(tabId).classList.add('active');
  });
  });
 
  // 배경 탭 전환 이벤트
  document.getElementById('colorTab').addEventListener('click', function() {
- toggleTab('color');
+ toggleBgTab('color');
  });
 
  document.getElementById('imageTab').addEventListener('click', function() {
- toggleTab('image');
+ toggleBgTab('image');
  });
 
  // 이미지 파일 선택 이벤트
@@ -1106,11 +1197,16 @@
  document.getElementById('themeSwitch').addEventListener('click', toggleDarkMode);
 
  // 프리셋 저장 버튼 이벤트
- document.getElementById('savePresetBtn').addEventListener('click', saveCurrentPreset);
+ document.getElementById('savePresetBtn').addEventListener('click', showSavePresetDialog);
+
+ // 새 프리셋 만들기 버튼 이벤트
+ document.getElementById('createNewPresetBtn').addEventListener('click', showSavePresetDialog);
  }
 
- // =============== 탭 전환 함수 ===============
- function toggleTab(tabType) {
+ /**
+ * ===== 배경 탭 전환 함수 =====
+ */
+ function toggleBgTab(tabType) {
  selectedBgType = tabType;
 
  if (tabType === 'color') {
@@ -1126,54 +1222,35 @@
  }
  }
 
- // =============== 프리셋 관련 함수 ===============
- // 프리셋 초기화
- function initPresets() {
- loadPresets();
- renderPresetButtons();
- renderPresetList();
+ /**
+ * ===== 프리셋 관련 함수 =====
+ */
+ // 프리셋 로드
+ function loadPresets() {
+ try {
+ const presetsJson = localStorage.getItem('textToImagePresets');
+ return presetsJson ? JSON.parse(presetsJson) : [];
+ } catch (error) {
+ console.error('프리셋 로드 오류:', error);
+ return [];
+ }
  }
 
  // 프리셋 저장
- function saveCurrentPreset() {
- const presetName = document.getElementById('presetName').value.trim();
- if (!presetName) {
- alert('프리셋 이름을 입력해주세요.');
- return;
+ function savePresets(presets) {
+ try {
+ localStorage.setItem('textToImagePresets', JSON.stringify(presets));
+ } catch (error) {
+ console.error('프리셋 저장 오류:', error);
+ showNotification('프리셋 저장에 실패했습니다.', 'error');
  }
-
- const presets = getPresets();
- const now = new Date();
-
- const newPreset = {
- id: Date.now().toString(),
- name: presetName,
- date: now.toISOString(),
- settings: getCurrentSettings()
- };
-
- if (presets.length >= 6) {
- if (!confirm('이미 6개의 프리셋이 저장되어 있습니다. 가장 오래된 프리셋을 삭제하고 저장하시겠습니까?')) {
- return;
- }
- presets.shift(); // 가장 오래된 프리셋 제거
- }
-
- presets.push(newPreset);
- savePresets(presets);
-
- document.getElementById('presetName').value = '';
-
- // UI 업데이트
- renderPresetButtons();
- renderPresetList();
-
- alert('프리셋이 저장되었습니다.');
  }
 
  // 현재 설정 가져오기
  function getCurrentSettings() {
  return {
+ id: Date.now().toString(),
+ name: '',
  bgType: selectedBgType,
  bgColor: document.getElementById('hexColor').value,
  fontFamily: document.getElementById('fontSelect').value,
@@ -1191,183 +1268,298 @@
 
  // 설정 적용하기
  function applySettings(settings) {
- // 배경 설정
- selectedBgType = settings.bgType;
- toggleTab(settings.bgType);
+ if (!settings) return;
 
- if (settings.bgType === 'color') {
- document.getElementById('hexColor').value = settings.bgColor;
+ // 배경 설정
+ selectedBgType = settings.bgType</summary>
+ <div>| 'color';
+ toggleBgTab(selectedBgType);
+
+ if (settings.bgColor && colorPicker) {
  colorPicker.color.hexString = settings.bgColor;
+ document.getElementById('hexColor').value = settings.bgColor;
+ }</div>
+</details>
+
+</body>
+</html> 폰트 설정
+ if (settings.fontFamily) {
+ document.getElementById('fontSelect').value = settings.fontFamily;
  }
 
- // 폰트 설정
- document.getElementById('fontSelect').value = settings.fontFamily;
- document.getElementById('fontSize').value = settings.fontSize;
+ if (settings.fontSize) {
+ const fontSizeInput = document.getElementById('fontSize');
+ fontSizeInput.value = settings.fontSize;
  document.getElementById('fontSizeValue').textContent = settings.fontSize + 'px';
+ }
 
- // 텍스트 스타일
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>텍스트 스타일
+ if (settings.textColor) {
  document.getElementById('textColor').value = settings.textColor;
- document.getElementById('lineHeight').value = settings.lineHeight;
- document.getElementById('lineHeightValue').textContent = settings.lineHeight;
- document.getElementById('letterSpacing').value = settings.letterSpacing;
- document.getElementById('letterSpacingValue').textContent = settings.letterSpacing + 'em';
- document.getElementById('textAlign').value = settings.textAlign;
+ }
 
- // 텍스트 박스
+ if (settings.lineHeight) {
+ const lineHeightInput = document.getElementById('lineHeight');
+ lineHeightInput.value = settings.lineHeight;
+ document.getElementById('lineHeightValue').textContent = settings.lineHeight;
+ }
+
+ if (settings.letterSpacing) {
+ const letterSpacingInput = document.getElementById('letterSpacing');
+ letterSpacingInput.value = settings.letterSpacing;
+ document.getElementById('letterSpacingValue').textContent = settings.letterSpacing + 'em';
+ }
+
+ if (settings.textAlign) {
+ document.getElementById('textAlign').value = settings.textAlign;
+ }
+
+ // 텍스트 박스 설정
+ if (settings.boxBgColor) {
  document.getElementById('boxBgColor').value = settings.boxBgColor;
- document.getElementById('boxOpacity').value = settings.boxOpacity;
+ }
+
+ if (settings.boxOpacity) {
+ const boxOpacityInput = document.getElementById('boxOpacity');
+ boxOpacityInput.value = settings.boxOpacity;
  document.getElementById('boxOpacityValue').textContent = settings.boxOpacity;
- document.getElementById('boxWidth').value = settings.boxWidth;
+ }
+
+ if (settings.boxWidth) {
+ const boxWidthInput = document.getElementById('boxWidth');
+ boxWidthInput.value = settings.boxWidth;
  document.getElementById('boxWidthValue').textContent = settings.boxWidth + '%';
- document.getElementById('boxPadding').value = settings.boxPadding;
+ }
+
+ if (settings.boxPadding) {
+ const boxPaddingInput = document.getElementById('boxPadding');
+ boxPaddingInput.value = settings.boxPadding;
  document.getElementById('boxPaddingValue').textContent = settings.boxPadding + 'px';
  }
+ }
 
- // 프리셋 불러오기
- function loadPreset(presetId) {
- const presets = getPresets();
+ // 프리셋 버튼 렌더링
+ function renderPresetButtons() {
+ const presets = loadPresets();
+ const container = document.getElementById('presetButtonsContainer');
+ container.innerHTML = '';
+
+ // 6개의 버튼 슬롯 생성
+ for (let i = 0; i < 6; i++) {
+ const preset = i < presets.length ? presets[i] : null;
+ const button = document.createElement('button');
+
+ if (preset) {
+ button.className = 'preset-button' + (preset.id === activePresetId ? ' active' : '');
+ button.textContent = preset.name</summary>
+ <div>| `프리셋 ${i + 1}`;
+ button.dataset.presetId = preset.id;
+
+ button.addEventListener('click', function() {
+ applyPreset(preset.id);
+ });
+ } else {
+ button.className = 'preset-button empty';
+ button.textContent = `프리셋 ${i + 1}`;
+ button.addEventListener('click', showSavePresetDialog);
+ }
+
+ container.appendChild(button);
+ }
+ }</div>
+</details>
+
+</body>
+</html> 프리셋 관리자 렌더링
+ function renderPresetManager() {
+ const presets = loadPresets();
+ const container = document.getElementById('presetManager');
+ container.innerHTML = '';
+
+ if (presets.length === 0) {
+ const emptyMessage = document.createElement('div');
+ emptyMessage.style.textAlign = 'center';
+ emptyMessage.style.padding = '30px 0';
+ emptyMessage.innerHTML = '<i class="fas fa-info-circle" style="font-size: 2rem; color: var(--border-color); margin-bottom: 15px;"></i><p>저장된 프리셋이 없습니다.</p>';
+ container.appendChild(emptyMessage);
+ return;
+ }
+
+ presets.forEach(preset => {
+ const card = document.createElement('div');
+ card.className = 'preset-card';
+
+ const titleEl = document.createElement('div');
+ titleEl.className = 'preset-card-title';
+ titleEl.textContent = preset.name || '이름 없는 프리셋';
+
+ const actionsEl = document.createElement('div');
+ actionsEl.className = 'preset-card-actions';
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>편집 버튼
+ const editBtn = document.createElement('button');
+ editBtn.className = 'preset-action-btn';
+ editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+ editBtn.title = '프리셋 이름 변경';
+ editBtn.addEventListener('click', () => editPresetName(preset.id));
+
+ // 삭제 버튼
+ const deleteBtn = document.createElement('button');
+ deleteBtn.className = 'preset-action-btn delete';
+ deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+ deleteBtn.title = '프리셋 삭제';
+ deleteBtn.addEventListener('click', () => deletePreset(preset.id));
+
+ actionsEl.appendChild(editBtn);
+ actionsEl.appendChild(deleteBtn);
+
+ card.appendChild(titleEl);
+ card.appendChild(actionsEl);
+ container.appendChild(card);
+ });
+ }
+
+ // 프리셋 저장 다이얼로그 표시
+ function showSavePresetDialog() {
+ const presets = loadPresets();
+
+ if (presets.length >= 6) {
+ showNotification('최대 6개의 프리셋만 저장할 수 있습니다. 먼저 기존 프리셋을 삭제해주세요.', 'error');
+ return;
+ }
+
+ const presetName = prompt('프리셋 이름을 입력하세요:', '');
+
+ if (presetName === null) return; // 취소 버튼 클릭
+
+ savePreset(presetName);
+ }
+
+ // 프리셋 저장
+ function savePreset(name) {
+ const settings = getCurrentSettings();
+ settings.name = name</summary>
+ <div>| `프리셋 ${Date.now()}`;
+
+ const presets = loadPresets();
+ presets.push(settings);
+ savePresets(presets);
+
+ renderPresetButtons();
+ renderPresetManager();
+
+ showNotification(`"${settings.name}" 프리셋이 저장되었습니다.`, 'success');
+ }</div>
+</details>
+
+</body>
+</html> 프리셋 적용
+ function applyPreset(presetId) {
+ const presets = loadPresets();
  const preset = presets.find(p => p.id === presetId);
 
  if (preset) {
- applySettings(preset.settings);
- activePresetId = preset.id;
- updateActivePresetButton();
+ applySettings(preset);
+ activePresetId = presetId;
+ renderPresetButtons(); // 활성 상태 업데이트
+ showNotification(`"${preset.name}" 프리셋이 적용되었습니다.`, 'success');
  }
+ }
+
+ // 프리셋 이름 변경
+ function editPresetName(presetId) {
+ const presets = loadPresets();
+ const presetIndex = presets.findIndex(p => p.id === presetId);
+
+ if (presetIndex === -1) return;
+
+ const newName = prompt('새 프리셋 이름을 입력하세요:', presets[presetIndex].name);
+
+ if (newName === null) return; // 취소 버튼 클릭
+
+ presets[presetIndex].name = newName;
+ savePresets(presets);
+
+ renderPresetButtons();
+ renderPresetManager();
+
+ showNotification('프리셋 이름이 변경되었습니다.', 'success');
  }
 
  // 프리셋 삭제
  function deletePreset(presetId) {
  if (!confirm('정말 이 프리셋을 삭제하시겠습니까?')) return;
 
- let presets = getPresets();
- presets = presets.filter(p => p.id !== presetId);
- savePresets(presets);
+ const presets = loadPresets();
+ const newPresets = presets.filter(p => p.id !== presetId);
+
+ savePresets(newPresets);
 
  if (activePresetId === presetId) {
  activePresetId = null;
  }
 
  renderPresetButtons();
- renderPresetList();
+ renderPresetManager();
+
+ showNotification('프리셋이 삭제되었습니다.', 'success');
  }
 
- // 프리셋 이름 변경
- function renamePreset(presetId) {
- const presets = getPresets();
- const preset = presets.find(p => p.id === presetId);
+ /**
+ * ===== 알림 메시지 =====
+ */
+ function showNotification(message, type = 'info') {
+ const notification = document.getElementById('notification');
+ notification.textContent = message;
+ notification.className = `notification ${type}`;
+ notification.classList.add('show');
 
- if (!preset) return;
-
- const newName = prompt('새 프리셋 이름을 입력하세요:', preset.name);
- if (!newName</summary>
- <div>| newName.trim() === '') return;
-
- preset.name = newName.trim();
- savePresets(presets);
-
- renderPresetButtons();
- renderPresetList();
- }</div>
-</details>
-
-</body>
-</html> 프리셋 버튼 렌더링
- function renderPresetButtons() {
- const container = document.getElementById('presetButtonsContainer');
- const presets = getPresets();
-
- let html = '';
-
- for (let i = 0; i < 6; i++) {
- if (i < presets.length) {
- const preset = presets[i];
- const isActive = preset.id === activePresetId;
- html += `
- <button class="preset-button ${isActive ? 'active' : ''}" data-preset-id="${preset.id}">
- <span class="preset-button-number">${i + 1}</span>
- <span class="preset-button-name">${preset.name}</span>
- </button>
- `;
- } else {
- html += `
- <button class="preset-button" disabled>
- <span class="preset-button-number">${i + 1}</span>
- <span class="preset-button-name">비어 있음</span>
- </button>
- `;
- }
+ setTimeout(() => {
+ notification.classList.remove('show');
+ }, 3000);
  }
 
- container.innerHTML = html;
-
- // 이벤트 리스너 추가
- document.querySelectorAll('.preset-button:not([disabled])').forEach(button => {
- button.addEventListener('click', function() {
- const presetId = this.getAttribute('data-preset-id');
- loadPreset(presetId);
- });
- });
- }
-
- // 프리셋 목록 렌더링
- function renderPresetList() {
- const container = document.getElementById('presetListContainer');
- const presets = getPresets();
-
- if (presets.length === 0) {
- container.innerHTML = '<p>저장된 프리셋이 없습니다.</p>';
- return;
- }
-
- let html = '';
-
- presets.forEach(preset => {
- const date = new Date(preset.date);
- const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-
- html += `
- <div class="preset-item">
- <div class="preset-info">
- <div class="preset-name">${preset.name}</div>
- <div class="preset-date">${formattedDate}</div>
- </div>
- <div class="preset-actions">
- <button class="preset-action-btn edit" onclick="renamePreset('${preset.id}')">
- <i class="fas fa-edit"></i>
- </button>
- <button class="preset-action-btn delete" onclick="deletePreset('${preset.id}')">
- <i class="fas fa-trash-alt"></i>
- </button>
- </div>
- </div>
- `;
- });
-
- container.innerHTML = html;
- }
-
- // 활성 프리셋 버튼 업데이트
- function updateActivePresetButton() {
- document.querySelectorAll('.preset-button').forEach(button => {
- button.classList.remove('active');
- if (button.getAttribute('data-preset-id') === activePresetId) {
- button.classList.add('active');
- }
- });
- }
-
- // 로컬 스토리지에서 프리셋 가져오기
- function getPresets() {
- const presets = localStorage.getItem('textImagePresets');
- return presets ? JSON.parse(presets) : [];
- }
-
- // 로컬 스토리지에 프리셋 저장
- function savePresets(presets) {
- localStorage.setItem('textImagePresets', JSON.stringify(presets));
- }
-
- // =============== 슬라이더 관련 함수 ===============
+ /**
+ * ===== 슬라이더 관련 함수 =====
+ */
  // 슬라이더 이동 함수
  function moveSlider(direction) {
  const sliderContainer = document.querySelector('.slider-container');
@@ -1415,23 +1607,18 @@
  });
  }
 
- // =============== 마크다운 변환 함수 ===============
- // 마크다운 스타일 텍스트 변환
+ /**
+ * ===== 마크다운 변환 함수 =====
+ */
  function parseMarkdown(text) {
- // 볼드체 (**텍스트**)
- text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
- // 이탤릭체 (*텍스트*)
- text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
- // 취소선 (~~텍스트~~)
- text = text.replace(/~~(.*?)~~/g, '$1');
-
- return text;
+ // 마크다운 파싱
+ const html = marked.parse(text);
+ return html;
  }
 
- // =============== 이미지 생성 관련 함수 ===============
- // 이미지 생성 함수
+ /**
+ * ===== 이미지 생성 함수 =====
+ */
  function generateImages() {
  const text = document.getElementById('userText').value;
  const textColor = document.getElementById('textColor').value;
@@ -1448,7 +1635,7 @@
  const textAlign = document.getElementById('textAlign').value;
 
  if (!text) {
- alert('텍스트를 입력해주세요.');
+ showNotification('텍스트를 입력해주세요.', 'error');
  return;
  }
 
@@ -1504,10 +1691,10 @@
  textBox.style.fontFamily = selectedFont + ', serif';
  textBox.style.backgroundColor = boxBgColor;
 
- // 텍스트 영역 생성 (마크다운 변환 적용)
+ // 텍스트 영역 생성 (마크다운 지원)
  const textElement = document.createElement('div');
  textElement.className = 'preview-text';
- textElement.innerHTML = parseMarkdown(chunk.replace(/\n/g, '<br>'));
+ textElement.innerHTML = parseMarkdown(chunk);
  textElement.style.color = textColor;
  textElement.style.fontSize = fontSize + 'px';
  textElement.style.lineHeight = lineHeight;
@@ -1554,9 +1741,16 @@
  window.addEventListener('resize', function() {
  goToSlide(currentSlide);
  });
+
+ // 첫 번째 탭으로 이동
+ document.querySelector('.main-tab[data-tab="tab1"]').click();
+
+ showNotification(`${totalSlides}개의 이미지가 생성되었습니다.`, 'success');
  }
 
- // 텍스트 분할 함수
+ /**
+ * ===== 텍스트 분할 함수 =====
+ */
  function splitText(text, charLimit) {
  const chunks = [];
  const paragraphs = text.split('\n');
@@ -1607,7 +1801,9 @@
  return chunks;
  }
 
- // 이미지 다운로드 함수
+ /**
+ * ===== 이미지 다운로드 함수 =====
+ */
  function downloadImage(element, pageNum) {
  html2canvas(element, {
  scale: 2, // 고해상도
@@ -1621,6 +1817,6 @@
  link.click();
  });
  }
-</script>
+ </script>
 </body>
 </html>
