@@ -4,7 +4,26 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>깡갤 글꾸 사이트</title>
- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+ <script src="https:<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
  <style>
@@ -52,22 +71,22 @@
  font-style: normal;
  }
  @font-face {
-    font-family: '온글잎 콘콘체';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
- @font-face {
-    font-family: '고딩체';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Gothic_Goding.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+ font-family: '온글잎 콘콘체';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
+ font-weight: normal;
+ font-style: normal;
  }
  @font-face {
-    font-family: '박다현체';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+ font-family: '고딩체';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Gothic_Goding.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: '박다현체';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+ font-weight: normal;
+ font-style: normal;
  }
 
  :root {
@@ -852,6 +871,188 @@
  background-color: var(--info-color);
  }
 
+ /* 봇 정보 관련 스타일 */
+ .bot-info-switch {
+ display: flex;
+ align-items: center;
+ margin-bottom: 20px;
+ }
+
+ .switch {
+ position: relative;
+ display: inline-block;
+ width: 60px;
+ height: 34px;
+ margin-right: 10px;
+ }
+
+ .switch input {
+ opacity: 0;
+ width: 0;
+ height: 0;
+ }
+
+ .slider {
+ position: absolute;
+ cursor: pointer;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: #ccc;
+ transition: .4s;
+ border-radius: 34px;
+ }
+
+ .slider:before {
+ position: absolute;
+ content: "";
+ height: 26px;
+ width: 26px;
+ left: 4px;
+ bottom: 4px;
+ background-color: white;
+ transition: .4s;
+ border-radius: 50%;
+ }
+
+ input:checked + .slider {
+ background-color: var(--primary-color);
+ }
+
+ input:focus + .slider {
+ box-shadow: 0 0 1px var(--primary-color);
+ }
+
+ input:checked + .slider:before {
+ transform: translateX(26px);
+ }
+
+ .switch-label {
+ font-weight: 600;
+ }
+
+ .radio-group {
+ display: flex;
+ gap: 15px;
+ margin-top: 5px;
+ }
+
+ .radio-option {
+ display: flex;
+ align-items: center;
+ cursor: pointer;
+ }
+
+ .radio-option input {
+ margin-right: 5px;
+ }
+
+ .bot-info-presets {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+ gap: 10px;
+ margin-top: 15px;
+ }
+
+ .bot-preset-card {
+ background-color: var(--preset-bg);
+ border: 1px solid var(--preset-border);
+ border-radius: 8px;
+ padding: 10px;
+ cursor: pointer;
+ transition: all 0.3s;
+ text-align: center;
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ }
+
+ .bot-preset-card:hover {
+ background-color: var(--preset-hover);
+ transform: translateY(-2px);
+ }
+
+ .bot-preset-card.active {
+ border-color: var(--primary-color);
+ background-color: var(--preset-active);
+ }
+
+ .bot-preset-card i {
+ font-size: 24px;
+ margin-bottom: 5px;
+ color: var(--primary-color);
+ }
+
+ .bot-preset-name {
+ font-size: 12px;
+ font-weight: 600;
+ }
+
+ .bot-info-preview {
+ width: 100%;
+ aspect-ratio: 16/9;
+ background-color: var(--card-bg);
+ border-radius: 10px;
+ box-shadow: var(--card-shadow);
+ margin-bottom: 20px;
+ overflow: hidden;
+ position: relative;
+ }
+
+ .bot-info-content {
+ padding: 20px;
+ display: flex;
+ flex-direction: column;
+ height: 100%;
+ }
+
+ .bot-info-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+ }
+
+ .bot-info-name {
+ font-size: 24px;
+ font-weight: 700;
+ }
+
+ .bot-info-type {
+ padding: 5px 10px;
+ border-radius: 20px;
+ font-size: 12px;
+ font-weight: 600;
+ background-color: var(--primary-light);
+ color: var(--primary-color);
+ }
+
+ .bot-info-details {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 15px;
+ margin-top: 10px;
+ }
+
+ .bot-info-item {
+ display: flex;
+ flex-direction: column;
+ }
+
+ .bot-info-label {
+ font-size: 14px;
+ color: var(--secondary-color);
+ margin-bottom: 5px;
+ }
+
+ .bot-info-value {
+ font-size: 16px;
+ font-weight: 500;
+ }
+
  /* 반응형 디자인 */
  @media (max-width: 768px) {
  .container {
@@ -902,6 +1103,14 @@
  .presets-container {
  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
  }
+
+ .bot-info-details {
+ grid-template-columns: 1fr;
+ }
+
+ .bot-info-presets {
+ grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+ }
  }
  </style>
 </head>
@@ -924,6 +1133,9 @@
  </button>
  <button class="tab-button" data-tab="style-tab">
  <i class="fas fa-palette"></i> 텍스트 스타일
+ </button>
+ <button class="tab-button" data-tab="bot-info-tab">
+ <i class="fas fa-robot"></i> 봇 정보
  </button>
  <button class="tab-button" data-tab="preset-tab">
  <i class="fas fa-sliders"></i> 프리셋 관리
@@ -1013,7 +1225,7 @@
  <option value="조선굴림체">조선굴림체</option>
  <option value="온글잎 콘콘체">온글잎 콘콘체</option>
  <option value="고딩체">고딩체</option>
-  <option value="박다현체">박다현체</option>
+ <option value="박다현체">박다현체</option>
  </select>
  </div>
  </div>
@@ -1104,6 +1316,144 @@
  </div>
  </div>
 
+ <!-- 봇 정보 탭 -->
+ <div class="tab-content" id="bot-info-tab">
+ <div class="card">
+ <h3><i class="fas fa-robot"></i> 봇 정보 설정</h3>
+
+ <div class="bot-info-switch">
+ <label class="switch">
+ <input type="checkbox" id="botInfoToggle" checked>
+ <span class="slider"></span>
+ </label>
+ <span class="switch-label">봇 정보 표시</span>
+ </div>
+
+ <div class="setting-group">
+ <h4>기본 정보</h4>
+ <div class="setting-row">
+ <div class="setting-label">봇 이름</div>
+ <div class="setting-control">
+ <input type="text" id="botName" placeholder="봇 이름을 입력하세요">
+ </div>
+ </div>
+
+ <div class="setting-row">
+ <div class="setting-label">봇 종류</div>
+ <div class="setting-control">
+ <div class="radio-group">
+ <label class="radio-option">
+ <input type="radio" name="botType" value="깡갤 내 공유봇" checked> 깡갤 내 공유봇
+ </label>
+ <label class="radio-option">
+ <input type="radio" name="botType" value="깡갤 외 공유봇"> 깡갤 외 공유봇
+ </label>
+ <label class="radio-option">
+ <input type="radio" name="botType" value="자작봇"> 자작봇
+ </label>
+ </div>
+ </div>
+ </div>
+
+ <div class="setting-row">
+ <div class="setting-label">사용 모델</div>
+ <div class="setting-control">
+ <input type="text" id="botModel" placeholder="사용 모델을 입력하세요">
+ </div>
+ </div>
+
+ <div class="setting-row">
+ <div class="setting-label">사용 프롬프트</div>
+ <div class="setting-control">
+ <textarea id="botPrompt" placeholder="사용 프롬프트를 입력하세요" style="height: 100px;"></textarea>
+ </div>
+ </div>
+ </div>
+
+ <div class="setting-group">
+ <h4>스타일 설정</h4>
+ <div class="setting-row">
+ <div class="setting-label">배경 색상</div>
+ <div class="setting-control">
+ <input type="color" id="botBgColor" value="#F8F9FA">
+ <span id="botBgColorValue" class="value-display">#F8F9FA</span>
+ </div>
+ </div>
+
+ <div class="setting-row">
+ <div class="setting-label">텍스트 색상</div>
+ <div class="setting-control">
+ <input type="color" id="botTextColor" value="#212529">
+ <span id="botTextColorValue" class="value-display">#212529</span>
+ </div>
+ </div>
+
+ <div class="setting-row">
+ <div class="setting-label">강조 색상</div>
+ <div class="setting-control">
+ <input type="color" id="botAccentColor" value="#4361EE">
+ <span id="botAccentColorValue" class="value-display">#4361EE</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- 봇 정보 프리셋 -->
+ <div class="setting-group">
+ <h4><i class="fas fa-bookmark"></i> 봇 정보 프리셋</h4>
+ <div class="bot-info-presets" id="botInfoPresets">
+ <!-- 프리셋이 여기에 동적으로 추가됩니다 -->
+ <div class="bot-preset-card" data-preset="simple">
+ <i class="fas fa-robot"></i>
+ <span class="bot-preset-name">심플</span>
+ </div>
+ <div class="bot-preset-card" data-preset="modern">
+ <i class="fas fa-microchip"></i>
+ <span class="bot-preset-name">모던</span>
+ </div>
+ <div class="bot-preset-card" data-preset="colorful">
+ <i class="fas fa-palette"></i>
+ <span class="bot-preset-name">컬러풀</span>
+ </div>
+ <div class="bot-preset-card" data-preset="dark">
+ <i class="fas fa-moon"></i>
+ <span class="bot-preset-name">다크</span>
+ </div>
+ <div class="bot-preset-card" data-preset="minimal">
+ <i class="fas fa-minus"></i>
+ <span class="bot-preset-name">미니멀</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- 봇 정보 미리보기 -->
+ <h4>미리보기</h4>
+ <div class="bot-info-preview" id="botInfoPreview">
+ <div class="bot-info-content">
+ <div class="bot-info-header">
+ <div class="bot-info-name">봇 이름</div>
+ <div class="bot-info-type">깡갤 내 공유봇</div>
+ </div>
+ <div class="bot-info-details">
+ <div class="bot-info-item">
+ <div class="bot-info-label">사용 모델</div>
+ <div class="bot-info-value">모델명</div>
+ </div>
+ <div class="bot-info-item">
+ <div class="bot-info-label">사용 프롬프트</div>
+ <div class="bot-info-value">프롬프트 내용</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="flex justify-center mt-20">
+ <button id="generateBtnBotInfo" class="btn btn-primary">
+ <i class="fas fa-wand-magic-sparkles"></i> 이미지 생성
+ </button>
+ </div>
+ </div>
+ </div>
+
  <!-- 프리셋 관리 탭 -->
  <div class="tab-content" id="preset-tab">
  <div class="card">
@@ -1157,6 +1507,9 @@
  let isDarkMode = false;
  let currentPresetId = null;
  let presets = [];
+ let botInfoPresets = [];
+ let currentBotPresetId = null;
+ let isBotInfoEnabled = true;
 
  // 페이지 로드 후 초기화
  document.addEventListener('DOMContentLoaded', function() {
@@ -1165,7 +1518,176 @@
  checkPreferredTheme();
  updateSettingValues();
  loadPresets();
+ initBotInfoPresets();
+ updateBotInfoPreview();
  });
+
+ // 봇 정보 프리셋 초기화
+ function initBotInfoPresets() {
+ // 봇 정보 스위치 상태 확인
+ isBotInfoEnabled = document.getElementById('botInfoToggle').checked;
+
+ // 봇 정보 프리셋 클릭 이벤트 설정
+ const presetCards = document.querySelectorAll('.bot-preset-card');
+ presetCards.forEach(card => {
+ card.addEventListener('click', function() {
+ const presetId = this.dataset.preset;
+ loadBotInfoPreset(presetId);
+
+ // 활성화 상태 업데이트
+ presetCards.forEach(c => c.classList.remove('active'));
+ this.classList.add('active');
+ currentBotPresetId = presetId;
+ });
+ });
+
+ // 봇 정보 입력 필드 변경 이벤트
+ document.getElementById('botName').addEventListener('input', updateBotInfoPreview);
+ document.getElementById('botModel').addEventListener('input', updateBotInfoPreview);
+ document.getElementById('botPrompt').addEventListener('input', updateBotInfoPreview);
+
+ // 봇 종류 라디오 버튼 변경 이벤트
+ document.querySelectorAll('input[name="botType"]').forEach(radio => {
+ radio.addEventListener('change', updateBotInfoPreview);
+ });
+
+ // 색상 입력 변경 이벤트
+ document.getElementById('botBgColor').addEventListener('input', function() {
+ document.getElementById('botBgColorValue').textContent = this.value;
+ updateBotInfoPreview();
+ });
+
+ document.getElementById('botTextColor').addEventListener('input', function() {
+ document.getElementById('botTextColorValue').textContent = this.value;
+ updateBotInfoPreview();
+ });
+
+ document.getElementById('botAccentColor').addEventListener('input', function() {
+ document.getElementById('botAccentColorValue').textContent = this.value;
+ updateBotInfoPreview();
+ });
+
+ // 봇 정보 토글 이벤트
+ document.getElementById('botInfoToggle').addEventListener('change', function() {
+ isBotInfoEnabled = this.checked;
+ });
+
+ // 기본 프리셋 로드
+ loadBotInfoPreset('simple');
+ document.querySelector('.bot-preset-card[data-preset="simple"]').classList.add('active');
+ currentBotPresetId = 'simple';
+ }
+
+ // 봇 정보 프리셋 로드
+ function loadBotInfoPreset(presetId) {
+ let bgColor, textColor, accentColor;
+
+ switch(presetId) {
+ case 'simple':
+ bgColor = '#F8F9FA';
+ textColor = '#212529';
+ accentColor = '#4361EE';
+ break;
+ case 'modern':
+ bgColor = '#FFFFFF';
+ textColor = '#333333';
+ accentColor = '#00BFA6';
+ break;
+ case 'colorful':
+ bgColor = '#F0F7FF';
+ textColor = '#333333';
+ accentColor = '#FF6B6B';
+ break;
+ case 'dark':
+ bgColor = '#212529';
+ textColor = '#F8F9FA';
+ accentColor = '#7B68EE';
+ break;
+ case 'minimal':
+ bgColor = '#FFFFFF';
+ textColor = '#000000';
+ accentColor = '#6C757D';
+ break;
+ default:
+ bgColor = '#F8F9FA';
+ textColor = '#212529';
+ accentColor = '#4361EE';
+ }
+
+ // 색상 설정 업데이트
+ document.getElementById('botBgColor').value = bgColor;
+ document.getElementById('botBgColorValue').textContent = bgColor;
+
+ document.getElementById('botTextColor').value = textColor;
+ document.getElementById('botTextColorValue').textContent = textColor;
+
+ document.getElementById('botAccentColor').value = accentColor;
+ document.getElementById('botAccentColorValue').textContent = accentColor;
+
+ // 미리보기 업데이트
+ updateBotInfoPreview();
+ }
+
+ // 봇 정보 미리보기 업데이트
+ function updateBotInfoPreview() {
+ const preview = document.getElementById('botInfoPreview');
+ const content = preview.querySelector('.bot-info-content');
+ const botName = document.getElementById('botName').value</summary>
+ <div>| '봇 이름';
+ const botModel = document.getElementById('botModel').value || '모델명';
+ const botPrompt = document.getElementById('botPrompt').value || '프롬프트 내용';
+ const botType = document.querySelector('input[name="botType"]:checked').value;
+ const bgColor = document.getElementById('botBgColor').value;
+ const textColor = document.getElementById('botTextColor').value;
+ const accentColor = document.getElementById('botAccentColor').value;</div>
+</details>
+
+</body>
+</html> 배경 및 텍스트 색상 적용
+ preview.style.backgroundColor = bgColor;
+ content.style.color = textColor;
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>봇 이름 및 종류 업데이트
+ const nameElement = preview.querySelector('.bot-info-name');
+ const typeElement = preview.querySelector('.bot-info-type');
+ nameElement.textContent = botName;
+ nameElement.style.color = textColor;
+
+ typeElement.textContent = botType;
+ typeElement.style.backgroundColor = accentColor + '20'; // 20% 투명도 추가
+ typeElement.style.color = accentColor;
+
+ // 모델 및 프롬프트 업데이트
+ const modelValue = preview.querySelector('.bot-info-item:nth-child(1) .bot-info-value');
+ const promptValue = preview.querySelector('.bot-info-item:nth-child(2) .bot-info-value');
+ modelValue.textContent = botModel;
+ promptValue.textContent = botPrompt;
+
+ // 레이블 색상 업데이트
+ const labels = preview.querySelectorAll('.bot-info-label');
+ labels.forEach(label => {
+ label.style.color = textColor + '80'; // 50% 투명도 추가
+ });
+ }
 
  // 설정값 업데이트 표시
  function updateSettingValues() {
@@ -1335,6 +1857,7 @@
  // 이미지 생성 버튼 이벤트
  document.getElementById('generateBtn').addEventListener('click', generateImages);
  document.getElementById('generateBtnStyle').addEventListener('click', generateImages);
+ document.getElementById('generateBtnBotInfo').addEventListener('click', generateImages);
 
  // 다크모드 토글 이벤트
  document.getElementById('themeSwitch').addEventListener('click', toggleDarkMode);
@@ -1751,6 +2274,27 @@
  totalSlides = textChunks.length;
  currentSlide = 0;
 
+ // 봇 정보 이미지 생성 (봇 정보가 활성화된 경우에만)
+ if (isBotInfoEnabled) {
+ const botInfoContainer = document.createElement('div');
+ botInfoContainer.className = 'output-container';
+
+ const botInfoImage = generateBotInfoImage();
+ botInfoContainer.appendChild(botInfoImage);
+
+ // 다운로드 버튼 추가
+ const downloadBtn = document.createElement('button');
+ downloadBtn.className = 'btn btn-primary';
+ downloadBtn.style.marginTop = '15px';
+ downloadBtn.innerHTML = '<i class="fas fa-download"></i> 봇 정보 다운로드';
+ downloadBtn.onclick = function() {
+ downloadImage(botInfoImage, 'bot-info');
+ };
+
+ botInfoContainer.appendChild(downloadBtn);
+ sliderContainer.appendChild(botInfoContainer);
+ }
+
  // 각 텍스트 조각에 대해 이미지 생성
  textChunks.forEach((chunk, index) => {
  const outputContainer = document.createElement('div');
@@ -1810,7 +2354,10 @@
  const dotsContainer = document.createElement('div');
  dotsContainer.className = 'slider-dots';
 
- for (let i = 0; i < totalSlides; i++) {
+ // 봇 정보가 활성화된 경우 슬라이드 수 조정
+ const totalDots = isBotInfoEnabled ? totalSlides + 1 : totalSlides;
+
+ for (let i = 0; i < totalDots; i++) {
  const dot = document.createElement('div');
  dot.className = i === 0 ? 'slider-dot active' : 'slider-dot';
  dot.onclick = function() {
@@ -1833,6 +2380,94 @@
  });
 
  showToast('이미지가 생성되었습니다.', 'success');
+ }
+
+ // 봇 정보 이미지 생성 함수
+ function generateBotInfoImage() {
+ const botName = document.getElementById('botName').value</summary>
+ <div>| '봇 이름';
+ const botType = document.querySelector('input[name="botType"]:checked').value;
+ const botModel = document.getElementById('botModel').value || '모델명';
+ const botPrompt = document.getElementById('botPrompt').value || '프롬프트 내용';
+ const bgColor = document.getElementById('botBgColor').value;
+ const textColor = document.getElementById('botTextColor').value;
+ const accentColor = document.getElementById('botAccentColor').value;</div>
+</details>
+
+</body>
+</html> 봇 정보 이미지 컨테이너 생성
+ const botInfoElement = document.createElement('div');
+ botInfoElement.className = 'bot-info-preview';
+ botInfoElement.style.backgroundColor = bgColor;
+ botInfoElement.style.color = textColor;
+
+ // 봇 정보 내용 생성
+ const contentElement = document.createElement('div');
+ contentElement.className = 'bot-info-content';
+
+ // 헤더 (봇 이름 및 종류)
+ const headerElement = document.createElement('div');
+ headerElement.className = 'bot-info-header';
+
+ const nameElement = document.createElement('div');
+ nameElement.className = 'bot-info-name';
+ nameElement.textContent = botName;
+ nameElement.style.color = textColor;
+
+ const typeElement = document.createElement('div');
+ typeElement.className = 'bot-info-type';
+ typeElement.textContent = botType;
+ typeElement.style.backgroundColor = accentColor + '20'; // 20% 투명도
+ typeElement.style.color = accentColor;
+
+ headerElement.appendChild(nameElement);
+ headerElement.appendChild(typeElement);
+
+ // 상세 정보 (모델 및 프롬프트)
+ const detailsElement = document.createElement('div');
+ detailsElement.className = 'bot-info-details';
+
+ // 모델 정보
+ const modelItem = document.createElement('div');
+ modelItem.className = 'bot-info-item';
+
+ const modelLabel = document.createElement('div');
+ modelLabel.className = 'bot-info-label';
+ modelLabel.textContent = '사용 모델';
+ modelLabel.style.color = textColor + '80'; // 50% 투명도
+
+ const modelValue = document.createElement('div');
+ modelValue.className = 'bot-info-value';
+ modelValue.textContent = botModel;
+
+ modelItem.appendChild(modelLabel);
+ modelItem.appendChild(modelValue);
+
+ // 프롬프트 정보
+ const promptItem = document.createElement('div');
+ promptItem.className = 'bot-info-item';
+
+ const promptLabel = document.createElement('div');
+ promptLabel.className = 'bot-info-label';
+ promptLabel.textContent = '사용 프롬프트';
+ promptLabel.style.color = textColor + '80'; // 50% 투명도
+
+ const promptValue = document.createElement('div');
+ promptValue.className = 'bot-info-value';
+ promptValue.textContent = botPrompt;
+
+ promptItem.appendChild(promptLabel);
+ promptItem.appendChild(promptValue);
+
+ // 요소 조합
+ detailsElement.appendChild(modelItem);
+ detailsElement.appendChild(promptItem);
+
+ contentElement.appendChild(headerElement);
+ contentElement.appendChild(detailsElement);
+ botInfoElement.appendChild(contentElement);
+
+ return botInfoElement;
  }
 
  // 텍스트 분할 함수
@@ -1895,7 +2530,11 @@
  allowTaint: true // 외부 이미지 허용
  }).then(canvas => {
  const link = document.createElement('a');
+ if (pageNum === 'bot-info') {
+ link.download = `bot-info.png`;
+ } else {
  link.download = `text-image-${String(pageNum).padStart(2, '0')}.png`;
+ }
  link.href = canvas.toDataURL('image/png');
  link.click();
  });
