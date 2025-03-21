@@ -2458,7 +2458,7 @@
 
  // 봇 정보 이미지 생성 함수
  function createBotInfoImage() {
- const botName = document.getElementById('botName').value</summary>
+ const botName = document.getElementById('botName').value
  <div>| '봇 이름 미지정';
  let botType = '';
  document.querySelectorAll('input[name="botType"]').forEach(radio => {
@@ -2470,10 +2470,8 @@
  const botPrompt = document.getElementById('botPrompt').value || '프롬프트 정보 미지정';
  const botInfoBgColor = document.getElementById('botInfoBgColor').value;
  const botInfoTextColor = document.getElementById('botInfoTextColor').value;</div>
-</details>
 
-</body>
-</html> 봇 정보 이미지 컨테이너 생성
+// 봇 정보 이미지 컨테이너 생성
  const botInfoElement = document.createElement('div');
  botInfoElement.className = 'bot-info-preview';
  botInfoElement.style.backgroundColor = botInfoBgColor;
