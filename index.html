@@ -51,6 +51,24 @@
  font-weight: normal;
  font-style: normal;
  }
+ @font-face {
+    font-family: '온글잎 콘콘체';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+ @font-face {
+    font-family: '고딩체';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Gothic_Goding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: '박다현체';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+ }
 
  :root {
  --bg-color: #f8f9fa;
@@ -995,13 +1013,16 @@
  <option value="수트">수트</option>
  <option value="리디바탕">리디바탕</option>
  <option value="조선굴림체">조선굴림체</option>
+ <option value="온글잎 콘콘체">온글잎 콘콘체</option>
+ <option value="고딩체">고딩체</option>
+  <option value="박다현체">박다현체</option>
  </select>
  </div>
  </div>
  <div class="setting-row">
  <div class="setting-label">글자 크기</div>
  <div class="setting-control">
- <input type="range" id="fontSize" min="12" max="24" value="16">
+ <input type="range" id="fontSize" min="10" max="24" value="16">
  <span id="fontSizeValue" class="value-display">16px</span>
  </div>
  </div>
@@ -1064,7 +1085,7 @@
  <div class="setting-row">
  <div class="setting-label">박스 너비 (%)</div>
  <div class="setting-control">
- <input type="range" id="boxWidth" min="50" max="95" value="80">
+ <input type="range" id="boxWidth" min="50" max="100" value="100">
  <span id="boxWidthValue" class="value-display">80%</span>
  </div>
  </div>
