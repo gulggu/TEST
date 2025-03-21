@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>깡갤 글꾸 사이트</title>
+ <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+ <style>
+
+ /* ============== 폰트 설정 ============== */
+ @font-face {
+ font-family: '부크크명조';
+ src: url('https:<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+ font-weight: 700;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: '조선일보명조';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: '조선가는고딕';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: '경기천년바탕';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Batang_Regular.woff') format('woff');
+ font-weight: 400;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: '수트';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+ font-weight: normal;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: '리디바탕';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: '조선굴림체';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+ }
+
+ /* ============== 테마 색상 변수 ============== */
+ :root {
+ --bg-color: #f8f9fa;
+ --text-color: #333;
+ --card-bg: white;
+ --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+ --border-color: #e9ecef;
+ --primary-color: #4361ee;
+ --primary-hover: #3a56d4;
+ --secondary-color: #e9ecef;
+ --secondary-hover: #dee2e6;
+ --tab-color: #e9ecef;
+ --accent-color: #4cc9f0;
+ --success-color: #4ade80;
+ --danger-color: #f87171;
+ --preset-button: #f1f3f5;
+ --preset-button-active: #4361ee;
+ --preset-button-text: #333;
+ --preset-button-text-active: white;
+ }
+
+ [data-theme="dark"] {
+ --bg-color: #121212;
+ --text-color: #e0e0e0;
+ --card-bg: #1e1e1e;
+ --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
+ --border-color: #333;
+ --primary-color: #4361ee;
+ --primary-hover: #3a56d4;
+ --secondary-color: #333;
+ --secondary-hover: #444;
+ --tab-color: #333;
+ --accent-color: #4cc9f0;
+ --success-color: #4ade80;
+ --danger-color: #f87171;
+ --preset-button: #333;
+ --preset-button-active: #4361ee;
+ --preset-button-text: #e0e0e0;
+ --preset-button-text-active: white;
+ }
+
+ /* ============== 기본 스타일 ============== */
+ body {
+ font-family: 'Noto Sans KR', sans-serif;
+ text-align: center;
+ background-color: var(--bg-color);
+ color: var(--text-color);
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 20px;
+ transition: background-color 0.3s, color 0.3s;
+ line-height: 1.6;
+ }
+
+ h1, h2, h3, h4 {
+ color: var(--text-color);
+ margin-top: 0;
+ font-weight: 600;
+ }
+
+ h1 {
+ font-size: 2rem;
+ margin-bottom: 1.5rem;
+ }
+
+ h2 {
+ font-size: 1.5rem;
+ margin-bottom: 1rem;
+ }
+
+ h3 {
+ font-size: 1.25rem;
+ margin-bottom: 0.75rem;
+ }
+
+ h4 {
+ font-size: 1rem;
+ margin-bottom: 0.5rem;
+ }
+
+ /* ============== 레이아웃 컨테이너 ============== */
+ .container {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ }
+
+ .app-container {
+ background-color: var(--card-bg);
+ border-radius: 12px;
+ box-shadow: var(--card-shadow);
+ overflow: hidden;
+ margin-bottom: 20px;
+ }
+
+ .controls {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 20px;
+ justify-content: center;
+ }
+
+ .control-group {
+ background: var(--card-bg);
+ padding: 20px;
+ border-radius: 12px;
+ box-shadow: var(--card-shadow);
+ width: 100%;
+ max-width: 450px;
+ }
+
+ /* ============== 탭 네비게이션 ============== */
+ .main-tabs {
+ display: flex;
+ background-color: var(--secondary-color);
+ border-radius: 12px 12px 0 0;
+ overflow: hidden;
+ }
+
+ .main-tab {
+ flex: 1;
+ padding: 15px 20px;
+ background-color: transparent;
+ border: none;
+ cursor: pointer;
+ font-size: 1rem;
+ font-weight: 600;
+ color: var(--text-color);
+ transition: background-color 0.3s, color 0.3s;
+ }
+
+ .main-tab:hover {
+ background-color: var(--secondary-hover);
+ }
+
+ .main-tab.active {
+ background-color: var(--primary-color);
+ color: white;
+ }
+
+ .tab-content {
+ display: none;
+ padding: 20px;
+ }
+
+ .tab-content.active {
+ display: block;
+ }
+
+ /* ============== 색상 선택기 ============== */
+ .color-picker-container {
+ margin: 0 auto;
+ width: 200px;
+ }
+
+ /* ============== 입력 요소 ============== */
+ textarea {
+ width: 100%;
+ height: 200px;
+ padding: 15px;
+ border: 1px solid var(--border-color);
+ border-radius: 8px;
+ font-family: inherit;
+ font-size: 16px;
+ resize: vertical;
+ background-color: var(--card-bg);
+ color: var(--text-color);
+ overflow: auto;
+ box-sizing: border-box;
+ transition: border-color 0.3s;
+ }
+
+ textarea:focus {
+ outline: none;
+ border-color: var(--primary-color);
+ box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+ }
+
+ select, input[type="color"], input[type="number"], input[type="text"] {
+ background-color: var(--card-bg);
+ color: var(--text-color);
+ border: 1px solid var(--border-color);
+ padding: 10px;
+ border-radius: 8px;
+ font-size: 14px;
+ transition: border-color 0.3s, box-shadow 0.3s;
+ }
+
+ select:focus, input[type="color"]:focus, input[type="number"]:focus, input[type="text"]:focus {
+ outline: none;
+ border-color: var(--primary-color);
+ box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+ }
+
+ input[type="range"] {
+ width: 100%;
+ height: 6px;
+ -webkit-appearance: none;
+ appearance: none;
+ background: var(--secondary-color);
+ border-radius: 3px;
+ outline: none;
+ }
+
+ input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none;
+ appearance: none;
+ width: 18px;
+ height: 18px;
+ border-radius: 50%;
+ background: var(--primary-color);
+ cursor: pointer;
+ }
+
+ input[type="range"]::-moz-range-thumb {
+ width: 18px;
+ height: 18px;
+ border-radius: 50%;
+ background: var(--primary-color);
+ cursor: pointer;
+ border: none;
+ }
+
+ .file-input {
+ display: none;
+ }
+
+ .file-label {
+ display: inline-block;
+ padding: 10px 15px;
+ background-color: var(--secondary-color);
+ color: var(--text-color);
+ border-radius: 8px;
+ cursor: pointer;
+ transition: background-color 0.3s;
+ }
+
+ .file-label:hover {
+ background-color: var(--secondary-hover);
+ }
+
+ /* ============== 이미지 옵션 ============== */
+ .image-options {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ }
+
+ #imagePreview {
+ width: 100%;
+ max-height: 150px;
+ object-fit: cover;
+ margin-top: 10px;
+ display: none;
+ border-radius: 8px;
+ }
+
+ /* ============== 버튼 스타일 ============== */
+ .button {
+ background-color: var(--primary-color);
+ color: white;
+ border: none;
+ padding: 12px 20px;
+ border-radius: 8px;
+ cursor: pointer;
+ font-size: 16px;
+ font-weight: 600;
+ transition: background-color 0.3s, transform 0.1s;
+ }
+
+ .button:hover {
+ background-color: var(--primary-hover);
+ }
+
+ .button:active {
+ transform: translateY(1px);
+ }
+
+ .button-secondary {
+ background-color: var(--secondary-color);
+ color: var(--text-color);
+ }
+
+ .button-secondary:hover {
+ background-color: var(--secondary-hover);
+ }
+
+ .button-success {
+ background-color: var(--success-color);
+ }
+
+ .button-danger {
+ background-color: var(--danger-color);
+ }
+
+ /* ============== 탭 버튼 ============== */
+ .tab-buttons {
+ display: flex;
+ gap: 5px;
+ margin-bottom: 15px;
+ }
+
+ .tab-button {
+ padding: 10px 15px;
+ border: none;
+ background-color: var(--tab-color);
+ cursor: pointer;
+ border-radius: 8px;
+ color: var(--text-color);
+ font-weight: 500;
+ transition: background-color 0.3s, color 0.3s;
+ }
+
+ .tab-button:hover {
+ background-color: var(--secondary-hover);
+ }
+
+ .tab-button.active {
+ background-color: var(--primary-color);
+ color: white;
+ }
+
+ /* ============== 프리셋 버튼 ============== */
+ .preset-buttons {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ margin: 15px 0;
+ }
+
+ .preset-button {
+ flex: 1 0 calc(33.333% - 10px);
+ min-width: 80px;
+ padding: 12px 10px;
+ border: 2px solid var(--preset-button);
+ background-color: var(--preset-button);
+ color: var(--preset-button-text);
+ border-radius: 8px;
+ cursor: pointer;
+ font-weight: 600;
+ transition: all 0.3s;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ }
+
+ .preset-button:hover {
+ border-color: var(--primary-color);
+ }
+
+ .preset-button.active {
+ background-color: var(--preset-button-active);
+ color: var(--preset-button-text-active);
+ border-color: var(--preset-button-active);
+ }
+
+ .preset-button-number {
+ font-size: 1.2rem;
+ font-weight: 700;
+ margin-bottom: 5px;
+ }
+
+ .preset-button-name {
+ font-size: 0.8rem;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ max-width: 100%;
+ }
+
+ /* ============== 테마 스위치 ============== */
+ .theme-switch {
+ position: fixed;
+ top: 20px;
+ right: 20px;
+ width: 44px;
+ height: 44px;
+ border-radius: 50%;
+ background-color: var(--card-bg);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ cursor: pointer;
+ box-shadow: var(--card-shadow);
+ z-index: 1000;
+ transition: background-color 0.3s, transform 0.1s;
+ }
+
+ .theme-switch:hover {
+ transform: scale(1.05);
+ }
+
+ .theme-switch:active {
+ transform: scale(0.95);
+ }
+
+ .theme-icon {
+ font-size: 20px;
+ color: var(--text-color);
+ }
+
+ /* ============== 설정 그룹 ============== */
+ .setting-group {
+ margin-bottom: 20px;
+ border-bottom: 1px solid var(--border-color);
+ padding-bottom: 20px;
+ }
+
+ .setting-group:last-child {
+ border-bottom: none;
+ margin-bottom: 0;
+ }
+
+ .setting-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+ }
+
+ .setting-label {
+ flex: 1;
+ text-align: left;
+ font-weight: 500;
+ }
+
+ .setting-control {
+ flex: 1;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ }
+
+ .setting-value {
+ min-width: 50px;
+ text-align: right;
+ font-size: 14px;
+ color: var(--primary-color);
+ }
+
+ /* ============== 미리보기 컨테이너 ============== */
+ .preview-container {
+ position: relative;
+ width: 100%;
+ max-width: 600px;
+ margin: 0 auto;
+ overflow: hidden;
+ }
+
+ .slider-container {
+ display: flex;
+ overflow-x: hidden;
+ scroll-behavior: smooth;
+ width: 100%;
+ position: relative;
+ }
+
+ .slider-controls {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ z-index: 10;
+ }
+
+ .slider-arrow {
+ background-color: rgba(0,0,0,0.3);
+ color: white;
+ border: none;
+ border-radius: 50%;
+ width: 40px;
+ height: 40px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ cursor: pointer;
+ font-size: 18px;
+ transition: background-color 0.3s, transform 0.1s;
+ }
+
+ .slider-arrow:hover {
+ background-color: rgba(0,0,0,0.5);
+ }
+
+ .slider-arrow:active {
+ transform: translateY(-50%) scale(0.95);
+ }
+
+ .slider-dots {
+ display: flex;
+ justify-content: center;
+ gap: 8px;
+ margin-top: 15px;
+ }
+
+ .slider-dot {
+ width: 10px;
+ height: 10px;
+ background-color: var(--border-color);
+ border-radius: 50%;
+ cursor: pointer;
+ transition: background-color 0.3s, transform 0.1s;
+ }
+
+ .slider-dot:hover {
+ background-color: var(--primary-hover);
+ }
+
+ .slider-dot.active {
+ background-color: var(--primary-color);
+ }
+
+ .output-container {
+ flex: 0 0 100%;
+ scroll-snap-align: start;
+ position: relative;
+ }
+
+ .image-preview {
+ width: 100%;
+ aspect-ratio: 9/16;
+ position: relative;
+ overflow: hidden;
+ box-shadow: var(--card-shadow);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 12px;
+ }
+
+ .text-box {
+ background-color: white;
+ width: 80%;
+ height: auto;
+ margin: 0 auto;
+ padding: 30px 40px;
+ box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+ position: relative;
+ z-index: 2;
+ font-family: '부크크명조', serif;
+ }
+
+ .preview-text {
+ font-size: 16px;
+ line-height: 1.8;
+ text-align: left;
+ word-break: keep-all;
+ overflow-wrap: break-word;
+ }
+
+ .header-image {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ z-index: 1;
+ }
+
+ /* ============== 프리셋 관리 ============== */
+ .preset-manager {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ }
+
+ .preset-item {
+ background-color: var(--card-bg);
+ border: 1px solid var(--border-color);
+ border-radius: 8px;
+ padding: 15px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+
+ .preset-info {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ }
+
+ .preset-name {
+ font-weight: 600;
+ margin-bottom: 5px;
+ }
+
+ .preset-date {
+ font-size: 12px;
+ color: #888;
+ }
+
+ .preset-actions {
+ display: flex;
+ gap: 10px;
+ }
+
+ .preset-action-btn {
+ background: none;
+ border: none;
+ cursor: pointer;
+ font-size: 16px;
+ color: var(--text-color);
+ transition: color 0.3s;
+ }
+
+ .preset-action-btn:hover {
+ color: var(--primary-color);
+ }
+
+ .preset-action-btn.delete:hover {
+ color: var(--danger-color);
+ }
+
+ /* ============== 반응형 스타일 ============== */
+ @media (max-width: 768px) {
+ .control-group {
+ max-width: 100%;
+ }
+
+ .text-box {
+ width: 85%;
+ padding: 20px 25px;
+ }
+
+ .preview-text {
+ font-size: 14px;
+ }
+
+ .setting-row {
+ flex-direction: column;
+ align-items: flex-start;
+ }
+
+ .setting-control {
+ width: 100%;
+ margin-top: 8px;
+ }
+
+ .preset-button {
+ flex: 0 0 calc(50% - 10px);
+ }
+ }
+
+ @media (max-width: 480px) {
+ .main-tab {
+ padding: 12px 10px;
+ font-size: 0.9rem;
+ }
+
+ .tab-content {
+ padding: 15px;
+ }
+
+ .preset-button {
+ flex: 0 0 calc(50% - 10px);
+ }
+ }
+
+</style>
+</head>
+<body>
+ <div class="theme-switch" id="themeSwitch">
+ <span class="theme-icon" id="themeIcon">
+ <i class="fas fa-moon"></i>
+ </span>
+ </div>
+
+ <h1>텍스트 → 이미지 변환기</h1>
+
+ <div class="container">
+ <div class="app-container">
+ <!-- 메인 탭 네비게이션 -->
+ <div class="main-tabs">
+ <button class="main-tab active" data-tab="tab-input">텍스트 & 배경</button>
+ <button class="main-tab" data-tab="tab-style">스타일 설정</button>
+ <button class="main-tab" data-tab="tab-presets">프리셋 관리</button>
+ </div>
+
+ <!-- 탭 1: 텍스트 입력 및 배경 설정 -->
+ <div id="tab-input" class="tab-content active">
+ <div class="control-group">
+ <h3>텍스트 입력</h3>
+ <textarea id="userText" placeholder="이미지로 변환할 텍스트를 입력하세요. **볼드체**, *이탤릭체*, ~~취소선~~ 등의 마크다운 문법을 사용할 수 있습니다."></textarea>
+ <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+ <div>
+ <label for="pageLength">페이지당 글자 수 (대략): </label>
+ <input type="number" id="pageLength" value="300" min="50" max="1000">
+ </div>
+ </div>
+
+ <!-- 프리셋 버튼 -->
+ <h4>프리셋 불러오기</h4>
+ <div class="preset-buttons" id="presetButtonsContainer">
+ <!-- 여기에 프리셋 버튼이 동적으로 생성됩니다 -->
+ </div>
+ </div>
+
+ <div class="control-group">
+ <h3>배경 설정</h3>
+ <div class="tab-buttons">
+ <button id="colorTab" class="tab-button active">단색 배경</button>
+ <button id="imageTab" class="tab-button">이미지 배경</button>
+ </div>
+
+ <div class="bg-settings-container">
+ <!-- 단색 배경 설정 -->
+ <div id="colorBgOptions">
+ <div class="color-picker-container">
+ <div id="colorPicker"></div>
+ </div>
+ <div style="margin-top: 10px;">
+ <input type="text" id="hexColor" value="#FFDD00" style="width: 80px;">
+ </div>
+ </div>
+
+ <!-- 이미지 배경 설정 -->
+ <div id="imageBgOptions" style="display:none;">
+ <label for="headerImage" class="file-label">이미지 파일 선택</label>
+ <input type="file" id="headerImage" class="file-input" accept="image/*">
+ <img id="imagePreview" src="#" alt="이미지 미리보기">
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 탭 2: 텍스트 스타일 설정 -->
+ <div id="tab-style" class="tab-content">
+ <div class="control-group" style="max-width: 100%;">
+ <h3>텍스트 스타일 설정</h3>
+
+ <!-- 폰트 설정 -->
+ <div class="setting-group">
+ <h4>폰트 설정</h4>
+ <div class="setting-row">
+ <div class="setting-label">글꼴</div>
+ <div class="setting-control">
+ <select id="fontSelect">
+ <option value="부크크명조">부크크명조</option>
+ <option value="조선일보명조">조선일보명조</option>
+ <option value="조선가는고딕">조선가는고딕</option>
+ <option value="경기천년바탕">경기천년바탕</option>
+ <option value="수트">수트</option>
+ <option value="리디바탕">리디바탕</option>
+ <option value="조선굴림체">조선굴림체</option>
+ <option value="Noto Sans KR">노토 산스</option>
+ </select>
+ </div>
+ </div>
+ <div class="setting-row">
+ <div class="setting-label">글자 크기</div>
+ <div class="setting-control">
+ <input type="range" id="fontSize" min="12" max="24" value="16">
+ <span id="fontSizeValue" class="setting-value">16px</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- 텍스트 스타일 -->
+ <div class="setting-group">
+ <h4>텍스트 스타일</h4>
+ <div class="setting-row">
+ <div class="setting-label">텍스트 색상</div>
+ <div class="setting-control">
+ <input type="color" id="textColor" value="#000000">
+ </div>
+ </div>
+ <div class="setting-row">
+ <div class="setting-label">줄 간격</div>
+ <div class="setting-control">
+ <input type="range" id="lineHeight" min="1.2" max="2.5" step="0.1" value="1.8">
+ <span id="lineHeightValue" class="setting-value">1.8</span>
+ </div>
+ </div>
+ <div class="setting-row">
+ <div class="setting-label">자간</div>
+ <div class="setting-control">
+ <input type="range" id="letterSpacing" min="-0.1" max="0.3" step="0.01" value="0">
+ <span id="letterSpacingValue" class="setting-value">0em</span>
+ </div>
+ </div>
+ <div class="setting-row">
+ <div class="setting-label">텍스트 정렬</div>
+ <div class="setting-control">
+ <select id="textAlign">
+ <option value="left">왼쪽 정렬</option>
+ <option value="center">가운데 정렬</option>
+ <option value="right">오른쪽 정렬</option>
+ <option value="justify">양쪽 정렬</option>
+ </select>
+ </div>
+ </div>
+ </div>
+
+ <!-- 텍스트 박스 설정 -->
+ <div class="setting-group">
+ <h4>텍스트 박스 설정</h4>
+ <div class="setting-row">
+ <div class="setting-label">박스 배경색</div>
+ <div class="setting-control">
+ <input type="color" id="boxBgColor" value="#FFFFFF">
+ </div>
+ </div>
+ <div class="setting-row">
+ <div class="setting-label">박스 투명도</div>
+ <div class="setting-control">
+ <input type="range" id="boxOpacity" min="0" max="1" step="0.1" value="1">
+ <span id="boxOpacityValue" class="setting-value">1</span>
+ </div>
+ </div>
+ <div class="setting-row">
+ <div class="setting-label">박스 너비 (%)</div>
+ <div class="setting-control">
+ <input type="range" id="boxWidth" min="50" max="95" value="80">
+ <span id="boxWidthValue" class="setting-value">80%</span>
+ </div>
+ </div>
+ <div class="setting-row">
+ <div class="setting-label">패딩 (px)</div>
+ <div class="setting-control">
+ <input type="range" id="boxPadding" min="10" max="60" value="30">
+ <span id="boxPaddingValue" class="setting-value">30px</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 탭 3: 프리셋 관리 -->
+ <div id="tab-presets" class="tab-content">
+ <div class="control-group" style="max-width: 100%;">
+ <h3>프리셋 관리</h3>
+ <p>현재 설정을 프리셋으로 저장하거나 기존 프리셋을 관리할 수 있습니다.</p>
+
+ <!-- 새 프리셋 저장 -->
+ <div class="setting-group">
+ <h4>새 프리셋 저장</h4>
+ <div class="setting-row">
+ <div class="setting-label">프리셋 이름</div>
+ <div class="setting-control">
+ <input type="text" id="presetName" placeholder="프리셋 이름 입력">
+ </div>
+ </div>
+ <button id="savePresetBtn" class="button button-success">
+ <i class="fas fa-save"></i> 현재 설정 저장
+ </button>
+ </div>
+
+ <!-- 저장된 프리셋 목록 -->
+ <div class="setting-group">
+ <h4>저장된 프리셋</h4>
+ <div class="preset-manager" id="presetListContainer">
+ <!-- 여기에 프리셋 목록이 동적으로 생성됩니다 -->
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <button id="generateBtn" class="button">
+ <i class="fas fa-magic"></i> 이미지 생성
+ </button>
+
+ <div class="preview-container" id="previewContainer">
+ <!-- 여기에 미리보기 이미지가 슬라이더로 표시됩니다 -->
+ </div>
+ </div>
+
+ <script>
+
+ // =============== 전역 변수 설정 ===============
+ let colorPicker;
+ let selectedBgType = 'color';
+ let headerImageUrl = null;
+ let currentSlide = 0;
+ let totalSlides = 0;
+ let isDarkMode = false;
+ let activePresetId = null;
+
+ // =============== 페이지 로드 초기화 ===============
+ document.addEventListener('DOMContentLoaded', function() {
+ initColorPicker();
+ setupEventListeners();
+ checkPreferredTheme();
+ updateSettingValues();
+ initPresets();
+ });
+
+ // =============== 설정값 표시 업데이트 ===============
+ function updateSettingValues() {
+ // 폰트 크기
+ document.getElementById('fontSize').addEventListener('input', function() {
+ document.getElementById('fontSizeValue').textContent = this.value + 'px';
+ });
+
+ // 줄 간격
+ document.getElementById('lineHeight').addEventListener('input', function() {
+ document.getElementById('lineHeightValue').textContent = this.value;
+ });
+
+ // 자간
+ document.getElementById('letterSpacing').addEventListener('input', function() {
+ document.getElementById('letterSpacingValue').textContent = this.value + 'em';
+ });
+
+ // 박스 투명도
+ document.getElementById('boxOpacity').addEventListener('input', function() {
+ document.getElementById('boxOpacityValue').textContent = this.value;
+ });
+
+ // 박스 너비
+ document.getElementById('boxWidth').addEventListener('input', function() {
+ document.getElementById('boxWidthValue').textContent = this.value + '%';
+ });
+
+ // 패딩
+ document.getElementById('boxPadding').addEventListener('input', function() {
+ document.getElementById('boxPaddingValue').textContent = this.value + 'px';
+ });
+ }
+
+ // =============== 테마 관련 함수 ===============
+ // 사용자 테마 설정 확인
+ function checkPreferredTheme() {
+ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+ toggleDarkMode();
+ }
+ }
+
+ // 다크모드 토글
+ function toggleDarkMode() {
+ isDarkMode = !isDarkMode;
+ document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+
+ const themeIcon = document.getElementById('themeIcon');
+ themeIcon.innerHTML = isDarkMode
+ ? ''
+ : '';
+
+ // 색상 선택기 재초기화
+ if (colorPicker) {
+ const color = colorPicker.color.hexString;
+ initColorPicker(color);
+ }
+ }
+
+ // =============== 색상 선택기 초기화 ===============
+ function initColorPicker(initialColor = "#FFDD00") {
+ const colorPickerElement = document.getElementById('colorPicker');
+ if (colorPickerElement.firstChild) {
+ colorPickerElement.innerHTML = '';
+ }
+
+ colorPicker = new iro.ColorPicker("#colorPicker", {
+ width: 180,
+ color: initialColor,
+ borderWidth: 1,
+ borderColor: isDarkMode ? "#444" : "#ccc",
+ layout: [
+ { component: iro.ui.Wheel }
+ ]
+ });
+
+ // 색상 변경 시 이벤트
+ colorPicker. on('color:change', function(color) {
+ document.getElementById('hexColor').value = color.hexString;
+ });
+
+ // 헥스 입력 변경 시 이벤트
+ document.getElementById('hexColor').addEventListener('input', function() {
+ colorPicker.color.hexString = this.value;
+ });
+ }
+
+ // =============== 이벤트 리스너 설정 ===============
+ function setupEventListeners() {
+ // 메인 탭 전환 이벤트
+ const mainTabs = document.querySelectorAll('.main-tab');
+ const tabContents = document.querySelectorAll('.tab-content');
+
+ mainTabs.forEach(tab => {
+ tab.addEventListener('click', () => {
+ const target = tab.getAttribute('data-tab');
+
+ // 탭 활성화
+ mainTabs.forEach(t => t.classList.remove('active'));
+ tab.classList.add('active');
+
+ // 콘텐츠 활성화
+ tabContents.forEach(content => {
+ content.classList.remove('active');
+ if (content.getAttribute('id') === target) {
+ content.classList.add('active');
+ }
+ });
+ });
+ });
+
+ // 배경 탭 전환 이벤트
+ document.getElementById('colorTab').addEventListener('click', function() {
+ toggleTab('color');
+ });
+
+ document.getElementById('imageTab').addEventListener('click', function() {
+ toggleTab('image');
+ });
+
+ // 이미지 파일 선택 이벤트
+ document.getElementById('headerImage').addEventListener('change', function(e) {
+ if (e.target.files && e.target.files[0]) {
+ const reader = new FileReader();
+
+ reader.onload = function(event) {
+ headerImageUrl = event.target.result;
+ const preview = document.getElementById('imagePreview');
+ preview.src = headerImageUrl;
+ preview.style.display = 'block';
+ };
+
+ reader.readAsDataURL(e.target.files[0]);
+ }
+ });
+
+ // 이미지 생성 버튼 이벤트
+ document.getElementById('generateBtn').addEventListener('click', generateImages);
+
+ // 다크모드 토글 이벤트
+ document.getElementById('themeSwitch').addEventListener('click', toggleDarkMode);
+
+ // 프리셋 저장 버튼 이벤트
+ document.getElementById('savePresetBtn').addEventListener('click', saveCurrentPreset);
+ }
+
+ // =============== 탭 전환 함수 ===============
+ function toggleTab(tabType) {
+ selectedBgType = tabType;
+
+ if (tabType === 'color') {
+ document.getElementById('colorTab').classList.add('active');
+ document.getElementById('imageTab').classList.remove('active');
+ document.getElementById('colorBgOptions').style.display = 'block';
+ document.getElementById('imageBgOptions').style.display = 'none';
+ } else {
+ document.getElementById('colorTab').classList.remove('active');
+ document.getElementById('imageTab').classList.add('active');
+ document.getElementById('colorBgOptions').style.display = 'none';
+ document.getElementById('imageBgOptions').style.display = 'block';
+ }
+ }
+
+ // =============== 프리셋 관련 함수 ===============
+ // 프리셋 초기화
+ function initPresets() {
+ loadPresets();
+ renderPresetButtons();
+ renderPresetList();
+ }
+
+ // 프리셋 저장
+ function saveCurrentPreset() {
+ const presetName = document.getElementById('presetName').value.trim();
+ if (!presetName) {
+ alert('프리셋 이름을 입력해주세요.');
+ return;
+ }
+
+ const presets = getPresets();
+ const now = new Date();
+
+ const newPreset = {
+ id: Date.now().toString(),
+ name: presetName,
+ date: now.toISOString(),
+ settings: getCurrentSettings()
+ };
+
+ if (presets.length >= 6) {
+ if (!confirm('이미 6개의 프리셋이 저장되어 있습니다. 가장 오래된 프리셋을 삭제하고 저장하시겠습니까?')) {
+ return;
+ }
+ presets.shift(); // 가장 오래된 프리셋 제거
+ }
+
+ presets.push(newPreset);
+ savePresets(presets);
+
+ document.getElementById('presetName').value = '';
+
+ // UI 업데이트
+ renderPresetButtons();
+ renderPresetList();
+
+ alert('프리셋이 저장되었습니다.');
+ }
+
+ // 현재 설정 가져오기
+ function getCurrentSettings() {
+ return {
+ bgType: selectedBgType,
+ bgColor: document.getElementById('hexColor').value,
+ fontFamily: document.getElementById('fontSelect').value,
+ fontSize: document.getElementById('fontSize').value,
+ textColor: document.getElementById('textColor').value,
+ lineHeight: document.getElementById('lineHeight').value,
+ letterSpacing: document.getElementById('letterSpacing').value,
+ textAlign: document.getElementById('textAlign').value,
+ boxBgColor: document.getElementById('boxBgColor').value,
+ boxOpacity: document.getElementById('boxOpacity').value,
+ boxWidth: document.getElementById('boxWidth').value,
+ boxPadding: document.getElementById('boxPadding').value
+ };
+ }
+
+ // 설정 적용하기
+ function applySettings(settings) {
+ // 배경 설정
+ selectedBgType = settings.bgType;
+ toggleTab(settings.bgType);
+
+ if (settings.bgType === 'color') {
+ document.getElementById('hexColor').value = settings.bgColor;
+ colorPicker.color.hexString = settings.bgColor;
+ }
+
+ // 폰트 설정
+ document.getElementById('fontSelect').value = settings.fontFamily;
+ document.getElementById('fontSize').value = settings.fontSize;
+ document.getElementById('fontSizeValue').textContent = settings.fontSize + 'px';
+
+ // 텍스트 스타일
+ document.getElementById('textColor').value = settings.textColor;
+ document.getElementById('lineHeight').value = settings.lineHeight;
+ document.getElementById('lineHeightValue').textContent = settings.lineHeight;
+ document.getElementById('letterSpacing').value = settings.letterSpacing;
+ document.getElementById('letterSpacingValue').textContent = settings.letterSpacing + 'em';
+ document.getElementById('textAlign').value = settings.textAlign;
+
+ // 텍스트 박스
+ document.getElementById('boxBgColor').value = settings.boxBgColor;
+ document.getElementById('boxOpacity').value = settings.boxOpacity;
+ document.getElementById('boxOpacityValue').textContent = settings.boxOpacity;
+ document.getElementById('boxWidth').value = settings.boxWidth;
+ document.getElementById('boxWidthValue').textContent = settings.boxWidth + '%';
+ document.getElementById('boxPadding').value = settings.boxPadding;
+ document.getElementById('boxPaddingValue').textContent = settings.boxPadding + 'px';
+ }
+
+ // 프리셋 불러오기
+ function loadPreset(presetId) {
+ const presets = getPresets();
+ const preset = presets.find(p => p.id === presetId);
+
+ if (preset) {
+ applySettings(preset.settings);
+ activePresetId = preset.id;
+ updateActivePresetButton();
+ }
+ }
+
+ // 프리셋 삭제
+ function deletePreset(presetId) {
+ if (!confirm('정말 이 프리셋을 삭제하시겠습니까?')) return;
+
+ let presets = getPresets();
+ presets = presets.filter(p => p.id !== presetId);
+ savePresets(presets);
+
+ if (activePresetId === presetId) {
+ activePresetId = null;
+ }
+
+ renderPresetButtons();
+ renderPresetList();
+ }
+
+ // 프리셋 이름 변경
+ function renamePreset(presetId) {
+ const presets = getPresets();
+ const preset = presets.find(p => p.id === presetId);
+
+ if (!preset) return;
+
+ const newName = prompt('새 프리셋 이름을 입력하세요:', preset.name);
+ if (!newName</summary>
+ <div>| newName.trim() === '') return;
+
+ preset.name = newName.trim();
+ savePresets(presets);
+
+ renderPresetButtons();
+ renderPresetList();
+ }</div>
+</details>
+
+</body>
+</html> 프리셋 버튼 렌더링
+ function renderPresetButtons() {
+ const container = document.getElementById('presetButtonsContainer');
+ const presets = getPresets();
+
+ let html = '';
+
+ for (let i = 0; i < 6; i++) {
+ if (i < presets.length) {
+ const preset = presets[i];
+ const isActive = preset.id === activePresetId;
+ html += `
+ <button class="preset-button ${isActive ? 'active' : ''}" data-preset-id="${preset.id}">
+ <span class="preset-button-number">${i + 1}</span>
+ <span class="preset-button-name">${preset.name}</span>
+ </button>
+ `;
+ } else {
+ html += `
+ <button class="preset-button" disabled>
+ <span class="preset-button-number">${i + 1}</span>
+ <span class="preset-button-name">비어 있음</span>
+ </button>
+ `;
+ }
+ }
+
+ container.innerHTML = html;
+
+ // 이벤트 리스너 추가
+ document.querySelectorAll('.preset-button:not([disabled])').forEach(button => {
+ button.addEventListener('click', function() {
+ const presetId = this.getAttribute('data-preset-id');
+ loadPreset(presetId);
+ });
+ });
+ }
+
+ // 프리셋 목록 렌더링
+ function renderPresetList() {
+ const container = document.getElementById('presetListContainer');
+ const presets = getPresets();
+
+ if (presets.length === 0) {
+ container.innerHTML = '<p>저장된 프리셋이 없습니다.</p>';
+ return;
+ }
+
+ let html = '';
+
+ presets.forEach(preset => {
+ const date = new Date(preset.date);
+ const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+ html += `
+ <div class="preset-item">
+ <div class="preset-info">
+ <div class="preset-name">${preset.name}</div>
+ <div class="preset-date">${formattedDate}</div>
+ </div>
+ <div class="preset-actions">
+ <button class="preset-action-btn edit" onclick="renamePreset('${preset.id}')">
+ <i class="fas fa-edit"></i>
+ </button>
+ <button class="preset-action-btn delete" onclick="deletePreset('${preset.id}')">
+ <i class="fas fa-trash-alt"></i>
+ </button>
+ </div>
+ </div>
+ `;
+ });
+
+ container.innerHTML = html;
+ }
+
+ // 활성 프리셋 버튼 업데이트
+ function updateActivePresetButton() {
+ document.querySelectorAll('.preset-button').forEach(button => {
+ button.classList.remove('active');
+ if (button.getAttribute('data-preset-id') === activePresetId) {
+ button.classList.add('active');
+ }
+ });
+ }
+
+ // 로컬 스토리지에서 프리셋 가져오기
+ function getPresets() {
+ const presets = localStorage.getItem('textImagePresets');
+ return presets ? JSON.parse(presets) : [];
+ }
+
+ // 로컬 스토리지에 프리셋 저장
+ function savePresets(presets) {
+ localStorage.setItem('textImagePresets', JSON.stringify(presets));
+ }
+
+ // =============== 슬라이더 관련 함수 ===============
+ // 슬라이더 이동 함수
+ function moveSlider(direction) {
+ const sliderContainer = document.querySelector('.slider-container');
+ if (!sliderContainer) return;
+
+ if (direction === 'next' && currentSlide < totalSlides - 1) {
+ currentSlide++;
+ } else if (direction === 'prev' && currentSlide > 0) {
+ currentSlide--;
+ }
+
+ const scrollPosition = currentSlide * sliderContainer.clientWidth;
+ sliderContainer.scrollTo({
+ left: scrollPosition,
+ behavior: 'smooth'
+ });
+
+ updateDots();
+ }
+
+ // 특정 슬라이드로 이동
+ function goToSlide(index) {
+ const sliderContainer = document.querySelector('.slider-container');
+ if (!sliderContainer) return;
+
+ currentSlide = index;
+ const scrollPosition = currentSlide * sliderContainer.clientWidth;
+ sliderContainer.scrollTo({
+ left: scrollPosition,
+ behavior: 'smooth'
+ });
+
+ updateDots();
+ }
+
+ // 슬라이더 닷 업데이트
+ function updateDots() {
+ const dots = document.querySelectorAll('.slider-dot');
+ dots.forEach((dot, index) => {
+ if (index === currentSlide) {
+ dot.classList.add('active');
+ } else {
+ dot.classList.remove('active');
+ }
+ });
+ }
+
+ // =============== 마크다운 변환 함수 ===============
+ // 마크다운 스타일 텍스트 변환
+ function parseMarkdown(text) {
+ // 볼드체 (**텍스트**)
+ text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+ // 이탤릭체 (*텍스트*)
+ text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+ // 취소선 (~~텍스트~~)
+ text = text.replace(/~~(.*?)~~/g, '$1');
+
+ return text;
+ }
+
+ // =============== 이미지 생성 관련 함수 ===============
+ // 이미지 생성 함수
+ function generateImages() {
+ const text = document.getElementById('userText').value;
+ const textColor = document.getElementById('textColor').value;
+ const bgColor = document.getElementById('hexColor').value;
+ const boxBgColor = document.getElementById('boxBgColor').value;
+ const charLimit = parseInt(document.getElementById('pageLength').value);
+ const boxOpacity = document.getElementById('boxOpacity').value;
+ const boxWidth = document.getElementById('boxWidth').value;
+ const boxPadding = document.getElementById('boxPadding').value;
+ const selectedFont = document.getElementById('fontSelect').value;
+ const fontSize = document.getElementById('fontSize').value;
+ const lineHeight = document.getElementById('lineHeight').value;
+ const letterSpacing = document.getElementById('letterSpacing').value;
+ const textAlign = document.getElementById('textAlign').value;
+
+ if (!text) {
+ alert('텍스트를 입력해주세요.');
+ return;
+ }
+
+ // 미리보기 컨테이너 초기화
+ const previewContainer = document.getElementById('previewContainer');
+ previewContainer.innerHTML = '';
+
+ // 슬라이더 컨테이너 생성
+ const sliderContainer = document.createElement('div');
+ sliderContainer.className = 'slider-container';
+
+ // 슬라이더 컨트롤 생성
+ const sliderControls = document.createElement('div');
+ sliderControls.className = 'slider-controls';
+ sliderControls.innerHTML = `
+ <button class="slider-arrow prev" onclick="moveSlider('prev')">
+ <i class="fas fa-chevron-left"></i>
+ </button>
+ <button class="slider-arrow next" onclick="moveSlider('next')">
+ <i class="fas fa-chevron-right"></i>
+ </button>
+ `;
+
+ // 텍스트 분할
+ const textChunks = splitText(text, charLimit);
+ totalSlides = textChunks.length;
+ currentSlide = 0;
+
+ // 각 텍스트 조각에 대해 이미지 생성
+ textChunks.forEach((chunk, index) => {
+ const outputContainer = document.createElement('div');
+ outputContainer.className = 'output-container';
+
+ const imageElement = document.createElement('div');
+ imageElement.className = 'image-preview';
+
+ // 배경 설정
+ if (selectedBgType === 'color') {
+ imageElement.style.backgroundColor = bgColor;
+ } else if (selectedBgType === 'image' && headerImageUrl) {
+ const headerImg = document.createElement('img');
+ headerImg.src = headerImageUrl;
+ headerImg.className = 'header-image';
+ imageElement.appendChild(headerImg);
+ }
+
+ // 텍스트 박스 생성
+ const textBox = document.createElement('div');
+ textBox.className = 'text-box';
+ textBox.style.width = boxWidth + '%';
+ textBox.style.opacity = boxOpacity;
+ textBox.style.padding = `${boxPadding}px`;
+ textBox.style.fontFamily = selectedFont + ', serif';
+ textBox.style.backgroundColor = boxBgColor;
+
+ // 텍스트 영역 생성 (마크다운 변환 적용)
+ const textElement = document.createElement('div');
+ textElement.className = 'preview-text';
+ textElement.innerHTML = parseMarkdown(chunk.replace(/\n/g, '<br>'));
+ textElement.style.color = textColor;
+ textElement.style.fontSize = fontSize + 'px';
+ textElement.style.lineHeight = lineHeight;
+ textElement.style.letterSpacing = letterSpacing + 'em';
+ textElement.style.textAlign = textAlign;
+
+ // 요소 조합
+ textBox.appendChild(textElement);
+ imageElement.appendChild(textBox);
+ outputContainer.appendChild(imageElement);
+
+ // 다운로드 버튼 추가
+ const downloadBtn = document.createElement('button');
+ downloadBtn.className = 'button';
+ downloadBtn.style.marginTop = '15px';
+ downloadBtn.innerHTML = '<i class="fas fa-download"></i> 이미지 다운로드';
+ downloadBtn.onclick = function() {
+ downloadImage(imageElement, index + 1);
+ };
+
+ outputContainer.appendChild(downloadBtn);
+ sliderContainer.appendChild(outputContainer);
+ });
+
+ // 슬라이더 닷 생성
+ const dotsContainer = document.createElement('div');
+ dotsContainer.className = 'slider-dots';
+
+ for (let i = 0; i < totalSlides; i++) {
+ const dot = document.createElement('div');
+ dot.className = i === 0 ? 'slider-dot active' : 'slider-dot';
+ dot.onclick = function() {
+ goToSlide(i);
+ };
+ dotsContainer.appendChild(dot);
+ }
+
+ // 컨테이너에 요소 추가
+ previewContainer.appendChild(sliderControls);
+ previewContainer.appendChild(sliderContainer);
+ previewContainer.appendChild(dotsContainer);
+
+ // 슬라이더 크기 조정 이벤트 추가
+ window.addEventListener('resize', function() {
+ goToSlide(currentSlide);
+ });
+ }
+
+ // 텍스트 분할 함수
+ function splitText(text, charLimit) {
+ const chunks = [];
+ const paragraphs = text.split('\n');
+ let currentChunk = '';
+
+ paragraphs.forEach(paragraph => {
+ if (currentChunk.length + paragraph.length + 1 <= charLimit) {
+ currentChunk += (currentChunk ? '\n' : '') + paragraph;
+ } else {
+ // 현재 문단이 너무 길면 추가 분할
+ if (currentChunk) {
+ chunks.push(currentChunk);
+ currentChunk = '';
+ }
+
+ if (paragraph.length <= charLimit) {
+ currentChunk = paragraph;
+ } else {
+ // 긴 문단 분할
+ let remainingText = paragraph;
+ while (remainingText.length > 0) {
+ let chunkSize = Math.min(charLimit, remainingText.length);
+ // 단어 경계에서 잘리지 않도록 조정
+ if (chunkSize < remainingText.length) {
+ // 마지막 공백 위치 찾기
+ const lastSpacePos = remainingText.substring(0, chunkSize).lastIndexOf(' ');
+ if (lastSpacePos > charLimit / 2) { // 적어도 절반 이상 채웠는지 확인
+ chunkSize = lastSpacePos;
+ }
+ }
+
+ chunks.push(remainingText.substring(0, chunkSize));
+ remainingText = remainingText.substring(chunkSize).trim();
+
+ if (remainingText && remainingText.length <= charLimit) {
+ currentChunk = remainingText;
+ remainingText = '';
+ }
+ }
+ }
+ }
+ });
+
+ if (currentChunk) {
+ chunks.push(currentChunk);
+ }
+
+ return chunks;
+ }
+
+ // 이미지 다운로드 함수
+ function downloadImage(element, pageNum) {
+ html2canvas(element, {
+ scale: 2, // 고해상도
+ backgroundColor: null,
+ useCORS: true, // 외부 이미지 허용
+ allowTaint: true // 외부 이미지 허용
+ }).then(canvas => {
+ const link = document.createElement('a');
+ link.download = `text-image-${String(pageNum).padStart(2, '0')}.png`;
+ link.href = canvas.toDataURL('image/png');
+ link.click();
+ });
+ }
+</script>
+</body>
+</html>
