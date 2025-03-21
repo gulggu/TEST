@@ -3,119 +3,69 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>깡갤 글꾸 사이트</title>
- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+ <title>깡갤 글꾸 생성기</title>
+ <link href="https:<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
  <style>
- /* 폰트 설정 */
- @font-face {
- font-family: '부크크명조';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
- font-weight: 700;
- font-style: normal;
+ details {
+ margin-bottom: 10px;
  }
- @font-face {
- font-family: '조선일보명조';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
- font-weight: normal;
- font-style: normal;
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
  }
- @font-face {
- font-family: '조선가는고딕';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff') format('woff');
- font-weight: normal;
- font-style: normal;
- }
- @font-face {
- font-family: '경기천년바탕';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Batang_Regular.woff') format('woff');
- font-weight: 400;
- font-style: normal;
- }
- @font-face {
- font-family: '수트';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
- font-weight: normal;
- font-style: normal;
- }
- @font-face {
- font-family: '리디바탕';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
- font-weight: normal;
- font-style: normal;
- }
- @font-face {
- font-family: '조선굴림체';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
- font-weight: normal;
- font-style: normal;
- }
- @font-face {
- font-family: '온글잎 콘콘체';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
- font-weight: normal;
- font-style: normal;
- }
- @font-face {
- font-family: '고딩체';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Gothic_Goding.woff') format('woff');
- font-weight: normal;
- font-style: normal;
- }
- @font-face {
- font-family: '박다현체';
- src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
- font-weight: normal;
- font-style: normal;
- }
+ </style>
+</head>
+<body>
 
+<details>
+ <summary>fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <style>
  :root {
+ --primary-color: #4a6ee0;
+ --secondary-color: #6c757d;
+ --success-color: #28a745;
+ --danger-color: #dc3545;
+ --warning-color: #ffc107;
+ --info-color: #17a2b8;
  --bg-color: #f8f9fa;
  --text-color: #212529;
- --card-bg: white;
- --card-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+ --card-bg: #ffffff;
+ --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
  --border-color: #dee2e6;
- --primary-color: #4361ee;
- --primary-hover: #3a56d4;
- --primary-light: #eef0fd;
- --tab-color: #e9ecef;
- --success-color: #2ecc71;
- --danger-color: #e74c3c;
- --warning-color: #f39c12;
- --info-color: #3498db;
- --secondary-color: #6c757d;
- --preset-bg: #f8f9fa;
- --preset-border: #dee2e6;
- --preset-hover: #e9ecef;
- --preset-active: #dde2e6;
+ --input-bg: #ffffff;
+ --input-border: #ced4da;
+ --tab-active: #4a6ee0;
+ --tab-inactive: #e9ecef;
+ --preset-bg: #f1f3f9;
+ --preset-border: #d1d9e6;
+ --preset-hover: #e2e6f0;
  }
 
  [data-theme="dark"] {
- --bg-color: #121212;
- --text-color: #e0e0e0;
- --card-bg: #1e1e1e;
- --card-shadow: 0 4px 6px rgba(0,0,0,0.2);
- --border-color: #333;
- --primary-color: #738aff;
- --primary-hover: #5a6fc7;
- --primary-light: #222436;
- --tab-color: #333;
- --success-color: #2ecc71;
- --danger-color: #e74c3c;
- --warning-color: #f39c12;
- --info-color: #3498db;
+ --primary-color: #6d8fff;
  --secondary-color: #adb5bd;
+ --success-color: #48d369;
+ --danger-color: #ff6b6b;
+ --warning-color: #ffd43b;
+ --info-color: #4dc9d6;
+ --bg-color: #121212;
+ --text-color: #e9ecef;
+ --card-bg: #1e1e1e;
+ --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+ --border-color: #343a40;
+ --input-bg: #2a2a2a;
+ --input-border: #495057;
+ --tab-active: #6d8fff;
+ --tab-inactive: #343a40;
  --preset-bg: #2a2a2a;
- --preset-border: #444;
- --preset-hover: #333;
- --preset-active: #444;
- }
-
- * {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
+ --preset-border: #495057;
+ --preset-hover: #3a3a3a;
  }
 
  body {
@@ -124,12 +74,12 @@
  color: var(--text-color);
  line-height: 1.6;
  margin: 0;
- padding: 20px;
- transition: background-color 0.3s, color 0.3s;
+ padding: 0;
+ transition: all 0.3s ease;
  }
 
  .container {
- max-width: 1200px;
+ max-width: 800px;
  margin: 0 auto;
  padding: 20px;
  }
@@ -139,209 +89,64 @@
  margin-bottom: 30px;
  }
 
- h1, h2, h3, h4 {
- color: var(--text-color);
- margin-bottom: 15px;
- }
-
  h1 {
- font-size: 2.2rem;
- font-weight: 700;
- }
-
- h2 {
- font-size: 1.8rem;
- font-weight: 600;
- }
-
- h3 {
- font-size: 1.4rem;
- font-weight: 600;
- }
-
- h4 {
- font-size: 1.2rem;
- font-weight: 600;
+ color: var(--primary-color);
  margin-bottom: 10px;
  }
 
- /* 탭 네비게이션 */
- .tabs-container {
- margin-bottom: 30px;
- }
-
- .tabs-nav {
- display: flex;
- background-color: var(--card-bg);
- border-radius: 8px;
- overflow: hidden;
- box-shadow: var(--card-shadow);
+ .description {
+ color: var(--secondary-color);
  margin-bottom: 20px;
  }
 
- .tab-button {
- flex: 1;
- padding: 15px;
- background-color: transparent;
- border: none;
- cursor: pointer;
- font-size: 16px;
- font-weight: 500;
- color: var(--text-color);
- transition: all 0.3s;
- position: relative;
- text-align: center;
- }
-
- .tab-button:hover {
- background-color: var(--primary-light);
- }
-
- .tab-button.active {
- color: var(--primary-color);
- font-weight: 600;
- }
-
- .tab-button.active::after {
- content: '';
- position: absolute;
- bottom: 0;
- left: 0;
- width: 100%;
- height: 3px;
- background-color: var(--primary-color);
- }
-
- .tab-button i {
- margin-right: 8px;
- }
-
- .tab-content {
- display: none;
- }
-
- .tab-content.active {
- display: block;
- animation: fadeIn 0.3s ease-in-out;
- }
-
- @keyframes fadeIn {
- from { opacity: 0; }
- to { opacity: 1; }
- }
-
- /* 카드 스타일 */
  .card {
  background-color: var(--card-bg);
  border-radius: 10px;
  box-shadow: var(--card-shadow);
- padding: 25px;
+ padding: 20px;
  margin-bottom: 20px;
- transition: all 0.3s;
  }
 
- .card:hover {
- box-shadow: 0 10px 15px rgba(0,0,0,0.1);
- }
-
- /* 폼 요소 */
- textarea {
- width: 100%;
- height: 200px;
- padding: 15px;
- border: 1px solid var(--border-color);
- border-radius: 8px;
- font-family: inherit;
- font-size: 16px;
- resize: vertical;
- background-color: var(--card-bg);
- color: var(--text-color);
- transition: border-color 0.3s;
+ .form-group {
  margin-bottom: 15px;
  }
 
- textarea:focus {
- outline: none;
- border-color: var(--primary-color);
- box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
- }
-
- select, input[type="number"], input[type="text"] {
- background-color: var(--card-bg);
- color: var(--text-color);
- border: 1px solid var(--border-color);
- padding: 10px 15px;
- border-radius: 6px;
- font-size: 16px;
- transition: border-color 0.3s, box-shadow 0.3s;
- width: 100%;
- }
-
- select:focus, input[type="number"]:focus, input[type="text"]:focus {
- outline: none;
- border-color: var(--primary-color);
- box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
- }
-
- input[type="color"] {
- width: 40px;
- height: 40px;
- border: none;
- border-radius: 6px;
- cursor: pointer;
- padding: 0;
- background: none;
- }
-
- input[type="range"] {
- width: 100%;
- height: 8px;
- border-radius: 4px;
- background: var(--border-color);
- outline: none;
- transition: background 0.3s;
- -webkit-appearance: none;
- }
-
- input[type="range"]::-webkit-slider-thumb {
- -webkit-appearance: none;
- width: 20px;
- height: 20px;
- border-radius: 50%;
- background: var(--primary-color);
- cursor: pointer;
- transition: background 0.3s;
- }
-
- input[type="range"]::-moz-range-thumb {
- width: 20px;
- height: 20px;
- border-radius: 50%;
- background: var(--primary-color);
- cursor: pointer;
- transition: background 0.3s;
- border: none;
- }
-
- input[type="range"]:hover::-webkit-slider-thumb {
- background: var(--primary-hover);
- }
-
- input[type="range"]:hover::-moz-range-thumb {
- background: var(--primary-hover);
- }
-
- /* 버튼 스타일 */
- .btn {
- display: inline-block;
- padding: 12px 20px;
- border: none;
- border-radius: 6px;
- font-size: 16px;
+ label {
+ display: block;
+ margin-bottom: 5px;
  font-weight: 500;
+ }
+
+ input[type="text"],
+ input[type="number"],
+ input[type="color"],
+ select,
+ textarea {
+ width: 100%;
+ padding: 10px;
+ border: 1px solid var(--input-border);
+ border-radius: 5px;
+ background-color: var(--input-bg);
+ color: var(--text-color);
+ font-family: inherit;
+ box-sizing: border-box;
+ }
+
+ textarea {
+ min-height: 150px;
+ resize: vertical;
+ }
+
+ .btn {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ padding: 10px 15px;
+ border: none;
+ border-radius: 5px;
  cursor: pointer;
+ font-weight: 500;
  transition: all 0.3s;
- text-align: center;
  }
 
  .btn-primary {
@@ -350,7 +155,8 @@
  }
 
  .btn-primary:hover {
- background-color: var(--primary-hover);
+ background-color: var(--primary-color);
+ opacity: 0.9;
  }
 
  .btn-secondary {
@@ -359,16 +165,8 @@
  }
 
  .btn-secondary:hover {
- background-color: #5a6268;
- }
-
- .btn-success {
- background-color: var(--success-color);
- color: white;
- }
-
- .btn-success:hover {
- background-color: #27ae60;
+ background-color: var(--secondary-color);
+ opacity: 0.9;
  }
 
  .btn-danger {
@@ -377,405 +175,89 @@
  }
 
  .btn-danger:hover {
- background-color: #c0392b;
+ background-color: var(--danger-color);
+ opacity: 0.9;
  }
 
- .btn-sm {
- padding: 8px 15px;
- font-size: 14px;
- }
-
- .btn-block {
- display: block;
- width: 100%;
- }
-
- /* 레이아웃 유틸리티 */
- .flex {
+ .tabs {
  display: flex;
+ border-bottom: 1px solid var(--border-color);
+ margin-bottom: 20px;
  }
 
- .flex-wrap {
- flex-wrap: wrap;
+ .tab {
+ padding: 10px 15px;
+ cursor: pointer;
+ border-bottom: 2px solid transparent;
+ transition: all 0.3s;
  }
 
- .justify-between {
- justify-content: space-between;
+ .tab.active {
+ border-bottom: 2px solid var(--tab-active);
+ color: var(--primary-color);
+ font-weight: 500;
  }
 
- .justify-center {
- justify-content: center;
+ .tab-content {
+ display: none;
  }
 
- .items-center {
+ .tab-content.active {
+ display: block;
+ }
+
+ .color-picker-container {
+ display: flex;
  align-items: center;
- }
-
- .gap-10 {
  gap: 10px;
  }
 
- .gap-15 {
- gap: 15px;
+ .color-preview {
+ width: 30px;
+ height: 30px;
+ border-radius: 5px;
+ border: 1px solid var(--border-color);
  }
 
- .gap-20 {
- gap: 20px;
- }
-
- .mb-10 {
- margin-bottom: 10px;
- }
-
- .mb-15 {
- margin-bottom: 15px;
- }
-
- .mb-20 {
- margin-bottom: 20px;
- }
-
- .mt-20 {
- margin-top: 20px;
- }
-
- .grid {
- display: grid;
- gap: 20px;
- }
-
- .grid-2 {
- grid-template-columns: repeat(2, 1fr);
- }
-
- .grid-3 {
- grid-template-columns: repeat(3, 1fr);
- }
-
- /* 색상 선택기 */
- .color-picker-container {
- margin: 0 auto;
- width: 200px;
- }
-
- /* 세팅 그룹 */
- .setting-group {
- margin-bottom: 25px;
- padding-bottom: 20px;
- border-bottom: 1px solid var(--border-color);
- }
-
- .setting-group:last-child {
- border-bottom: none;
- margin-bottom: 0;
- padding-bottom: 0;
- }
-
- .setting-row {
+ .bg-tabs {
  display: flex;
- justify-content: space-between;
- align-items: center;
  margin-bottom: 15px;
- }
-
- .setting-row:last-child {
- margin-bottom: 0;
- }
-
- .setting-label {
- flex: 1;
- font-weight: 500;
- }
-
- .setting-control {
- flex: 1.5;
- }
-
- .value-display {
- display: inline-block;
- width: 50px;
- text-align: right;
- font-size: 14px;
- color: var(--secondary-color);
- }
-
- /* 배경 탭 스타일 */
- .bg-tab-buttons {
- display: flex;
- background-color: var(--tab-color);
- border-radius: 6px;
+ background-color: var(--tab-inactive);
+ border-radius: 5px;
  overflow: hidden;
- margin-bottom: 20px;
  }
 
- .bg-tab-button {
+ .bg-tab {
+ padding: 8px 15px;
+ cursor: pointer;
  flex: 1;
- padding: 10px;
- border: none;
- background-color: transparent;
- cursor: pointer;
- transition: all 0.3s;
- font-weight: 500;
- color: var(--text-color);
- }
-
- .bg-tab-button.active {
- background-color: var(--primary-color);
- color: white;
- }
-
- /* 파일 업로드 */
- .file-upload {
- position: relative;
- display: flex;
- flex-direction: column;
- align-items: center;
- padding: 20px;
- border: 2px dashed var(--border-color);
- border-radius: 8px;
- background-color: var(--card-bg);
- transition: all 0.3s;
- cursor: pointer;
- }
-
- .file-upload:hover {
- border-color: var(--primary-color);
- background-color: var(--primary-light);
- }
-
- .file-upload i {
- font-size: 40px;
- color: var(--primary-color);
- margin-bottom: 10px;
- }
-
- .file-upload p {
- margin: 0;
- color: var(--secondary-color);
- }
-
- .file-input {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- opacity: 0;
- cursor: pointer;
- }
-
- #imagePreview {
- max-width: 100%;
- max-height: 200px;
- border-radius: 8px;
- margin-top: 15px;
- display: none;
- box-shadow: 0 2px 5px rgba(0,0,0,0.1);
- }
-
- /* 프리셋 스타일 */
- .presets-container {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
- gap: 15px;
- margin-bottom: 20px;
- }
-
- .preset-card {
- background-color: var(--preset-bg);
- border: 1px solid var(--preset-border);
- border-radius: 8px;
- padding: 15px;
- cursor: pointer;
- transition: all 0.3s;
  text-align: center;
- position: relative;
- }
-
- .preset-card:hover {
- background-color: var(--preset-hover);
- transform: translateY(-2px);
- }
-
- .preset-card.active {
- border-color: var(--primary-color);
- background-color: var(--preset-active);
- }
-
- .preset-name {
- font-weight: 600;
- margin-bottom: 5px;
- font-size: 14px;
- word-break: break-word;
- }
-
- .preset-date {
- font-size: 12px;
- color: var(--secondary-color);
- }
-
- .preset-actions {
- position: absolute;
- top: 5px;
- right: 5px;
- display: flex;
- gap: 5px;
- opacity: 0;
- transition: opacity 0.3s;
- }
-
- .preset-card:hover .preset-actions {
- opacity: 1;
- }
-
- .preset-action-btn {
- width: 24px;
- height: 24px;
- border-radius: 50%;
- border: none;
- background-color: var(--card-bg);
- color: var(--text-color);
- display: flex;
- align-items: center;
- justify-content: center;
- cursor: pointer;
- font-size: 12px;
  transition: all 0.3s;
  }
 
- .preset-action-btn:hover {
- background-color: var(--primary-color);
+ .bg-tab.active {
+ background-color: var(--tab-active);
  color: white;
  }
 
- /* 프리셋 폼 */
- .preset-form {
- margin-top: 20px;
+ .bg-content {
  display: none;
  }
 
- .preset-form.active {
+ .bg-content.active {
  display: block;
- animation: fadeIn 0.3s;
- }
-
- /* 프리뷰 컨테이너 */
- .preview-container {
- position: relative;
- width: 100%;
- max-width: 600px;
- margin: 30px auto;
- overflow: hidden;
- }
-
- .slider-container {
- display: flex;
- overflow-x: hidden;
- scroll-behavior: smooth;
- width: 100%;
- position: relative;
- }
-
- .slider-controls {
- display: flex;
- justify-content: space-between;
- width: 100%;
- position: absolute;
- top: 50%;
- transform: translateY(-50%);
- z-index: 10;
- pointer-events: none;
- }
-
- .slider-arrow {
- background-color: rgba(0,0,0,0.3);
- color: white;
- border: none;
- border-radius: 50%;
- width: 40px;
- height: 40px;
- display: flex;
- justify-content: center;
- align-items: center;
- cursor: pointer;
- font-size: 18px;
- pointer-events: auto;
- transition: all 0.3s;
- }
-
- .slider-arrow:hover {
- background-color: rgba(0,0,0,0.5);
- }
-
- .slider-dots {
- display: flex;
- justify-content: center;
- gap: 5px;
- margin-top: 15px;
- }
-
- .slider-dot {
- width: 10px;
- height: 10px;
- background-color: var(--border-color);
- border-radius: 50%;
- cursor: pointer;
- transition: all 0.3s;
- }
-
- .slider-dot.active {
- background-color: var(--primary-color);
- transform: scale(1.2);
- }
-
- .output-container {
- flex: 0 0 100%;
- scroll-snap-align: start;
- position: relative;
  }
 
  .image-preview {
  width: 100%;
- aspect-ratio: 9/16;
- position: relative;
- overflow: hidden;
- box-shadow: var(--card-shadow);
+ height: 500px;
+ background-color: #f0f0f0;
+ border-radius: 10px;
  display: flex;
  justify-content: center;
  align-items: center;
- border-radius: 10px;
- }
-
- .text-box {
- background-color: white;
- width: 80%;
- height: auto;
- margin: 0 auto;
- padding: 30px 40px;
- box-shadow: 0 2px 10px rgba(0,0,0,0.1);
  position: relative;
- z-index: 2;
- font-family: '부크크명조', serif;
- }
-
- .preview-text {
- font-size: 16px;
- line-height: 1.8;
- text-align: left;
- word-break: keep-all;
- overflow-wrap: break-word;
- }
-
- .preview-text em {
- font-style: italic;
- }
-
- .preview-text strong {
- font-weight: bold;
- }
-
- .preview-text del {
- text-decoration: line-through;
+ overflow: hidden;
  }
 
  .header-image {
@@ -788,175 +270,288 @@
  z-index: 1;
  }
 
- /* 다크모드 스위치 */
+ .text-box {
+ position: relative;
+ z-index: 2;
+ background-color: rgba(255, 255, 255, 0.8);
+ padding: 20px;
+ border-radius: 10px;
+ max-width: 80%;
+ margin: 0 auto;
+ }
+
+ .preview-text {
+ white-space: pre-wrap;
+ word-break: break-word;
+ }
+
+ .output-container {
+ margin-top: 20px;
+ }
+
  .theme-switch {
  position: fixed;
  top: 20px;
  right: 20px;
- width: 50px;
- height: 50px;
- border-radius: 50%;
- background-color: var(--card-bg);
- display: flex;
- justify-content: center;
- align-items: center;
- cursor: pointer;
- box-shadow: var(--card-shadow);
  z-index: 1000;
- transition: all 0.3s;
- }
-
- .theme-switch:hover {
- transform: scale(1.1);
+ cursor: pointer;
+ background-color: var(--card-bg);
+ border-radius: 50%;
+ width: 40px;
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ box-shadow: var(--card-shadow);
  }
 
  .theme-icon {
- font-size: 22px;
+ font-size: 20px;
  color: var(--text-color);
+ }
+
+ .slider-container {
+ display: flex;
+ overflow-x: hidden;
+ scroll-snap-type: x mandatory;
+ width: 100%;
+ position: relative;
+ }
+
+ .output-container {
+ flex: 0 0 100%;
+ scroll-snap-align: start;
+ transition: transform 0.3s ease;
+ }
+
+ .slider-controls {
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 15px;
+ }
+
+ .slider-btn {
+ background-color: var(--primary-color);
+ color: white;
+ border: none;
+ border-radius: 50%;
+ width: 40px;
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ font-size: 18px;
  transition: all 0.3s;
  }
 
- /* 알림 메시지 */
- .toast {
+ .slider-btn:hover {
+ background-color: var(--primary-color);
+ opacity: 0.9;
+ }
+
+ .slider-btn:disabled {
+ background-color: var(--secondary-color);
+ cursor: not-allowed;
+ opacity: 0.5;
+ }
+
+ .slider-dots {
+ display: flex;
+ justify-content: center;
+ margin-top: 15px;
+ gap: 8px;
+ }
+
+ .slider-dot {
+ width: 10px;
+ height: 10px;
+ border-radius: 50%;
+ background-color: var(--secondary-color);
+ cursor: pointer;
+ transition: all 0.3s;
+ }
+
+ .slider-dot.active {
+ background-color: var(--primary-color);
+ transform: scale(1.2);
+ }
+
+ .toast-container {
  position: fixed;
  bottom: 20px;
  right: 20px;
- padding: 15px 25px;
- background-color: var(--success-color);
- color: white;
- border-radius: 6px;
- box-shadow: 0 4px 12px rgba(0,0,0,0.1);
  z-index: 1000;
- opacity: 0;
- transform: translateY(20px);
- transition: all 0.3s;
+ }
+
+ .toast {
+ padding: 12px 20px;
+ border-radius: 5px;
+ margin-bottom: 10px;
+ color: white;
+ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
  display: flex;
  align-items: center;
- gap: 10px;
+ animation: slideIn 0.3s, fadeOut 0.5s 2.5s forwards;
  }
 
- .toast.show {
- opacity: 1;
- transform: translateY(0);
+ .toast-success {
+ background-color: var(--success-color);
  }
 
- .toast.error {
+ .toast-error {
  background-color: var(--danger-color);
  }
 
- .toast.warning {
+ .toast-warning {
  background-color: var(--warning-color);
+ color: #212529;
  }
 
- .toast.info {
+ .toast-info {
  background-color: var(--info-color);
  }
 
- /* 반응형 디자인 */
+ .toast-icon {
+ margin-right: 10px;
+ font-size: 18px;
+ }
+
+ @keyframes slideIn {
+ from {
+ transform: translateX(100%);
+ }
+ to {
+ transform: translateX(0);
+ }
+ }
+
+ @keyframes fadeOut {
+ from {
+ opacity: 1;
+ }
+ to {
+ opacity: 0;
+ }
+ }
+
+ /* 프리셋 관련 스타일 */
+ .presets-container {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ margin-bottom: 20px;
+ }
+
+ .preset-item {
+ background-color: var(--preset-bg);
+ border: 1px solid var(--preset-border);
+ border-radius: 6px;
+ padding: 8px 12px;
+ font-size: 14px;
+ cursor: pointer;
+ transition: all 0.3s;
+ }
+
+ .preset-item:hover {
+ background-color: var(--preset-hover);
+ }
+
+ .preset-item.active {
+ background-color: var(--primary-color);
+ color: white;
+ border-color: var(--primary-color);
+ }
+
+ .preset-form {
+ display: none;
+ margin-top: 20px;
+ padding: 15px;
+ background-color: var(--card-bg);
+ border-radius: 8px;
+ box-shadow: var(--card-shadow);
+ }
+
+ .preset-form.active {
+ display: block;
+ }
+
+ .preset-form-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+ }
+
+ .preset-form-title {
+ font-weight: 600;
+ font-size: 18px;
+ }
+
+ .preset-form-close {
+ background: none;
+ border: none;
+ font-size: 20px;
+ cursor: pointer;
+ color: var(--secondary-color);
+ }
+
+ .preset-actions {
+ display: flex;
+ gap: 10px;
+ margin-top: 15px;
+ }
+
+ /* 마크다운 스타일 */
+ .preview-text strong {
+ font-weight: bold;
+ }
+
+ .preview-text em {
+ font-style: italic;
+ }
+
+ .preview-text u {
+ text-decoration: underline;
+ }
+
+ .preview-text s {
+ text-decoration: line-through;
+ }
+
+ .preview-text a {
+ color: var(--primary-color);
+ text-decoration: underline;
+ }
+
+ /* 반응형 스타일 */
  @media (max-width: 768px) {
  .container {
  padding: 15px;
  }
 
- .grid-2, .grid-3 {
- grid-template-columns: 1fr;
+ .tabs {
+ flex-wrap: wrap;
  }
 
- .tabs-nav {
- flex-direction: column;
- }
-
- .tab-button {
- padding: 12px;
- }
-
- .setting-row {
- flex-direction: column;
- align-items: flex-start;
- }
-
- .setting-label {
- margin-bottom: 5px;
- }
-
- .setting-control {
- width: 100%;
- }
-
- .text-box {
- width: 85%;
- padding: 20px 25px;
- }
-
- .preview-text {
- font-size: 14px;
- }
-
- .theme-switch {
- top: 10px;
- right: 10px;
- width: 40px;
- height: 40px;
- }
-
- .presets-container {
- grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+ .tab {
+ flex: 1 0 auto;
+ text-align: center;
  }
  }
 
  /* 봇 정보 관련 스타일 */
- .bot-info-presets {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
- gap: 10px;
- margin-bottom: 20px;
- }
-
- .bot-info-preset-card {
- background-color: var(--preset-bg);
- border: 1px solid var(--preset-border);
- border-radius: 8px;
- padding: 10px;
- cursor: pointer;
- transition: all 0.3s;
- text-align: center;
- position: relative;
- }
-
- .bot-info-preset-card:hover {
- background-color: var(--preset-hover);
- transform: translateY(-2px);
- }
-
- .bot-info-preset-card.active {
- border-color: var(--primary-color);
- background-color: var(--preset-active);
- }
-
- .bot-info-preset-icon {
- font-size: 24px;
- margin-bottom: 5px;
- color: var(--primary-color);
- }
-
- .bot-info-preset-name {
- font-size: 12px;
- font-weight: 600;
- word-break: break-word;
- }
-
  .switch-container {
  display: flex;
  align-items: center;
- margin-bottom: 20px;
+ gap: 10px;
  }
 
  .switch {
  position: relative;
  display: inline-block;
  width: 50px;
- height: 26px;
- margin-right: 10px;
+ height: 24px;
  }
 
  .switch input {
@@ -972,215 +567,237 @@
  left: 0;
  right: 0;
  bottom: 0;
- background-color: var(--secondary-color);
+ background-color: #ccc;
  transition: .4s;
- border-radius: 34px;
  }
 
  .slider:before {
  position: absolute;
  content: "";
- height: 18px;
- width: 18px;
+ height: 16px;
+ width: 16px;
  left: 4px;
  bottom: 4px;
  background-color: white;
  transition: .4s;
- border-radius: 50%;
  }
 
  input:checked + .slider {
  background-color: var(--primary-color);
  }
 
+ input:focus + .slider {
+ box-shadow: 0 0 1px var(--primary-color);
+ }
+
  input:checked + .slider:before {
- transform: translateX(24px);
+ transform: translateX(26px);
  }
 
- .switch-label {
- font-weight: 500;
+ .slider.round {
+ border-radius: 24px;
  }
 
- .radio-group {
+ .slider.round:before {
+ border-radius: 50%;
+ }
+
+ #botInfoStatus {
+ font-weight: 600;
+ color: var(--primary-color);
+ }
+
+ .checkbox-group {
  display: flex;
- gap: 15px;
- flex-wrap: wrap;
+ flex-direction: column;
+ gap: 10px;
  }
 
- .radio-option {
+ .checkbox-label {
  display: flex;
  align-items: center;
+ gap: 8px;
  cursor: pointer;
  }
 
- .radio-option input[type="radio"] {
- margin-right: 5px;
+ .checkbox-label input {
+ cursor: pointer;
  }
 
+ .bot-presets-container {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ margin-top: 15px;
+ }
+
+ .bot-preset-item {
+ background-color: var(--preset-bg);
+ border: 1px solid var(--preset-border);
+ border-radius: 6px;
+ padding: 8px 12px;
+ font-size: 14px;
+ cursor: pointer;
+ transition: all 0.3s;
+ }
+
+ .bot-preset-item:hover {
+ background-color: var(--preset-hover);
+ }
+
+ .bot-preset-item.active {
+ background-color: var(--primary-color);
+ color: white;
+ border-color: var(--primary-color);
+ }
+
+ /* 봇 정보 이미지 스타일 */
  .bot-info-preview {
  width: 100%;
  aspect-ratio: 16/9;
- background-color: var(--card-bg);
+ background-color: #f5f5f5;
  border-radius: 10px;
- overflow: hidden;
+ margin-bottom: 20px;
+ padding: 20px;
  box-shadow: var(--card-shadow);
- margin-bottom: 15px;
+ display: flex;
+ flex-direction: column;
  position: relative;
  }
 
  .bot-info-content {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- display: flex;
- flex-direction: column;
- justify-content: center;
- padding: 20px;
- }
-
- .bot-info-header {
- text-align: center;
- margin-bottom: 20px;
- font-size: 24px;
- font-weight: bold;
- }
-
- .bot-info-details {
  display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 15px;
+ grid-template-columns: auto 1fr;
+ gap: 15px 20px;
+ align-content: center;
+ height: 100%;
  }
 
- .bot-info-item {
- background-color: rgba(255, 255, 255, 0.1);
- padding: 10px;
- border-radius: 8px;
- }
-
- .bot-info-item-label {
+ .bot-info-label {
  font-weight: bold;
- margin-bottom: 5px;
  }
 
- .bot-info-item-value {
+ .bot-info-value {
  word-break: break-word;
  }
 
- .mini-preset-icon {
- font-size: 20px;
+ .bot-info-prompt {
+ grid-column: span 2;
+ margin-top: 10px;
+ }
+
+ .bot-info-prompt-label {
+ font-weight: bold;
  margin-bottom: 5px;
+ }
+
+ .bot-info-prompt-value {
+ white-space: pre-wrap;
+ word-break: break-word;
+ max-height: 80px;
+ overflow-y: auto;
+ padding: 10px;
+ background-color: rgba(255, 255, 255, 0.5);
+ border-radius: 6px;
  }
  </style>
 </head>
 <body>
  <div class="theme-switch" id="themeSwitch">
- <span class="theme-icon" id="themeIcon">
- <i class="fas fa-moon"></i>
- </span>
+ <i class="fas fa-moon theme-icon" id="themeIcon"></i>
  </div>
 
  <div class="container">
  <header>
- <h1>깡갤 글꾸 사이트</h1>
+ <h1>깡갤 글꾸 생성기</h1>
+ <p class="description">깡갤 글꾸를 쉽게 만들어보세요.</p>
  </header>
 
- <div class="tabs-container">
- <div class="tabs-nav">
- <button class="tab-button active" data-tab="input-tab">
- <i class="fas fa-pen-to-square"></i> 텍스트 입력 및 배경
- </button>
- <button class="tab-button" data-tab="style-tab">
- <i class="fas fa-palette"></i> 텍스트 스타일
- </button>
- <button class="tab-button" data-tab="bot-info-tab">
- <i class="fas fa-robot"></i> 봇 정보
- </button>
- <button class="tab-button" data-tab="preset-tab">
- <i class="fas fa-sliders"></i> 프리셋 관리
- </button>
- </div>
-
- <!-- 텍스트 입력 및 배경 탭 -->
- <div class="tab-content active" id="input-tab">
- <div class="grid grid-2">
- <!-- 텍스트 입력 카드 -->
  <div class="card">
- <h3><i class="fas fa-pen-to-square"></i> 텍스트 입력</h3>
- <textarea id="userText" placeholder="이미지로 변환할 텍스트를 입력하세요. *이탤릭체*, **볼드체** 문법을 지원합니다."></textarea>
- <div class="flex justify-between items-center mb-20">
- <div>
- <label for="pageLength">페이지당 글자 수 (대략): </label>
- <input type="number" id="pageLength" value="300" min="50" max="1000" style="width: 80px;">
- </div>
+ <div class="tabs">
+ <div class="tab active" data-tab="input">텍스트 입력 및 배경</div>
+ <div class="tab" data-tab="style">텍스트 스타일</div>
+ <div class="tab" data-tab="botInfo">봇 정보</div>
+ <div class="tab" data-tab="presets">프리셋 관리</div>
  </div>
 
- <!-- 프리셋 선택 -->
- <h4><i class="fas fa-star"></i> 프리셋 선택</h4>
- <div class="presets-container" id="presetsSelector">
- <!-- 프리셋이 여기에 동적으로 추가됩니다 -->
- <div class="preset-card" id="newPresetBtn">
- <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
- </div>
- </div>
- </div>
+ <div class="tab-content active" id="inputTab">
+ <div class="form-group">
+ <label for="userText">텍스트 입력</label>
+ <textarea id="userText" placeholder="여기에 텍스트를 입력하세요. 마크다운 문법을 지원합니다. (**볼드**, *이탤릭*, __밑줄__, ~~취소선~~)"></textarea>
  </div>
 
- <!-- 배경 설정 카드 -->
- <div class="card">
- <h3><i class="fas fa-image"></i> 배경 설정</h3>
- <div class="bg-tab-buttons">
- <button id="colorTab" class="bg-tab-button active">단색 배경</button>
- <button id="imageTab" class="bg-tab-button">이미지 배경</button>
+ <div class="form-group">
+ <label for="pageLength">페이지 당 글자 수</label>
+ <input type="number" id="pageLength" value="500" min="100" max="2000">
  </div>
 
- <!-- 단색 배경 설정 -->
- <div id="colorBgOptions">
+ <div class="form-group">
+ <label>배경 타입</label>
+ <div class="bg-tabs">
+ <div class="bg-tab active" id="colorTab">색상</div>
+ <div class="bg-tab" id="imageTab">이미지</div>
+ </div>
+
+ <div class="bg-content active" id="colorContent">
+ <div class="form-group">
+ <label for="hexColor">배경 색상</label>
  <div class="color-picker-container">
- <div id="colorPicker"></div>
- </div>
- <div class="flex justify-center mt-20">
- <input type="text" id="hexColor" value="#FFDD00" style="width: 120px; text-align: center;">
- </div>
- </div>
-
- <!-- 이미지 배경 설정 -->
- <div id="imageBgOptions" style="display:none;">
- <div class="file-upload">
- <i class="fas fa-cloud-upload-alt"></i>
- <p>클릭하여 이미지 선택 또는 드래그 앤 드롭</p>
- <input type="file" id="headerImage" class="file-input" accept="image/*">
- </div>
- <img id="imagePreview" src="#" alt="이미지 미리보기">
+ <input type="color" id="hexColor" value="#ffffff">
+ <span id="hexColorValue">#ffffff</span>
  </div>
  </div>
  </div>
 
- <div class="flex justify-center mt-20">
- <button id="generateBtn" class="btn btn-primary">
- <i class="fas fa-wand-magic-sparkles"></i> 이미지 생성
+ <div class="bg-content" id="imageContent">
+ <div class="form-group">
+ <label for="headerImage">배경 이미지 업로드</label>
+ <input type="file" id="headerImage" accept="image/*">
+ <img id="imagePreview" style="display: none; max-width: 100%; margin-top: 10px; border-radius: 5px;">
+ </div>
+ </div>
+ </div>
+
+ <div class="form-group">
+ <label for="boxBgColor">텍스트 박스 배경 색상</label>
+ <div class="color-picker-container">
+ <input type="color" id="boxBgColor" value="#ffffff">
+ <span id="boxBgColorValue">#ffffff</span>
+ </div>
+ </div>
+
+ <div class="form-group">
+ <label for="boxOpacity">텍스트 박스 투명도</label>
+ <input type="range" id="boxOpacity" min="0.1" max="1" step="0.1" value="0.8">
+ <span id="boxOpacityValue">0.8</span>
+ </div>
+
+ <div class="form-group">
+ <label for="boxWidth">텍스트 박스 너비 (%)</label>
+ <input type="range" id="boxWidth" min="30" max="95" step="5" value="80">
+ <span id="boxWidthValue">80%</span>
+ </div>
+
+ <div class="form-group">
+ <label for="boxPadding">텍스트 박스 안쪽 여백 (px)</label>
+ <input type="range" id="boxPadding" min="10" max="50" step="5" value="20">
+ <span id="boxPaddingValue">20px</span>
+ </div>
+
+ <button class="btn btn-primary" id="generateBtn">
+ <i class="fas fa-image"></i> 이미지 생성하기
  </button>
  </div>
- </div>
 
- <!-- 텍스트 스타일 탭 -->
- <div class="tab-content" id="style-tab">
- <div class="card">
- <h3><i class="fas fa-font"></i> 텍스트 스타일 설정</h3>
-
- <!-- 폰트 설정 -->
- <div class="setting-group">
- <h4>폰트 설정</h4>
- <div class="setting-row">
- <div class="setting-label">글꼴</div>
- <div class="setting-control">
+ <div class="tab-content" id="styleTab">
+ <div class="form-group">
+ <label for="fontSelect">폰트</label>
  <select id="fontSelect">
+ <option value="수트">수트</option>
  <option value="부크크명조">부크크명조</option>
  <option value="조선일보명조">조선일보명조</option>
  <option value="조선가는고딕">조선가는고딕</option>
  <option value="경기천년바탕">경기천년바탕</option>
- <option value="수트">수트</option>
  <option value="리디바탕">리디바탕</option>
  <option value="조선굴림체">조선굴림체</option>
  <option value="온글잎 콘콘체">온글잎 콘콘체</option>
@@ -1188,170 +805,117 @@
  <option value="박다현체">박다현체</option>
  </select>
  </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">글자 크기</div>
- <div class="setting-control">
- <input type="range" id="fontSize" min="10" max="24" value="16">
- <span id="fontSizeValue" class="value-display">16px</span>
- </div>
+
+ <div class="form-group">
+ <label for="textColor">텍스트 색상</label>
+ <div class="color-picker-container">
+ <input type="color" id="textColor" value="#000000">
+ <span id="textColorValue">#000000</span>
  </div>
  </div>
 
- <!-- 텍스트 스타일 -->
- <div class="setting-group">
- <h4>텍스트 스타일</h4>
- <div class="setting-row">
- <div class="setting-label">텍스트 색상</div>
- <div class="setting-control">
- <input type="color" id="textColor" value="#000000">
- <span id="textColorValue" class="value-display">#000000</span>
+ <div class="form-group">
+ <label for="fontSize">폰트 크기 (px)</label>
+ <input type="range" id="fontSize" min="12" max="36" step="1" value="18">
+ <span id="fontSizeValue">18px</span>
  </div>
+
+ <div class="form-group">
+ <label for="lineHeight">줄 간격</label>
+ <input type="range" id="lineHeight" min="1" max="2.5" step="0.1" value="1.6">
+ <span id="lineHeightValue">1.6</span>
  </div>
- <div class="setting-row">
- <div class="setting-label">줄 간격</div>
- <div class="setting-control">
- <input type="range" id="lineHeight" min="1.2" max="2.5" step="0.1" value="1.8">
- <span id="lineHeightValue" class="value-display">1.8</span>
+
+ <div class="form-group">
+ <label for="letterSpacing">자간 (em)</label>
+ <input type="range" id="letterSpacing" min="0" max="0.5" step="0.01" value="0">
+ <span id="letterSpacingValue">0em</span>
  </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">자간</div>
- <div class="setting-control">
- <input type="range" id="letterSpacing" min="-0.1" max="0.3" step="0.01" value="0">
- <span id="letterSpacingValue" class="value-display">0em</span>
- </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">텍스트 정렬</div>
- <div class="setting-control">
+
+ <div class="form-group">
+ <label for="textAlign">텍스트 정렬</label>
  <select id="textAlign">
- <option value="left">왼쪽 정렬</option>
- <option value="center">가운데 정렬</option>
- <option value="right">오른쪽 정렬</option>
- <option value="justify">양쪽 정렬</option>
+ <option value="left">왼쪽</option>
+ <option value="center">가운데</option>
+ <option value="right">오른쪽</option>
+ <option value="justify">양쪽</option>
  </select>
  </div>
- </div>
- </div>
 
- <!-- 텍스트 박스 설정 -->
- <div class="setting-group">
- <h4>텍스트 박스 설정</h4>
- <div class="setting-row">
- <div class="setting-label">박스 배경색</div>
- <div class="setting-control">
- <input type="color" id="boxBgColor" value="#FFFFFF">
- <span id="boxBgColorValue" class="value-display">#FFFFFF</span>
- </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">박스 투명도</div>
- <div class="setting-control">
- <input type="range" id="boxOpacity" min="0" max="1" step="0.1" value="1">
- <span id="boxOpacityValue" class="value-display">1</span>
- </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">박스 너비 (%)</div>
- <div class="setting-control">
- <input type="range" id="boxWidth" min="50" max="100" value="100">
- <span id="boxWidthValue" class="value-display">100%</span>
- </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">패딩 (px)</div>
- <div class="setting-control">
- <input type="range" id="boxPadding" min="10" max="60" value="30">
- <span id="boxPaddingValue" class="value-display">30px</span>
- </div>
- </div>
- </div>
- </div>
-
- <div class="flex justify-center mt-20">
- <button id="generateBtnStyle" class="btn btn-primary">
- <i class="fas fa-wand-magic-sparkles"></i> 이미지 생성
+ <button class="btn btn-primary" id="generateBtnStyle">
+ <i class="fas fa-image"></i> 이미지 생성하기
  </button>
  </div>
- </div>
 
- <!-- 봇 정보 탭 -->
- <div class="tab-content" id="bot-info-tab">
- <div class="card">
- <h3><i class="fas fa-robot"></i> 봇 정보 설정</h3>
-
+ <div class="tab-content" id="botInfoTab">
+ <div class="form-group">
+ <label>봇 정보 설정</label>
  <div class="switch-container">
  <label class="switch">
  <input type="checkbox" id="botInfoSwitch" checked>
- <span class="slider"></span>
+ <span class="slider round"></span>
  </label>
- <span class="switch-label">봇 정보 표시</span>
+ <span id="botInfoStatus">ON</span>
+ </div>
  </div>
 
- <div class="setting-group">
- <h4>기본 정보</h4>
- <div class="setting-row">
- <div class="setting-label">봇 이름</div>
- <div class="setting-control">
+ <div class="form-group">
+ <label for="botName">봇 이름</label>
  <input type="text" id="botName" placeholder="봇 이름을 입력하세요">
  </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">봇 종류</div>
- <div class="setting-control">
- <div class="radio-group">
- <label class="radio-option">
- <input type="radio" name="botType" value="깡갤 내 공유봇" checked> 깡갤 내 공유봇
+
+ <div class="form-group">
+ <label>봇 종류</label>
+ <div class="checkbox-group">
+ <label class="checkbox-label">
+ <input type="radio" name="botType" value="깡갤 내 공유봇" checked>
+ 깡갤 내 공유봇
  </label>
- <label class="radio-option">
- <input type="radio" name="botType" value="깡갤 외 공유봇"> 깡갤 외 공유봇
+ <label class="checkbox-label">
+ <input type="radio" name="botType" value="깡갤 외 공유봇">
+ 깡갤 외 공유봇
  </label>
- <label class="radio-option">
- <input type="radio" name="botType" value="자작봇"> 자작봇
+ <label class="checkbox-label">
+ <input type="radio" name="botType" value="자작봇">
+ 자작봇
  </label>
- </div>
- </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">사용 모델</div>
- <div class="setting-control">
- <input type="text" id="botModel" placeholder="사용 모델을 입력하세요">
- </div>
- </div>
- <div class="setting-row">
- <div class="setting-label">사용 프롬프트</div>
- <div class="setting-control">
- <textarea id="botPrompt" placeholder="사용 프롬프트를 입력하세요" style="height: 100px;"></textarea>
- </div>
  </div>
  </div>
 
- <div class="setting-group">
- <h4>스타일 설정</h4>
- <div class="setting-row">
- <div class="setting-label">배경색</div>
- <div class="setting-control">
- <input type="color" id="botInfoBgColor" value="#2a2a2a">
- <span id="botInfoBgColorValue" class="value-display">#2a2a2a</span>
+ <div class="form-group">
+ <label for="botModel">사용 모델</label>
+ <input type="text" id="botModel" placeholder="사용한 모델을 입력하세요">
+ </div>
+
+ <div class="form-group">
+ <label for="botPrompt">사용 프롬프트</label>
+ <textarea id="botPrompt" placeholder="사용한 프롬프트를 입력하세요"></textarea>
+ </div>
+
+ <div class="form-group">
+ <label>봇 정보 스타일 설정</label>
+ <div class="form-group">
+ <label for="botInfoBgColor">배경 색상</label>
+ <div class="color-picker-container">
+ <input type="color" id="botInfoBgColor" value="#F5F5F5">
+ <span id="botInfoBgColorValue">#F5F5F5</span>
  </div>
  </div>
- <div class="setting-row">
- <div class="setting-label">텍스트 색상</div>
- <div class="setting-control">
- <input type="color" id="botInfoTextColor" value="#ffffff">
- <span id="botInfoTextColorValue" class="value-display">#ffffff</span>
+ <div class="form-group">
+ <label for="botInfoTextColor">텍스트 색상</label>
+ <div class="color-picker-container">
+ <input type="color" id="botInfoTextColor" value="#333333">
+ <span id="botInfoTextColorValue">#333333</span>
  </div>
  </div>
- <div class="setting-row">
- <div class="setting-label">글꼴</div>
- <div class="setting-control">
- <select id="botInfoFontSelect">
+ <div class="form-group">
+ <label for="botInfoFont">폰트</label>
+ <select id="botInfoFont">
+ <option value="수트">수트</option>
  <option value="부크크명조">부크크명조</option>
  <option value="조선일보명조">조선일보명조</option>
  <option value="조선가는고딕">조선가는고딕</option>
  <option value="경기천년바탕">경기천년바탕</option>
- <option value="수트" selected>수트</option>
  <option value="리디바탕">리디바탕</option>
  <option value="조선굴림체">조선굴림체</option>
  <option value="온글잎 콘콘체">온글잎 콘콘체</option>
@@ -1360,972 +924,225 @@
  </select>
  </div>
  </div>
+
+ <div class="form-group">
+ <label>봇 정보 프리셋</label>
+ <div id="botPresetsContainer" class="bot-presets-container">
+ <!-- 봇 프리셋 아이템들이 여기에 추가됩니다 -->
+ </div>
+ <div class="preset-actions">
+ <button class="btn btn-primary" id="saveBotPresetBtn">
+ <i class="fas fa-save"></i> 현재 설정 저장
+ </button>
+ <button class="btn btn-danger" id="deleteBotPresetBtn">
+ <i class="fas fa-trash"></i> 선택 프리셋 삭제
+ </button>
+ </div>
+ </div>
  </div>
 
- <h4><i class="fas fa-star"></i> 봇 정보 프리셋</h4>
- <div class="bot-info-presets" id="botInfoPresets">
- <!-- 봇 정보 프리셋이 여기에 동적으로 추가됩니다 -->
+ <div class="tab-content" id="presetsTab">
+ <div class="form-group">
+ <label>저장된 프리셋</label>
+ <div id="presetsContainer" class="presets-container">
+ <!-- 프리셋 아이템들이 여기에 추가됩니다 -->
  </div>
-
- <div class="mt-20">
- <button id="addBotInfoPresetBtn" class="btn btn-primary btn-sm">
+ <button class="btn btn-primary" id="addPresetBtn">
  <i class="fas fa-plus"></i> 새 프리셋 추가
  </button>
  </div>
 
- <!-- 프리셋 추가/수정 폼 -->
- <div id="botInfoPresetForm" class="preset-form">
- <h4 id="botInfoPresetFormTitle">새 봇 정보 프리셋 추가</h4>
- <div class="setting-row">
- <div class="setting-label">프리셋 이름</div>
- <div class="setting-control">
- <input type="text" id="botInfoPresetName" placeholder="프리셋 이름을 입력하세요">
- <input type="hidden" id="botInfoPresetId">
- </div>
- </div>
- <div class="flex gap-10 mt-20">
- <button id="saveBotInfoPresetBtn" class="btn btn-success">저장</button>
- <button id="cancelBotInfoPresetBtn" class="btn btn-secondary">취소</button>
- </div>
- </div>
-
- <!-- 봇 정보 미리보기 -->
- <h4 class="mt-20">미리보기</h4>
- <div class="bot-info-preview" id="botInfoPreview">
- <div class="bot-info-content" id="botInfoContent">
- <!-- 봇 정보 내용이 여기에 동적으로 표시됩니다 -->
- </div>
- </div>
- </div>
-
- <div class="flex justify-center mt-20">
- <button id="generateBtnBotInfo" class="btn btn-primary">
- <i class="fas fa-wand-magic-sparkles"></i> 이미지 생성
- </button>
- </div>
- </div>
-
- <!-- 프리셋 관리 탭 -->
- <div class="tab-content" id="preset-tab">
- <div class="card">
- <h3><i class="fas fa-star"></i> 프리셋 관리</h3>
- <p class="mb-20">저장된 프리셋을 관리하고 새로운 프리셋을 추가할 수 있습니다.</p>
-
- <div class="presets-container" id="presetManager">
- <!-- 프리셋이 여기에 동적으로 추가됩니다 -->
- </div>
-
- <div class="mt-20">
- <button id="addPresetBtn" class="btn btn-primary">
- <i class="fas fa-plus"></i> 새 프리셋 추가
- </button>
- </div>
-
- <!-- 프리셋 추가/수정 폼 -->
  <div id="presetForm" class="preset-form">
- <h4 id="presetFormTitle">새 프리셋 추가</h4>
- <div class="setting-row">
- <div class="setting-label">프리셋 이름</div>
- <div class="setting-control">
+ <div class="preset-form-header">
+ <div class="preset-form-title">프리셋 저장</div>
+ <button class="preset-form-close" id="closePresetForm">×</button>
+ </div>
+ <div class="form-group">
+ <label for="presetName">프리셋 이름</label>
  <input type="text" id="presetName" placeholder="프리셋 이름을 입력하세요">
- <input type="hidden" id="presetId">
+ </div>
+ <div class="preset-actions">
+ <button class="btn btn-primary" id="savePresetBtn">
+ <i class="fas fa-save"></i> 저장
+ </button>
+ <button class="btn btn-secondary" id="cancelPresetBtn">
+ <i class="fas fa-times"></i> 취소
+ </button>
  </div>
  </div>
- <div class="flex gap-10 mt-20">
- <button id="savePresetBtn" class="btn btn-success">저장</button>
- <button id="cancelPresetBtn" class="btn btn-secondary">취소</button>
- </div>
- </div>
- </div>
- </div>
- </div>
-
- <div class="preview-container" id="previewContainer">
- <!-- 여기에 미리보기 이미지가 슬라이더로 표시됩니다 -->
  </div>
  </div>
 
- <!-- 토스트 메시지 -->
- <div id="toast" class="toast"></div>
+ <div id="previewContainer"></div>
+ </div>
+
+ <div class="toast-container" id="toastContainer"></div>
 
  <script>
- // 전역 변수 설정
- let colorPicker;
  let selectedBgType = 'color';
  let headerImageUrl = null;
  let currentSlide = 0;
  let totalSlides = 0;
- let isDarkMode = false;
- let currentPresetId = null;
  let presets = [];
- let botInfoPresets = [];
- let currentBotInfoPresetId = null;
+ let currentPresetId = null;
+
+ // 봇 정보 관련 변수
  let isBotInfoEnabled = true;
+ let botPresets = [];
+ let currentBotPresetId = null;
 
- // 페이지 로드 후 초기화
- document.addEventListener('DOMContentLoaded', function() {
- initColorPicker();
- setupEventListeners();
- checkPreferredTheme();
- updateSettingValues();
- loadPresets();
- loadBotInfoPresets();
- updateBotInfoPreview();
- });
-
- // 설정값 업데이트 표시
- function updateSettingValues() {
- // 폰트 크기
- document.getElementById('fontSize').addEventListener('input', function() {
- document.getElementById('fontSizeValue').textContent = this.value + 'px';
- });
-
- // 줄 간격
- document.getElementById('lineHeight').addEventListener('input', function() {
- document.getElementById('lineHeightValue').textContent = this.value;
- });
-
- // 자간
- document.getElementById('letterSpacing').addEventListener('input', function() {
- document.getElementById('letterSpacingValue').textContent = this.value + 'em';
- });
-
- // 박스 투명도
- document.getElementById('boxOpacity').addEventListener('input', function() {
- document.getElementById('boxOpacityValue').textContent = this.value;
- });
-
- // 박스 너비
- document.getElementById('boxWidth').addEventListener('input', function() {
- document.getElementById('boxWidthValue').textContent = this.value + '%';
- });
-
- // 패딩
- document.getElementById('boxPadding').addEventListener('input', function() {
- document.getElementById('boxPaddingValue').textContent = this.value + 'px';
- });
-
- // 텍스트 색상
- document.getElementById('textColor').addEventListener('input', function() {
- document.getElementById('textColorValue').textContent = this.value;
- });
-
- // 박스 배경색
- document.getElementById('boxBgColor').addEventListener('input', function() {
- document.getElementById('boxBgColorValue').textContent = this.value;
- });
-
- // 봇 정보 배경색
- document.getElementById('botInfoBgColor').addEventListener('input', function() {
- document.getElementById('botInfoBgColorValue').textContent = this.value;
- updateBotInfoPreview();
- });
-
- // 봇 정보 텍스트 색상
- document.getElementById('botInfoTextColor').addEventListener('input', function() {
- document.getElementById('botInfoTextColorValue').textContent = this.value;
- updateBotInfoPreview();
- });
-
- // 봇 정보 필드 변경 시 미리보기 업데이트
- document.getElementById('botName').addEventListener('input', updateBotInfoPreview);
- document.getElementById('botModel').addEventListener('input', updateBotInfoPreview);
- document.getElementById('botPrompt').addEventListener('input', updateBotInfoPreview);
- document.getElementById('botInfoFontSelect').addEventListener('change', updateBotInfoPreview);
-
- // 봇 종류 라디오 버튼
- const botTypeRadios = document.querySelectorAll('input[name="botType"]');
- botTypeRadios.forEach(radio => {
- radio.addEventListener('change', updateBotInfoPreview);
- });
-
- // 봇 정보 스위치
- document.getElementById('botInfoSwitch').addEventListener('change', function() {
- isBotInfoEnabled = this.checked;
- });
- }
-
- // 사용자 테마 설정 확인
- function checkPreferredTheme() {
- if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
- toggleDarkMode();
- }
- }
-
- // 다크모드 토글
- function toggleDarkMode() {
- isDarkMode = !isDarkMode;
- document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-
- const themeIcon = document.getElementById('themeIcon');
- themeIcon.innerHTML = isDarkMode
- ? '<i class="fas fa-sun"></i>'
- : '<i class="fas fa-moon"></i>';
-
- // 색상 선택기 재초기화
- if (colorPicker) {
- const color = colorPicker.color.hexString;
- initColorPicker(color);
- }
- }
-
- // 색상 선택기 초기화
- function initColorPicker(initialColor = "#FFDD00") {
- const colorPickerElement = document.getElementById('colorPicker');
- if (colorPickerElement.firstChild) {
- colorPickerElement.innerHTML = '';
- }
-
- colorPicker = new iro.ColorPicker("#colorPicker", {
- width: 180,
- color: initialColor,
- borderWidth: 1,
- borderColor: isDarkMode ? "#444" : "#ccc",
- layout: [
- { component: iro.ui.Wheel }
- ]
- });
-
- // 색상 변경 시 이벤트
- colorPicker.on('color:change', function(color) {
- document.getElementById('hexColor').value = color.hexString;
- });
-
- // 헥스 입력 변경 시 이벤트
- document.getElementById('hexColor').addEventListener('input', function() {
- colorPicker.color.hexString = this.value;
- });
- }
-
- // 탭 전환 함수
  function setupTabs() {
- const tabButtons = document.querySelectorAll('.tab-button');
-
- tabButtons.forEach(button => {
- button.addEventListener('click', function() {
- // 모든 탭 버튼에서 active 클래스 제거
- tabButtons.forEach(btn => btn.classList.remove('active'));
-
- // 클릭된 버튼에 active 클래스 추가
- this.classList.add('active');
-
- // 모든 탭 콘텐츠 숨기기
+ const tabs = document.querySelectorAll('.tab');
  const tabContents = document.querySelectorAll('.tab-content');
- tabContents.forEach(content => content.classList.remove('active'));
 
- // 해당 탭 콘텐츠 표시
+ tabs.forEach(tab => {
+ tab.addEventListener('click', function() {
  const tabId = this.getAttribute('data-tab');
- document.getElementById(tabId).classList.add('active');
+
+ // 모든 탭과 컨텐츠에서 active 클래스 제거
+ tabs.forEach(t => t.classList.remove('active'));
+ tabContents.forEach(c => c.classList.remove('active'));
+
+ // 클릭된 탭과 해당 컨텐츠에 active 클래스 추가
+ this.classList.add('active');
+ document.getElementById(tabId + 'Tab').classList.add('active');
  });
  });
  }
 
- // 배경 탭 전환 함수
- function toggleBgTab(tabType) {
- selectedBgType = tabType;
+ function toggleBgTab(type) {
+ selectedBgType = type;
+ const colorTab = document.getElementById('colorTab');
+ const imageTab = document.getElementById('imageTab');
+ const colorContent = document.getElementById('colorContent');
+ const imageContent = document.getElementById('imageContent');
 
- if (tabType === 'color') {
- document.getElementById('colorTab').classList.add('active');
- document.getElementById('imageTab').classList.remove('active');
- document.getElementById('colorBgOptions').style.display = 'block';
- document.getElementById('imageBgOptions').style.display = 'none';
+ if (type === 'color') {
+ colorTab.classList.add('active');
+ imageTab.classList.remove('active');
+ colorContent.classList.add('active');
+ imageContent.classList.remove('active');
  } else {
- document.getElementById('colorTab').classList.remove('active');
- document.getElementById('imageTab').classList.add('active');
- document.getElementById('colorBgOptions').style.display = 'none';
- document.getElementById('imageBgOptions').style.display = 'block';
+ colorTab.classList.remove('active');
+ imageTab.classList.add('active');
+ colorContent.classList.remove('active');
+ imageContent.classList.add('active');
  }
  }
 
- // 이벤트 리스너 설정
- function setupEventListeners() {
- // 탭 설정
- setupTabs();
-
- // 배경 탭 전환 이벤트
- document.getElementById('colorTab').addEventListener('click', function() {
- toggleBgTab('color');
+ function initColorPicker() {
+ const hexColor = document.getElementById('hexColor');
+ const hexColorValue = document.getElementById('hexColorValue');
+ hexColor.addEventListener('input', function() {
+ hexColorValue.textContent = this.value;
  });
 
- document.getElementById('imageTab').addEventListener('click', function() {
- toggleBgTab('image');
+ const boxBgColor = document.getElementById('boxBgColor');
+ const boxBgColorValue = document.getElementById('boxBgColorValue');
+ boxBgColor.addEventListener('input', function() {
+ boxBgColorValue.textContent = this.value;
  });
 
- // 이미지 파일 선택 이벤트
- document.getElementById('headerImage').addEventListener('change', function(e) {
- if (e.target.files && e.target.files[0]) {
- const reader = new FileReader();
-
- reader.onload = function(event) {
- headerImageUrl = event.target.result;
- const preview = document.getElementById('imagePreview');
- preview.src = headerImageUrl;
- preview.style.display = 'block';
- };
-
- reader.readAsDataURL(e.target.files[0]);
+ const textColor = document.getElementById('textColor');
+ const textColorValue = document.getElementById('textColorValue');
+ textColor.addEventListener('input', function() {
+ textColorValue.textContent = this.value;
+ });
  }
+
+ function updateSettingValues() {
+ const boxOpacity = document.getElementById('boxOpacity');
+ const boxOpacityValue = document.getElementById('boxOpacityValue');
+ boxOpacity.addEventListener('input', function() {
+ boxOpacityValue.textContent = this.value;
  });
 
- // 이미지 생성 버튼 이벤트
- document.getElementById('generateBtn').addEventListener('click', generateImages);
- document.getElementById('generateBtnStyle').addEventListener('click', generateImages);
- document.getElementById('generateBtnBotInfo').addEventListener('click', generateImages);
-
- // 다크모드 토글 이벤트
- document.getElementById('themeSwitch').addEventListener('click', toggleDarkMode);
-
- // 프리셋 관련 이벤트
- document.getElementById('newPresetBtn').addEventListener('click', function() {
- showPresetForm();
+ const boxWidth = document.getElementById('boxWidth');
+ const boxWidthValue = document.getElementById('boxWidthValue');
+ boxWidth.addEventListener('input', function() {
+ boxWidthValue.textContent = this.value + '%';
  });
 
- document.getElementById('addPresetBtn').addEventListener('click', function() {
- showPresetForm();
+ const boxPadding = document.getElementById('boxPadding');
+ const boxPaddingValue = document.getElementById('boxPaddingValue');
+ boxPadding.addEventListener('input', function() {
+ boxPaddingValue.textContent = this.value + 'px';
  });
 
- document.getElementById('savePresetBtn').addEventListener('click', savePreset);
- document.getElementById('cancelPresetBtn').addEventListener('click', hidePresetForm);
-
- // 봇 정보 프리셋 관련 이벤트
- document.getElementById('addBotInfoPresetBtn').addEventListener('click', function() {
- showBotInfoPresetForm();
+ const fontSize = document.getElementById('fontSize');
+ const fontSizeValue = document.getElementById('fontSizeValue');
+ fontSize.addEventListener('input', function() {
+ fontSizeValue.textContent = this.value + 'px';
  });
 
- document.getElementById('saveBotInfoPresetBtn').addEventListener('click', saveBotInfoPreset);
- document.getElementById('cancelBotInfoPresetBtn').addEventListener('click', hideBotInfoPresetForm);
- }
-
- // 프리셋 로드 함수
- function loadPresets() {
- const savedPresets = localStorage.getItem('textImagePresets');
- if (savedPresets) {
- presets = JSON.parse(savedPresets);
- renderPresets();
- }
- }
-
- // 봇 정보 프리셋 로드 함수
- function loadBotInfoPresets() {
- const savedBotInfoPresets = localStorage.getItem('botInfoPresets');
- if (savedBotInfoPresets) {
- botInfoPresets = JSON.parse(savedBotInfoPresets);
- renderBotInfoPresets();
- }
- }
-
- // 프리셋 렌더링 함수
- function renderPresets() {
- const selectorContainer = document.getElementById('presetsSelector');
- const managerContainer = document.getElementById('presetManager');
-
- // 선택기에서 새 프리셋 버튼을 제외한 모든 프리셋 제거
- Array.from(selectorContainer.children).forEach(child => {
- if (child.id !== 'newPresetBtn') {
- selectorContainer.removeChild(child);
- }
+ const lineHeight = document.getElementById('lineHeight');
+ const lineHeightValue = document.getElementById('lineHeightValue');
+ lineHeight.addEventListener('input', function() {
+ lineHeightValue.textContent = this.value;
  });
 
- // 관리자에서 모든 프리셋 제거
- managerContainer.innerHTML = '';
+ const letterSpacing = document.getElementById('letterSpacing');
+ const letterSpacingValue = document.getElementById('letterSpacingValue');
+ letterSpacing.addEventListener('input', function() {
+ letterSpacingValue.textContent = this.value + 'em';
+ });
+ }
 
- // 프리셋이 없는 경우 메시지 표시
- if (presets.length === 0) {
- const emptyMessage = document.createElement('p');
- emptyMessage.textContent = '저장된 프리셋이 없습니다. 새 프리셋을 추가해보세요.';
- emptyMessage.style.textAlign = 'center';
- emptyMessage.style.color = 'var(--secondary-color)';
- managerContainer.appendChild(emptyMessage);
+ function splitText(text, charLimit) {
+ const chunks = [];
+ let currentChunk = '';
+ const lines = text.split('\n');
+
+ for (let i = 0; i < lines.length; i++) {
+ const line = lines[i];
+
+ if (currentChunk.length + line.length + 1 <= charLimit) {
+ currentChunk += (currentChunk ? '\n' : '') + line;
  } else {
- // 프리셋 렌더링
- presets.forEach((preset, index) => {
- // 선택기에 프리셋 추가
- const selectorCard = createPresetCard(preset, false);
- selectorContainer.insertBefore(selectorCard, document.getElementById('newPresetBtn'));
-
- // 관리자에 프리셋 추가
- const managerCard = createPresetCard(preset, true);
- managerContainer.appendChild(managerCard);
- });
- }
- }
-
- // 봇 정보 프리셋 렌더링 함수
- function renderBotInfoPresets() {
- const container = document.getElementById('botInfoPresets');
- container.innerHTML = '';
-
- // 프리셋이 없는 경우 메시지 표시
- if (botInfoPresets.length === 0) {
- const emptyMessage = document.createElement('p');
- emptyMessage.textContent = '저장된 봇 정보 프리셋이 없습니다.';
- emptyMessage.style.textAlign = 'center';
- emptyMessage.style.color = 'var(--secondary-color)';
- container.appendChild(emptyMessage);
+ if (currentChunk) {
+ chunks.push(currentChunk);
+ currentChunk = line;
  } else {
- // 프리셋 렌더링
- botInfoPresets.forEach(preset => {
- const card = createBotInfoPresetCard(preset);
- container.appendChild(card);
- });
+ // 한 줄이 charLimit보다 길 경우
+ let remainingLine = line;
+ while (remainingLine.length > charLimit) {
+ chunks.push(remainingLine.substring(0, charLimit));
+ remainingLine = remainingLine.substring(charLimit);
  }
- }
-
- // 봇 정보 프리셋 카드 생성 함수
- function createBotInfoPresetCard(preset) {
- const card = document.createElement('div');
- card.className = 'bot-info-preset-card';
- card.dataset.id = preset.id;
-
- if (currentBotInfoPresetId === preset.id) {
- card.classList.add('active');
- }
-
- const icon = document.createElement('div');
- icon.className = 'bot-info-preset-icon';
- icon.innerHTML = '<i class="fas fa-robot"></i>';
-
- const name = document.createElement('div');
- name.className = 'bot-info-preset-name';
- name.textContent = preset.name;
-
- const actions = document.createElement('div');
- actions.className = 'preset-actions';
-
- const editBtn = document.createElement('button');
- editBtn.className = 'preset-action-btn';
- editBtn.innerHTML = '<i class="fas fa-edit"></i>';
- editBtn.addEventListener('click', function(e) {
- e.stopPropagation();
- editBotInfoPreset(preset.id);
- });
-
- const deleteBtn = document.createElement('button');
- deleteBtn.className = 'preset-action-btn';
- deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
- deleteBtn.addEventListener('click', function(e) {
- e.stopPropagation();
- deleteBotInfoPreset(preset.id);
- });
-
- actions.appendChild(editBtn);
- actions.appendChild(deleteBtn);
-
- card.appendChild(icon);
- card.appendChild(name);
- card.appendChild(actions);
-
- card.addEventListener('click', function() {
- loadBotInfoPresetSettings(preset.id);
- });
-
- return card;
- }
-
- // 프리셋 카드 생성 함수
- function createPresetCard(preset, isManager) {
- const card = document.createElement('div');
- card.className = 'preset-card';
- card.dataset.id = preset.id;
-
- if (currentPresetId === preset.id) {
- card.classList.add('active');
- }
-
- const name = document.createElement('div');
- name.className = 'preset-name';
- name.textContent = preset.name;
-
- const date = document.createElement('div');
- date.className = 'preset-date';
- date.textContent = new Date(preset.date).toLocaleDateString();
-
- card.appendChild(name);
- card.appendChild(date);
-
- // 선택기에서는 클릭 시 프리셋 로드
- if (!isManager) {
- card.addEventListener('click', function() {
- loadPresetSettings(preset.id);
- });
- } else {
- // 관리자에서는 편집/삭제 버튼 추가
- const actions = document.createElement('div');
- actions.className = 'preset-actions';
-
- const editBtn = document.createElement('button');
- editBtn.className = 'preset-action-btn';
- editBtn.innerHTML = '<i class="fas fa-edit"></i>';
- editBtn.addEventListener('click', function(e) {
- e.stopPropagation();
- editPreset(preset.id);
- });
-
- const deleteBtn = document.createElement('button');
- deleteBtn.className = 'preset-action-btn';
- deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
- deleteBtn.addEventListener('click', function(e) {
- e.stopPropagation();
- deletePreset(preset.id);
- });
-
- actions.appendChild(editBtn);
- actions.appendChild(deleteBtn);
- card.appendChild(actions);
- }
-
- return card;
- }
-
- // 프리셋 설정 로드 함수
- function loadPresetSettings(presetId) {
- const preset = presets.find(p => p.id === presetId);
- if (!preset) return;
-
- // 현재 프리셋 ID 설정
- currentPresetId = presetId;
-
- // 프리셋 카드 활성화 상태 업데이트
- document.querySelectorAll('.preset-card').forEach(card => {
- if (card.dataset.id === presetId) {
- card.classList.add('active');
- } else {
- card.classList.remove('active');
- }
- });
-
- // 배경 설정
- if (preset.bgType === 'color') {
- toggleBgTab('color');
- document.getElementById('hexColor').value = preset.bgColor;
- colorPicker.color.hexString = preset.bgColor;
- } else if (preset.bgType === 'image' && preset.headerImageUrl) {
- toggleBgTab('image');
- headerImageUrl = preset.headerImageUrl;
- const preview = document.getElementById('imagePreview');
- preview.src = headerImageUrl;
- preview.style.display = 'block';
- }
-
- // 폰트 설정
- document.getElementById('fontSelect').value = preset.fontFamily;
- document.getElementById('fontSize').value = preset.fontSize;
- document.getElementById('fontSizeValue').textContent = preset.fontSize + 'px';
-
- // 텍스트 스타일
- document.getElementById('textColor').value = preset.textColor;
- document.getElementById('textColorValue').textContent = preset.textColor;
- document.getElementById('lineHeight').value = preset.lineHeight;
- document.getElementById('lineHeightValue').textContent = preset.lineHeight;
- document.getElementById('letterSpacing').value = preset.letterSpacing;
- document.getElementById('letterSpacingValue').textContent = preset.letterSpacing + 'em';
- document.getElementById('textAlign').value = preset.textAlign;
-
- // 텍스트 박스 설정
- document.getElementById('boxBgColor').value = preset.boxBgColor;
- document.getElementById('boxBgColorValue').textContent = preset.boxBgColor;
- document.getElementById('boxOpacity').value = preset.boxOpacity;
- document.getElementById('boxOpacityValue').textContent = preset.boxOpacity;
- document.getElementById('boxWidth').value = preset.boxWidth;
- document.getElementById('boxWidthValue').textContent = preset.boxWidth + '%';
- document.getElementById('boxPadding').value = preset.boxPadding;
- document.getElementById('boxPaddingValue').textContent = preset.boxPadding + 'px';
-
- // 토스트 메시지 표시
- showToast('프리셋 "' + preset.name + '"이(가) 로드되었습니다.', 'info');
- }
-
- // 봇 정보 프리셋 설정 로드 함수
- function loadBotInfoPresetSettings(presetId) {
- const preset = botInfoPresets.find(p => p.id === presetId);
- if (!preset) return;
-
- // 현재 봇 정보 프리셋 ID 설정
- currentBotInfoPresetId = presetId;
-
- // 프리셋 카드 활성화 상태 업데이트
- document.querySelectorAll('.bot-info-preset-card').forEach(card => {
- if (card.dataset.id === presetId) {
- card.classList.add('active');
- } else {
- card.classList.remove('active');
- }
- });
-
- // 봇 정보 설정
- document.getElementById('botName').value = preset.botName;
- document.getElementById('botModel').value = preset.botModel;
- document.getElementById('botPrompt').value = preset.botPrompt;
-
- // 봇 종류 라디오 버튼 설정
- const botTypeRadios = document.querySelectorAll('input[name="botType"]');
- botTypeRadios.forEach(radio => {
- if (radio.value === preset.botType) {
- radio.checked = true;
- }
- });
-
- // 스타일 설정
- document.getElementById('botInfoBgColor').value = preset.bgColor;
- document.getElementById('botInfoBgColorValue').textContent = preset.bgColor;
- document.getElementById('botInfoTextColor').value = preset.textColor;
- document.getElementById('botInfoTextColorValue').textContent = preset.textColor;
- document.getElementById('botInfoFontSelect').value = preset.fontFamily;
-
- // 미리보기 업데이트
- updateBotInfoPreview();
-
- // 토스트 메시지 표시
- showToast('봇 정보 프리셋 "' + preset.name + '"이(가) 로드되었습니다.', 'info');
- }
-
- // 프리셋 폼 표시 함수
- function showPresetForm(presetId = null) {
- const form = document.getElementById('presetForm');
- const nameInput = document.getElementById('presetName');
- const idInput = document.getElementById('presetId');
- const formTitle = document.getElementById('presetFormTitle');
-
- form.classList.add('active');
-
- if (presetId) {
- // 프리셋 편집 모드
- const preset = presets.find(p => p.id === presetId);
- if (preset) {
- nameInput.value = preset.name;
- idInput.value = presetId;
- formTitle.textContent = '프리셋 편집';
- }
- } else {
- // 새 프리셋 추가 모드
- nameInput.value = '';
- idInput.value = '';
- formTitle.textContent = '새 프리셋 추가';
- }
-
- nameInput.focus();
- }
-
- // 봇 정보 프리셋 폼 표시 함수
- function showBotInfoPresetForm(presetId = null) {
- const form = document.getElementById('botInfoPresetForm');
- const nameInput = document.getElementById('botInfoPresetName');
- const idInput = document.getElementById('botInfoPresetId');
- const formTitle = document.getElementById('botInfoPresetFormTitle');
-
- form.classList.add('active');
-
- if (presetId) {
- // 프리셋 편집 모드
- const preset = botInfoPresets.find(p => p.id === presetId);
- if (preset) {
- nameInput.value = preset.name;
- idInput.value = presetId;
- formTitle.textContent = '봇 정보 프리셋 편집';
- }
- } else {
- // 새 프리셋 추가 모드
- nameInput.value = '';
- idInput.value = '';
- formTitle.textContent = '새 봇 정보 프리셋 추가';
- }
-
- nameInput.focus();
- }
-
- // 프리셋 폼 숨기기 함수
- function hidePresetForm() {
- document.getElementById('presetForm').classList.remove('active');
- }
-
- // 봇 정보 프리셋 폼 숨기기 함수
- function hideBotInfoPresetForm() {
- document.getElementById('botInfoPresetForm').classList.remove('active');
- }
-
- // 프리셋 저장 함수
- function savePreset() {
- const nameInput = document.getElementById('presetName');
- const idInput = document.getElementById('presetId');
- const name = nameInput.value.trim();
-
- if (!name) {
- showToast('프리셋 이름을 입력해주세요.', 'error');
- return;
- }
-
- // 현재 설정 가져오기
- const settings = getCurrentSettings();
-
- if (idInput.value) {
- // 기존 프리셋 수정
- const index = presets.findIndex(p => p.id === idInput.value);
- if (index !== -1) {
- settings.name = name;
- settings.id = idInput.value;
- settings.date = new Date().toISOString();
- presets[index] = settings;
- showToast('프리셋이 수정되었습니다.', 'success');
- }
- } else {
- // 새 프리셋 추가
- settings.name = name;
- settings.id = 'preset_' + Date.now();
- settings.date = new Date().toISOString();
-
- // 최대 6개 프리셋 제한
- if (presets.length >= 6) {
- showToast('최대 6개의 프리셋만 저장할 수 있습니다. 기존 프리셋을 삭제해주세요.', 'warning');
- return;
- }
-
- presets.push(settings);
- showToast('새 프리셋이 추가되었습니다.', 'success');
- }
-
- // 프리셋 저장 및 UI 업데이트
- localStorage.setItem('textImagePresets', JSON.stringify(presets));
- renderPresets();
- hidePresetForm();
- }
-
- // 봇 정보 프리셋 저장 함수
- function saveBotInfoPreset() {
- const nameInput = document.getElementById('botInfoPresetName');
- const idInput = document.getElementById('botInfoPresetId');
- const name = nameInput.value.trim();
-
- if (!name) {
- showToast('프리셋 이름을 입력해주세요.', 'error');
- return;
- }
-
- // 현재 봇 정보 설정 가져오기
- const settings = getCurrentBotInfoSettings();
- settings.name = name;
-
- if (idInput.value) {
- // 기존 프리셋 수정
- const index = botInfoPresets.findIndex(p => p.id === idInput.value);
- if (index !== -1) {
- settings.id = idInput.value;
- botInfoPresets[index] = settings;
- showToast('봇 정보 프리셋이 수정되었습니다.', 'success');
- }
- } else {
- // 새 프리셋 추가
- settings.id = 'botinfo_preset_' + Date.now();
-
- // 최대 6개 프리셋 제한
- if (botInfoPresets.length >= 6) {
- showToast('최대 6개의 봇 정보 프리셋만 저장할 수 있습니다. 기존 프리셋을 삭제해주세요.', 'warning');
- return;
- }
-
- botInfoPresets.push(settings);
- showToast('새 봇 정보 프리셋이 추가되었습니다.', 'success');
- }
-
- // 프리셋 저장 및 UI 업데이트
- localStorage.setItem('botInfoPresets', JSON.stringify(botInfoPresets));
- renderBotInfoPresets();
- hideBotInfoPresetForm();
- }
-
- // 현재 설정 가져오기 함수
- function getCurrentSettings() {
- return {
- bgType: selectedBgType,
- bgColor: document.getElementById('hexColor').value,
- headerImageUrl: headerImageUrl,
- fontFamily: document.getElementById('fontSelect').value,
- fontSize: document.getElementById('fontSize').value,
- textColor: document.getElementById('textColor').value,
- lineHeight: document.getElementById('lineHeight').value,
- letterSpacing: document.getElementById('letterSpacing').value,
- textAlign: document.getElementById('textAlign').value,
- boxBgColor: document.getElementById('boxBgColor').value,
- boxOpacity: document.getElementById('boxOpacity').value,
- boxWidth: document.getElementById('boxWidth').value,
- boxPadding: document.getElementById('boxPadding').value
- };
- }
-
- // 현재 봇 정보 설정 가져오기 함수
- function getCurrentBotInfoSettings() {
- // 선택된 봇 종류 라디오 버튼 찾기
- const selectedBotType = document.querySelector('input[name="botType"]:checked').value;
-
- return {
- botName: document.getElementById('botName').value,
- botType: selectedBotType,
- botModel: document.getElementById('botModel').value,
- botPrompt: document.getElementById('botPrompt').value,
- bgColor: document.getElementById('botInfoBgColor').value,
- textColor: document.getElementById('botInfoTextColor').value,
- fontFamily: document.getElementById('botInfoFontSelect').value
- };
- }
-
- // 프리셋 편집 함수
- function editPreset(presetId) {
- showPresetForm(presetId);
- }
-
- // 봇 정보 프리셋 편집 함수
- function editBotInfoPreset(presetId) {
- showBotInfoPresetForm(presetId);
- }
-
- // 프리셋 삭제 함수
- function deletePreset(presetId) {
- if (confirm('정말로 이 프리셋을 삭제하시겠습니까?')) {
- const index = presets.findIndex(p => p.id === presetId);
- if (index !== -1) {
- const presetName = presets[index].name;
- presets.splice(index, 1);
- localStorage.setItem('textImagePresets', JSON.stringify(presets));
-
- if (currentPresetId === presetId) {
- currentPresetId = null;
- }
-
- renderPresets();
- showToast('프리셋 "' + presetName + '"이(가) 삭제되었습니다.', 'info');
+ currentChunk = remainingLine;
  }
  }
  }
 
- // 봇 정보 프리셋 삭제 함수
- function deleteBotInfoPreset(presetId) {
- if (confirm('정말로 이 봇 정보 프리셋을 삭제하시겠습니까?')) {
- const index = botInfoPresets.findIndex(p => p.id === presetId);
- if (index !== -1) {
- const presetName = botInfoPresets[index].name;
- botInfoPresets.splice(index, 1);
- localStorage.setItem('botInfoPresets', JSON.stringify(botInfoPresets));
-
- if (currentBotInfoPresetId === presetId) {
- currentBotInfoPresetId = null;
+ if (currentChunk) {
+ chunks.push(currentChunk);
  }
 
- renderBotInfoPresets();
- showToast('봇 정보 프리셋 "' + presetName + '"이(가) 삭제되었습니다.', 'info');
- }
- }
+ return chunks;
  }
 
- // 봇 정보 미리보기 업데이트 함수
- function updateBotInfoPreview() {
- const botName = document.getElementById('botName').value
- <div>| '봇 이름';
- const selectedBotType = document.querySelector('input[name="botType"]:checked').value;
- const botModel = document.getElementById('botModel').value || '사용 모델';
- const botPrompt = document.getElementById('botPrompt').value || '사용 프롬프트';
- const bgColor = document.getElementById('botInfoBgColor').value;
- const textColor = document.getElementById('botInfoTextColor').value;
- const fontFamily = document.getElementById('botInfoFontSelect').value;
-
- const previewContent = document.getElementById('botInfoContent');
- previewContent.style.backgroundColor = bgColor;
- previewContent.style.color = textColor;
- previewContent.style.fontFamily = fontFamily + ', sans-serif';
-
- previewContent.innerHTML = `
- <div class="bot-info-header">${botName}</div>
- <div class="bot-info-details">
- <div class="bot-info-item">
- <div class="bot-info-item-label">봇 종류</div>
- <div class="bot-info-item-value">${selectedBotType}</div>
- </div>
- <div class="bot-info-item">
- <div class="bot-info-item-label">사용 모델</div>
- <div class="bot-info-item-value">${botModel}</div>
- </div>
- <div class="bot-info-item" style="grid-column: span 2;">
- <div class="bot-info-item-label">사용 프롬프트</div>
- <div class="bot-info-item-value">${botPrompt}</div>
- </div>
- </div>
- `;
- }</div>
-
-
- // 토스트 메시지 표시 함수
- function showToast(message, type = 'success') {
- const toast = document.getElementById('toast');
- toast.textContent = message;
- toast.className = 'toast';
- toast.classList.add(type);
- toast.classList.add('show');
-
- setTimeout(() => {
- toast.classList.remove('show');
- }, 3000);
- }
-
-// 슬라이더 이동 함수
- function moveSlider(direction) {
- const sliderContainer = document.querySelector('.slider-container');
- if (!sliderContainer) return;
-
- if (direction === 'next' && currentSlide < totalSlides - 1) {
- currentSlide++;
- } else if (direction === 'prev' && currentSlide > 0) {
- currentSlide--;
- }
-
- const scrollPosition = currentSlide * sliderContainer.clientWidth;
- sliderContainer.scrollTo({
- left: scrollPosition,
- behavior: 'smooth'
- });
-
- updateDots();
- }
-
- // 특정 슬라이드로 이동
- function goToSlide(index) {
- const sliderContainer = document.querySelector('.slider-container');
- if (!sliderContainer) return;
-
- currentSlide = index;
- const scrollPosition = currentSlide * sliderContainer.clientWidth;
- sliderContainer.scrollTo({
- left: scrollPosition,
- behavior: 'smooth'
- });
-
- updateDots();
- }
-
- // 슬라이더 닷 업데이트
- function updateDots() {
- const dots = document.querySelectorAll('.slider-dot');
- dots.forEach((dot, index) => {
- if (index === currentSlide) {
- dot.classList.add('active');
- } else {
- dot.classList.remove('active');
- }
- });
- }
-
- // 마크다운 변환 함수
  function parseMarkdown(text) {
- // 볼드체 (**텍스트**)
+ // 볼드 (**텍스트**)
  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
- // 이탤릭체 (*텍스트*)
+ // 이탤릭 (*텍스트*)
  text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
 
+ // 밑줄 (__텍스트__)
+ text = text.replace(/__(.*?)__/g, '<u>$1</u>');
+
  // 취소선 (~~텍스트~~)
- text = text.replace(/~~(.*?)~~/g, '$1');
+ text = text.replace(/~~(.*?)~~/g, '<s>$1</s>');
+
+ // 링크 ([텍스트](URL))
+ text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+
+ // 줄바꿈
+ text = text.replace(/\n/g, '<br>');
 
  return text;
  }
 
- // 이미지 생성 함수
  function generateImages() {
  const text = document.getElementById('userText').value;
  const textColor = document.getElementById('textColor').value;
@@ -2350,6 +1167,26 @@
  const previewContainer = document.getElementById('previewContainer');
  previewContainer.innerHTML = '';
 
+ // 봇 정보 이미지 생성 (ON일 경우)
+ const botInfoElement = generateBotInfoImage();
+
+ if (botInfoElement) {
+ // 봇 정보 다운로드 버튼 추가
+ const botInfoDownloadBtn = document.createElement('button');
+ botInfoDownloadBtn.className = 'btn btn-primary';
+ botInfoDownloadBtn.style.marginTop = '15px';
+ botInfoDownloadBtn.innerHTML = '<i class="fas fa-download"></i> 봇 정보 다운로드';
+ botInfoDownloadBtn.onclick = function() {
+ downloadImage(botInfoElement, 'bot-info');
+ };
+
+ // 봇 정보 컨테이너 추가
+ const botInfoContainer = document.createElement('div');
+ botInfoContainer.appendChild(botInfoElement);
+ botInfoContainer.appendChild(botInfoDownloadBtn);
+ previewContainer.appendChild(botInfoContainer);
+ }
+
  // 슬라이더 컨테이너 생성
  const sliderContainer = document.createElement('div');
  sliderContainer.className = 'slider-container';
@@ -2358,10 +1195,11 @@
  const sliderControls = document.createElement('div');
  sliderControls.className = 'slider-controls';
  sliderControls.innerHTML = `
- <button class="slider-arrow prev" onclick="moveSlider('prev')">
+ <button class="slider-btn" id="prevBtn" disabled>
  <i class="fas fa-chevron-left"></i>
  </button>
- <button class="slider-arrow next" onclick="moveSlider('next')">
+ <span id="slideCounter">1/${totalSlides}</span>
+ <button class="slider-btn" id="nextBtn">
  <i class="fas fa-chevron-right"></i>
  </button>
  `;
@@ -2370,67 +1208,6 @@
  const textChunks = splitText(text, charLimit);
  totalSlides = textChunks.length;
  currentSlide = 0;
-
- // 봇 정보 이미지 생성 (스위치가 켜져 있을 때만)
- if (isBotInfoEnabled) {
- const botInfoContainer = document.createElement('div');
- botInfoContainer.className = 'output-container';
-
- // 봇 정보 이미지 생성
- const botInfoImageElement = document.createElement('div');
- botInfoImageElement.className = 'bot-info-preview';
- botInfoImageElement.style.marginBottom = '20px';
-
- // 봇 정보 설정 가져오기
- const botName = document.getElementById('botName').value
- <div>| '봇 이름';
- const selectedBotType = document.querySelector('input[name="botType"]:checked').value;
- const botModel = document.getElementById('botModel').value || '사용 모델';
- const botPrompt = document.getElementById('botPrompt').value || '사용 프롬프트';
- const botInfoBgColor = document.getElementById('botInfoBgColor').value;
- const botInfoTextColor = document.getElementById('botInfoTextColor').value;
- const botInfoFontFamily = document.getElementById('botInfoFontSelect').value;</div>
-
-// 봇 정보 내용 생성
- const botInfoContent = document.createElement('div');
- botInfoContent.className = 'bot-info-content';
- botInfoContent.style.backgroundColor = botInfoBgColor;
- botInfoContent.style.color = botInfoTextColor;
- botInfoContent.style.fontFamily = botInfoFontFamily + ', sans-serif';
-
- botInfoContent.innerHTML = `
- <div class="bot-info-header">${botName}</div>
- <div class="bot-info-details">
- <div class="bot-info-item">
- <div class="bot-info-item-label">봇 종류</div>
- <div class="bot-info-item-value">${selectedBotType}</div>
- </div>
- <div class="bot-info-item">
- <div class="bot-info-item-label">사용 모델</div>
- <div class="bot-info-item-value">${botModel}</div>
- </div>
- <div class="bot-info-item" style="grid-column: span 2;">
- <div class="bot-info-item-label">사용 프롬프트</div>
- <div class="bot-info-item-value">${botPrompt}</div>
- </div>
- </div>
- `;
-
- botInfoImageElement.appendChild(botInfoContent);
-
- // 다운로드 버튼 추가
- const botInfoDownloadBtn = document.createElement('button');
- botInfoDownloadBtn.className = 'btn btn-primary';
- botInfoDownloadBtn.style.marginTop = '15px';
- botInfoDownloadBtn.innerHTML = '<i class="fas fa-download"></i> 봇 정보 이미지 다운로드';
- botInfoDownloadBtn.onclick = function() {
- downloadImage(botInfoImageElement, 'bot-info');
- };
-
- botInfoContainer.appendChild(botInfoImageElement);
- botInfoContainer.appendChild(botInfoDownloadBtn);
- sliderContainer.appendChild(botInfoContainer);
- }
 
  // 각 텍스트 조각에 대해 이미지 생성
  textChunks.forEach((chunk, index) => {
@@ -2491,8 +1268,7 @@
  const dotsContainer = document.createElement('div');
  dotsContainer.className = 'slider-dots';
 
- const totalDots = isBotInfoEnabled ? totalSlides + 1 : totalSlides;
- for (let i = 0; i < totalDots; i++) {
+ for (let i = 0; i < totalSlides; i++) {
  const dot = document.createElement('div');
  dot.className = i === 0 ? 'slider-dot active' : 'slider-dot';
  dot.onclick = function() {
@@ -2506,6 +1282,15 @@
  previewContainer.appendChild(sliderContainer);
  previewContainer.appendChild(dotsContainer);
 
+ // 슬라이더 이벤트 리스너 추가
+ document.getElementById('prevBtn').addEventListener('click', function() {
+ goToSlide(currentSlide - 1);
+ });
+
+ document.getElementById('nextBtn').addEventListener('click', function() {
+ goToSlide(currentSlide + 1);
+ });
+
  // 프리뷰 컨테이너로 스크롤
  previewContainer.scrollIntoView({ behavior: 'smooth' });
 
@@ -2517,75 +1302,657 @@
  showToast('이미지가 생성되었습니다.', 'success');
  }
 
- // 텍스트 분할 함수
- function splitText(text, charLimit) {
- const chunks = [];
- const paragraphs = text.split('\n');
- let currentChunk = '';
+ function goToSlide(index) {
+ if (index < 0</summary>
+ <div>| index >= totalSlides) return;
 
- paragraphs.forEach(paragraph => {
- if (currentChunk.length + paragraph.length + 1 <= charLimit) {
- currentChunk += (currentChunk ? '\n' : '') + paragraph;
- } else {
- // 현재 문단이 너무 길면 추가 분할
- if (currentChunk) {
- chunks.push(currentChunk);
- currentChunk = '';
- }
+ currentSlide = index;
+ const sliderContainer = document.querySelector('.slider-container');
+ const outputContainers = document.querySelectorAll('.output-container');
+ const containerWidth = sliderContainer.clientWidth;
 
- if (paragraph.length <= charLimit) {
- currentChunk = paragraph;
- } else {
- // 긴 문단 분할
- let remainingText = paragraph;
- while (remainingText.length > 0) {
- let chunkSize = Math.min(charLimit, remainingText.length);
- // 단어 경계에서 잘리지 않도록 조정
- if (chunkSize < remainingText.length) {
- // 마지막 공백 위치 찾기
- const lastSpacePos = remainingText.substring(0, chunkSize).lastIndexOf(' ');
- if (lastSpacePos > charLimit / 2) { // 적어도 절반 이상 채웠는지 확인
- chunkSize = lastSpacePos;
- }
- }
+ outputContainers.forEach((container, i) => {
+ container.style.transform = `translateX(-${currentSlide * containerWidth}px)`;
+ });</div>
+</details>
 
- chunks.push(remainingText.substring(0, chunkSize));
- remainingText = remainingText.substring(chunkSize).trim();
+</body>
+</html> 슬라이더 컨트롤 업데이트
+ document.getElementById('prevBtn').disabled = currentSlide === 0;
+ document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+ document.getElementById('slideCounter').textContent = `${currentSlide + 1}/${totalSlides}`;
 
- if (remainingText && remainingText.length <= charLimit) {
- currentChunk = remainingText;
- remainingText = '';
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
  }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
  }
- }
- }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>닷 업데이트
+ const dots = document.querySelectorAll('.slider-dot');
+ dots.forEach((dot, i) => {
+ dot.classList.toggle('active', i === currentSlide);
  });
-
- if (currentChunk) {
- chunks.push(currentChunk);
  }
 
- return chunks;
+ function downloadImage(element, index) {
+ const canvas = document.createElement('canvas');
+ const ctx = canvas.getContext('2d');
+ const elementWidth = element.offsetWidth;
+ const elementHeight = element.offsetHeight;
+
+ canvas.width = elementWidth;
+ canvas.height = elementHeight;
+
+ // 배경색 또는 배경 이미지 그리기
+ if (element.style.backgroundColor) {
+ ctx.fillStyle = element.style.backgroundColor;
+ ctx.fillRect(0, 0, canvas.width, canvas.height);
  }
 
- // 이미지 다운로드 함수
- function downloadImage(element, pageNum) {
+ const headerImg = element.querySelector('.header-image');
+ if (headerImg) {
+ ctx.drawImage(headerImg, 0, 0, canvas.width, canvas.height);
+ }
+
+ // HTML을 이미지로 변환
  html2canvas(element, {
- scale: 2, // 고해상도
+ canvas: canvas,
  backgroundColor: null,
- useCORS: true, // 외부 이미지 허용
- allowTaint: true // 외부 이미지 허용
+ scale: 2,
+ logging: false,
+ useCORS: true
  }).then(canvas => {
  const link = document.createElement('a');
- if (pageNum === 'bot-info') {
- link.download = `bot-info.png`;
- } else {
- link.download = `text-image-${String(pageNum).padStart(2, '0')}.png`;
- }
+ link.download = `깡갤_글꾸_${index}.png`;
  link.href = canvas.toDataURL('image/png');
  link.click();
  });
  }
+
+ function toggleDarkMode() {
+ const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+ document.documentElement.setAttribute('data-theme', theme);
+ localStorage.setItem('preferred-theme', theme);
+
+ // 아이콘 변경
+ const themeIcon = document.getElementById('themeIcon');
+ if (theme === 'dark') {
+ themeIcon.classList.remove('fa-moon');
+ themeIcon.classList.add('fa-sun');
+ } else {
+ themeIcon.classList.remove('fa-sun');
+ themeIcon.classList.add('fa-moon');
+ }
+ }
+
+ function checkPreferredTheme() {
+ const preferredTheme = localStorage.getItem('preferred-theme');
+ if (preferredTheme) {
+ document.documentElement.setAttribute('data-theme', preferredTheme);
+
+ // 아이콘 설정
+ const themeIcon = document.getElementById('themeIcon');
+ if (preferredTheme === 'dark') {
+ themeIcon.classList.remove('fa-moon');
+ themeIcon.classList.add('fa-sun');
+ }
+ }
+ }
+
+ function showToast(message, type = 'info') {
+ const toastContainer = document.getElementById('toastContainer');
+ const toast = document.createElement('div');
+ toast.className = `toast toast-${type}`;
+
+ let icon = '';
+ switch(type) {
+ case 'success':
+ icon = 'fa-check-circle';
+ break;
+ case 'error':
+ icon = 'fa-exclamation-circle';
+ break;
+ case 'warning':
+ icon = 'fa-exclamation-triangle';
+ break;
+ default:
+ icon = 'fa-info-circle';
+ }
+
+ toast.innerHTML = `<i class="fas ${icon} toast-icon"></i>${message}`;
+ toastContainer.appendChild(toast);
+
+ // 3초 후 토스트 제거
+ setTimeout(() => {
+ toast.remove();
+ }, 3000);
+ }
+
+ function loadPresets() {
+ const savedPresets = localStorage.getItem('presets');
+ if (savedPresets) {
+ presets = JSON.parse(savedPresets);
+ renderPresets();
+ }
+ }
+
+ function renderPresets() {
+ const container = document.getElementById('presetsContainer');
+ container.innerHTML = '';
+
+ if (presets.length === 0) {
+ const emptyMsg = document.createElement('p');
+ emptyMsg.textContent = '저장된 프리셋이 없습니다.';
+ emptyMsg.style.color = 'var(--secondary-color)';
+ emptyMsg.style.textAlign = 'center';
+ container.appendChild(emptyMsg);
+ return;
+ }
+
+ presets.forEach(preset => {
+ const presetItem = document.createElement('div');
+ presetItem.className = 'preset-item';
+ presetItem.textContent = preset.name;
+ presetItem.dataset.id = preset.id;
+
+ if (preset.id === currentPresetId) {
+ presetItem.classList.add('active');
+ }
+
+ presetItem.addEventListener('click', function() {
+ loadPresetSettings(preset.id);
+ });
+
+ container.appendChild(presetItem);
+ });
+ }
+
+ function loadPresetSettings(presetId) {
+ const preset = presets.find(p => p.id === presetId);
+ if (!preset) return;
+
+ // 현재 프리셋 ID 설정
+ currentPresetId = presetId;
+
+ // UI 업데이트
+ document.querySelectorAll('.preset-item').forEach(item => {
+ if (item.dataset.id === presetId) {
+ item.classList.add('active');
+ } else {
+ item.classList.remove('active');
+ }
+ });
+
+ // 설정값 로드
+ document.getElementById('userText').value = preset.text</summary>
+ <div>| '';
+ document.getElementById('pageLength').value = preset.pageLength || 500;</div>
+</details>
+
+</body>
+</html> 배경 타입 설정
+ toggleBgTab(preset.bgType || 'color');
+
+ document.getElementById('hexColor').value = preset.bgColor || '#ffffff';
+ document.getElementById('hexColorValue').textContent = preset.bgColor || '#ffffff';
+
+ document.getElementById('boxBgColor').value = preset.boxBgColor || '#ffffff';
+ document.getElementById('boxBgColorValue').textContent = preset.boxBgColor || '#ffffff';
+
+ document.getElementById('boxOpacity').value = preset.boxOpacity || 0.8;
+ document.getElementById('boxOpacityValue').textContent = preset.boxOpacity || 0.8;
+
+ document.getElementById('boxWidth').value = preset.boxWidth || 80;
+ document.getElementById('boxWidthValue').textContent = (preset.boxWidth || 80) + '%';
+
+ document.getElementById('boxPadding').value = preset.boxPadding || 20;
+ document.getElementById('boxPaddingValue').textContent = (preset.boxPadding || 20) + 'px';
+
+ document.getElementById('fontSelect').value = preset.font || '수트';
+
+ document.getElementById('textColor').value = preset.textColor || '#000000';
+ document.getElementById('textColorValue').textContent = preset.textColor || '#000000';
+
+ document.getElementById('fontSize').value = preset.fontSize || 18;
+ document.getElementById('fontSizeValue').textContent = (preset.fontSize || 18) + 'px';
+
+ document.getElementById('lineHeight').value = preset.lineHeight || 1.6;
+ document.getElementById('lineHeightValue').textContent = preset.lineHeight || 1.6;
+
+ document.getElementById('letterSpacing').value = preset.letterSpacing || 0;
+ document.getElementById('letterSpacingValue').textContent = (preset.letterSpacing || 0) + 'em';
+
+ document.getElementById('textAlign').value = preset.textAlign || 'left';
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>헤더 이미지 URL이 있는 경우 로드
+ if (preset.headerImageUrl) {
+ headerImageUrl = preset.headerImageUrl;
+ const preview = document.getElementById('imagePreview');
+ preview.src = headerImageUrl;
+ preview.style.display = 'block';
+ } else {
+ headerImageUrl = null;
+ const preview = document.getElementById('imagePreview');
+ preview.src = '';
+ preview.style.display = 'none';
+ }
+
+ showToast('프리셋을 로드했습니다.', 'info');
+ }
+
+ function showPresetForm() {
+ document.getElementById('presetForm').classList.add('active');
+ document.getElementById('presetName').focus();
+ }
+
+ function hidePresetForm() {
+ document.getElementById('presetForm').classList.remove('active');
+ document.getElementById('presetName').value = '';
+ }
+
+ function savePreset() {
+ const presetName = document.getElementById('presetName').value;
+ if (!presetName</summary>
+ <div>| presetName.trim() === '') {
+ showToast('프리셋 이름을 입력해주세요.', 'error');
+ return;
+ }
+
+ const preset = {
+ id: 'preset_' + Date.now(),
+ name: presetName.trim(),
+ date: new Date().toISOString(),
+ text: document.getElementById('userText').value,
+ pageLength: document.getElementById('pageLength').value,
+ bgType: selectedBgType,
+ bgColor: document.getElementById('hexColor').value,
+ boxBgColor: document.getElementById('boxBgColor').value,
+ boxOpacity: document.getElementById('boxOpacity').value,
+ boxWidth: document.getElementById('boxWidth').value,
+ boxPadding: document.getElementById('boxPadding').value,
+ font: document.getElementById('fontSelect').value,
+ textColor: document.getElementById('textColor').value,
+ fontSize: document.getElementById('fontSize').value,
+ lineHeight: document.getElementById('lineHeight').value,
+ letterSpacing: document.getElementById('letterSpacing').value,
+ textAlign: document.getElementById('textAlign').value,
+ headerImageUrl: headerImageUrl
+ };
+
+ presets.push(preset);
+ localStorage.setItem('presets', JSON.stringify(presets));
+ hidePresetForm();
+ renderPresets();
+ showToast('프리셋이 저장되었습니다.', 'success');
+ }</div>
+</details>
+
+</body>
+</html> 봇 정보 관련 함수들
+ function setupBotInfoListeners() {
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>봇 정보 스위치 이벤트
+ const botInfoSwitch = document.getElementById('botInfoSwitch');
+ botInfoSwitch.addEventListener('change', function() {
+ isBotInfoEnabled = this.checked;
+ document.getElementById('botInfoStatus').textContent = isBotInfoEnabled ? 'ON' : 'OFF';
+ });
+
+ // 봇 정보 색상 값 표시 업데이트
+ document.getElementById('botInfoBgColor').addEventListener('input', function() {
+ document.getElementById('botInfoBgColorValue').textContent = this.value;
+ });
+
+ document.getElementById('botInfoTextColor').addEventListener('input', function() {
+ document.getElementById('botInfoTextColorValue').textContent = this.value;
+ });
+
+ // 봇 정보 프리셋 저장 버튼
+ document.getElementById('saveBotPresetBtn').addEventListener('click', saveBotPreset);
+
+ // 봇 정보 프리셋 삭제 버튼
+ document.getElementById('deleteBotPresetBtn').addEventListener('click', deleteSelectedBotPreset);
+ }
+
+ // 봇 정보 프리셋 저장
+ function saveBotPreset() {
+ const presetName = prompt('프리셋 이름을 입력하세요:');
+ if (!presetName</summary>
+ <div>| presetName.trim() === '') return;
+
+ const preset = {
+ id: 'bot_preset_' + Date.now(),
+ name: presetName.trim(),
+ date: new Date().toISOString(),
+ botName: document.getElementById('botName').value,
+ botType: document.querySelector('input[name="botType"]:checked')?.value || '',
+ botModel: document.getElementById('botModel').value,
+ botPrompt: document.getElementById('botPrompt').value,
+ bgColor: document.getElementById('botInfoBgColor').value,
+ textColor: document.getElementById('botInfoTextColor').value,
+ font: document.getElementById('botInfoFont').value
+ };
+
+ botPresets.push(preset);
+ localStorage.setItem('botInfoPresets', JSON.stringify(botPresets));
+ renderBotPresets();
+ showToast('봇 정보 프리셋이 저장되었습니다.', 'success');
+ }</div>
+</details>
+
+</body>
+</html> 봇 정보 프리셋 삭제
+ function deleteSelectedBotPreset() {
+ if (!currentBotPresetId) {
+ showToast('삭제할 프리셋을 선택해주세요.', 'warning');
+ return;
+ }
+
+ if (confirm('선택한 프리셋을 삭제하시겠습니까?')) {
+ const index = botPresets.findIndex(p => p.id === currentBotPresetId);
+ if (index !== -1) {
+ botPresets.splice(index, 1);
+ localStorage.setItem('botInfoPresets', JSON.stringify(botPresets));
+ currentBotPresetId = null;
+ renderBotPresets();
+ showToast('프리셋이 삭제되었습니다.', 'info');
+ }
+ }
+ }
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Toggle Content</title>
+ <style>
+ details {
+ margin-bottom: 10px;
+ }
+ summary {
+ cursor: pointer;
+ font-size: 0.85em;
+ }
+ </style>
+</head>
+<body>
+
+<details>
+ <summary>봇 정보 프리셋 로드
+ function loadBotPresets() {
+ const savedPresets = localStorage.getItem('botInfoPresets');
+ if (savedPresets) {
+ botPresets = JSON.parse(savedPresets);
+ renderBotPresets();
+ }
+ }
+
+ // 봇 정보 프리셋 렌더링
+ function renderBotPresets() {
+ const container = document.getElementById('botPresetsContainer');
+ container.innerHTML = '';
+
+ if (botPresets.length === 0) {
+ const emptyMsg = document.createElement('p');
+ emptyMsg.textContent = '저장된 프리셋이 없습니다.';
+ emptyMsg.style.color = 'var(--secondary-color)';
+ emptyMsg.style.textAlign = 'center';
+ container.appendChild(emptyMsg);
+ return;
+ }
+
+ botPresets.forEach(preset => {
+ const presetItem = document.createElement('div');
+ presetItem.className = 'bot-preset-item';
+ presetItem.textContent = preset.name;
+ presetItem.dataset.id = preset.id;
+
+ if (preset.id === currentBotPresetId) {
+ presetItem.classList.add('active');
+ }
+
+ presetItem.addEventListener('click', function() {
+ loadBotPresetSettings(preset.id);
+ });
+
+ container.appendChild(presetItem);
+ });
+ }
+
+ // 봇 정보 프리셋 설정 로드
+ function loadBotPresetSettings(presetId) {
+ const preset = botPresets.find(p => p.id === presetId);
+ if (!preset) return;
+
+ // 현재 프리셋 ID 설정
+ currentBotPresetId = presetId;
+
+ // UI 업데이트
+ document.querySelectorAll('.bot-preset-item').forEach(item => {
+ if (item.dataset.id === presetId) {
+ item.classList.add('active');
+ } else {
+ item.classList.remove('active');
+ }
+ });
+
+ // 설정값 로드
+ document.getElementById('botName').value = preset.botName</summary>
+ <div>| '';
+
+ const botTypeRadio = document.querySelector(`input[name="botType"][value="${preset.botType}"]`);
+ if (botTypeRadio) botTypeRadio.checked = true;
+
+ document.getElementById('botModel').value = preset.botModel || '';
+ document.getElementById('botPrompt').value = preset.botPrompt || '';
+ document.getElementById('botInfoBgColor').value = preset.bgColor || '#F5F5F5';
+ document.getElementById('botInfoBgColorValue').textContent = preset.bgColor || '#F5F5F5';
+ document.getElementById('botInfoTextColor').value = preset.textColor || '#333333';
+ document.getElementById('botInfoTextColorValue').textContent = preset.textColor || '#333333';
+ document.getElementById('botInfoFont').value = preset.font || '수트';
+
+ showToast('봇 정보 프리셋을 로드했습니다.', 'info');
+ }</div>
+</details>
+
+</body>
+</html> 봇 정보 이미지 생성
+ function generateBotInfoImage() {
+ if (!isBotInfoEnabled) return null;
+
+ const botName = document.getElementById('botName').value;
+ const botType = document.querySelector('input[name="botType"]:checked')?.value || '';
+ const botModel = document.getElementById('botModel').value;
+ const botPrompt = document.getElementById('botPrompt').value;
+ const bgColor = document.getElementById('botInfoBgColor').value;
+ const textColor = document.getElementById('botInfoTextColor').value;
+ const font = document.getElementById('botInfoFont').value;
+
+ if (!botName && !botType && !botModel && !botPrompt) {
+ return null; // 모든 필드가 비어있으면 이미지 생성하지 않음
+ }
+
+ // 봇 정보 컨테이너 생성
+ const botInfoContainer = document.createElement('div');
+ botInfoContainer.className = 'bot-info-preview';
+ botInfoContainer.style.backgroundColor = bgColor;
+ botInfoContainer.style.color = textColor;
+ botInfoContainer.style.fontFamily = font + ', sans-serif';
+
+ // 봇 정보 내용 생성
+ const contentElement = document.createElement('div');
+ contentElement.className = 'bot-info-content';
+
+ // 봇 이름
+ if (botName) {
+ const nameLabel = document.createElement('div');
+ nameLabel.className = 'bot-info-label';
+ nameLabel.textContent = '봇 이름:';
+
+ const nameValue = document.createElement('div');
+ nameValue.className = 'bot-info-value';
+ nameValue.textContent = botName;
+
+ contentElement.appendChild(nameLabel);
+ contentElement.appendChild(nameValue);
+ }
+
+ // 봇 종류
+ if (botType) {
+ const typeLabel = document.createElement('div');
+ typeLabel.className = 'bot-info-label';
+ typeLabel.textContent = '봇 종류:';
+
+ const typeValue = document.createElement('div');
+ typeValue.className = 'bot-info-value';
+ typeValue.textContent = botType;
+
+ contentElement.appendChild(typeLabel);
+ contentElement.appendChild(typeValue);
+ }
+
+ // 사용 모델
+ if (botModel) {
+ const modelLabel = document.createElement('div');
+ modelLabel.className = 'bot-info-label';
+ modelLabel.textContent = '사용 모델:';
+
+ const modelValue = document.createElement('div');
+ modelValue.className = 'bot-info-value';
+ modelValue.textContent = botModel;
+
+ contentElement.appendChild(modelLabel);
+ contentElement.appendChild(modelValue);
+ }
+
+ // 사용 프롬프트
+ if (botPrompt) {
+ const promptContainer = document.createElement('div');
+ promptContainer.className = 'bot-info-prompt';
+
+ const promptLabel = document.createElement('div');
+ promptLabel.className = 'bot-info-prompt-label';
+ promptLabel.textContent = '사용 프롬프트:';
+
+ const promptValue = document.createElement('div');
+ promptValue.className = 'bot-info-prompt-value';
+ promptValue.textContent = botPrompt;
+
+ promptContainer.appendChild(promptLabel);
+ promptContainer.appendChild(promptValue);
+ contentElement.appendChild(promptContainer);
+ }
+
+ botInfoContainer.appendChild(contentElement);
+
+ return botInfoContainer;
+ }
+
+ function setupEventListeners() {
+ // 기존 이벤트 리스너
+ setupTabs();
+
+ document.getElementById('colorTab').addEventListener('click', function() {
+ toggleBgTab('color');
+ });
+
+ document.getElementById('imageTab').addEventListener('click', function() {
+ toggleBgTab('image');
+ });
+
+ document.getElementById('headerImage').addEventListener('change', function(e) {
+ if (e.target.files && e.target.files[0]) {
+ const reader = new FileReader();
+
+ reader.onload = function(event) {
+ headerImageUrl = event.target.result;
+ const preview = document.getElementById('imagePreview');
+ preview.src = headerImageUrl;
+ preview.style.display = 'block';
+ };
+
+ reader.readAsDataURL(e.target.files[0]);
+ }
+ });
+
+ document.getElementById('generateBtn').addEventListener('click', generateImages);
+ document.getElementById('generateBtnStyle').addEventListener('click', generateImages);
+
+ document.getElementById('themeSwitch').addEventListener('click', toggleDarkMode);
+
+ document.getElementById('addPresetBtn').addEventListener('click', function() {
+ showPresetForm();
+ });
+
+ document.getElementById('savePresetBtn').addEventListener('click', savePreset);
+ document.getElementById('cancelPresetBtn').addEventListener('click', hidePresetForm);
+ document.getElementById('closePresetForm').addEventListener('click', hidePresetForm);
+
+ // 봇 정보 관련 이벤트 리스너 추가
+ setupBotInfoListeners();
+ }
+
+ document.addEventListener('DOMContentLoaded', function() {
+ initColorPicker();
+ setupEventListeners();
+ checkPreferredTheme();
+ updateSettingValues();
+ loadPresets();
+ loadBotPresets(); // 봇 정보 프리셋 로드 추가
+ });
  </script>
+ <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </body>
 </html>
